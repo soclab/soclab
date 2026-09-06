@@ -1088,6 +1088,9 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .contact dl{display:grid;grid-template-columns:90px 1fr;row-gap:14px;column-gap:16px;font-size:15.5px}
 .contact dt{color:#b9d0e4}
 .contact dd a{border-bottom:1px solid #7da9cd}
+.contact-lang-en{display:none}
+html[lang="en"] .contact-lang-kr{display:none}
+html[lang="en"] .contact-lang-en{display:inline}
 .contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
 .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
  
