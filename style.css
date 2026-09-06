@@ -415,6 +415,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 }
 .hero-cloud-term{
   will-change:transform;
+  transition:transform .16s cubic-bezier(.2,.7,.25,1);
 }
 .hero-cloud-term:hover text{
   fill:#214f78;
@@ -924,6 +925,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
   justify-content:center;
   gap:clamp(28px,5vw,64px);
 }
+.partner-list li{max-width:100%}
 .partner-logo{
   display:flex;
   align-items:center;
@@ -934,12 +936,20 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 }
 .partner-logo-tall{height:88px}
 .partner-logo img{max-width:220px;max-height:100%;width:auto;height:auto}
+.partner-logo-asrc img{max-width:245px}
+.partner-logo-bk21{height:64px}
+.partner-logo-bk21 img{max-width:360px}
+.partner-logo-koreatest img{max-width:300px}
 
 @media (max-width:760px){
   .partner-list{gap:26px 32px}
   .partner-logo{height:46px}
   .partner-logo-tall{height:68px}
   .partner-logo img{max-width:170px}
+  .partner-logo-asrc img{max-width:215px}
+  .partner-logo-bk21{height:54px}
+  .partner-logo-bk21 img{max-width:280px}
+  .partner-logo-koreatest img{max-width:260px}
 }
 
 /* ------------------------------------------------------------

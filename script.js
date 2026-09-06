@@ -2755,46 +2755,112 @@ function initializeHeroWordCloud() {
     return;
   }
 
-  const terms = Array.from(wordCloud.querySelectorAll("[data-cloud-depth]"));
+  const terms = Array.from(wordCloud.querySelectorAll("[data-cloud-depth]"))
+    .filter((term) => !term.classList.contains("hero-cloud-core"));
   if (!terms.length) {
     return;
   }
 
   let frameId = 0;
-  let pointerX = 0;
-  let pointerY = 0;
+  let pointerX = null;
+  let pointerY = null;
+  let termMetrics = [];
+  let influenceRadius = 100;
+  let maximumOffset = 14;
 
-  function renderPointerMotion() {
+  function measureTerms() {
     terms.forEach((term) => {
-      const depth = Number(term.dataset.cloudDepth) || 0;
-      const offsetX = pointerX * depth * 5;
-      const offsetY = pointerY * depth * 4;
-      term.style.transform = `translate(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px)`;
+      term.style.transform = "translate(0px, 0px)";
     });
-    frameId = 0;
+
+    const cloudBounds = wordCloud.getBoundingClientRect();
+    influenceRadius = Math.max(74, Math.min(110, cloudBounds.width * 0.19));
+    maximumOffset = Math.max(10, Math.min(15, cloudBounds.width * 0.026));
+    termMetrics = terms.map((term) => {
+      const bounds = term.getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        top: bounds.top,
+        bottom: bounds.bottom,
+        centerX: bounds.left + bounds.width / 2,
+        centerY: bounds.top + bounds.height / 2,
+      };
+    });
   }
 
-  function requestPointerMotion() {
+  function renderPointerRepulsion() {
+    frameId = 0;
+
+    terms.forEach((term, index) => {
+      const metric = termMetrics[index];
+      if (pointerX === null || pointerY === null || !metric) {
+        term.style.transform = "translate(0px, 0px)";
+        return;
+      }
+
+      const nearestX = Math.max(metric.left, Math.min(pointerX, metric.right));
+      const nearestY = Math.max(metric.top, Math.min(pointerY, metric.bottom));
+      const distance = Math.hypot(pointerX - nearestX, pointerY - nearestY);
+
+      if (distance >= influenceRadius) {
+        term.style.transform = "translate(0px, 0px)";
+        return;
+      }
+
+      let deltaX = metric.centerX - pointerX;
+      let deltaY = metric.centerY - pointerY;
+      let directionLength = Math.hypot(deltaX, deltaY);
+      if (directionLength < 0.5) {
+        const angle = index * 2.399963;
+        deltaX = Math.cos(angle);
+        deltaY = Math.sin(angle);
+        directionLength = 1;
+      }
+
+      const depth = Number(term.dataset.cloudDepth) || 0;
+      const proximity = 1 - distance / influenceRadius;
+      const force = proximity * proximity;
+      const offset = maximumOffset * force * (0.86 + depth * 0.14);
+      const offsetX = (deltaX / directionLength) * offset;
+      const offsetY = (deltaY / directionLength) * offset;
+      term.style.transform = `translate(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px)`;
+    });
+  }
+
+  function requestPointerRepulsion() {
     if (!frameId) {
-      frameId = window.requestAnimationFrame(renderPointerMotion);
+      frameId = window.requestAnimationFrame(renderPointerRepulsion);
     }
   }
 
+  function handlePointerEnter(event) {
+    measureTerms();
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    requestPointerRepulsion();
+  }
+
   function handlePointerMove(event) {
-    const bounds = wordCloud.getBoundingClientRect();
-    pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
-    pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
-    requestPointerMotion();
+    if (!termMetrics.length) {
+      measureTerms();
+    }
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    requestPointerRepulsion();
   }
 
-  function resetPointerMotion() {
-    pointerX = 0;
-    pointerY = 0;
-    requestPointerMotion();
+  function resetPointerRepulsion() {
+    pointerX = null;
+    pointerY = null;
+    termMetrics = [];
+    requestPointerRepulsion();
   }
 
+  wordCloud.addEventListener("pointerenter", handlePointerEnter);
   wordCloud.addEventListener("pointermove", handlePointerMove);
-  wordCloud.addEventListener("pointerleave", resetPointerMotion);
+  wordCloud.addEventListener("pointerleave", resetPointerRepulsion);
+  window.addEventListener("resize", resetPointerRepulsion);
 }
 
 function initializePage() {
