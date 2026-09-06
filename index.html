@@ -142,29 +142,69 @@
 </header>
 
 <!-- ================= 히어로 =================
-     채울 것: 제목 한 줄, 소개 두 문장.
-     오른쪽 이미지는 images/hero/main.jpg를 업로드하면 자동으로 표시됩니다.
+     왼쪽에는 연구실명과 바로가기를, 오른쪽에는 연구업적 기반 워드클라우드를 표시합니다.
 -->
 <section class="hero" id="top">
   <div class="wrap">
-    <div>
-      <h1>Computer Systems &amp; Reliable SOC Lab.</h1>
-      <p data-kr="컴퓨터시스템 및 고신뢰성 SoC 연구실은 프로세서 아키텍처부터 3차원 집적회로 테스트까지, 반도체 시스템이 오래도록 정확하게 동작하도록 만드는 기술을 연구합니다." data-en="The Computer Systems &amp; Reliable SoC Lab develops technologies that keep semiconductor systems accurate and dependable, from processor architecture to testing of three-dimensional integrated circuits.">컴퓨터시스템 및 고신뢰성 SoC 연구실은 프로세서 아키텍처부터 3차원 집적회로 테스트까지, 반도체 시스템이 오래도록 정확하게 동작하도록 만드는 기술을 연구합니다.</p>
+    <div class="hero-copy">
+      <h1>
+        <span>Computer Systems</span>
+        <span>&amp; Reliable SOC Lab.</span>
+      </h1>
       <div class="actions">
         <a class="btn btn-primary" href="#about" data-kr="연구실 소개" data-en="About">연구실 소개</a>
         <a class="btn btn-ghost" href="#contact" data-kr="연구실 지원 문의" data-en="Join Our Lab">연구실 지원 문의</a>
       </div>
     </div>
 
-    <!-- 대표 사진은 images/hero/main.jpg 업로드 시 자동으로 표시됩니다. -->
-    <figure class="hero-media image-slot is-missing" data-image-slot>
-      <img src="images/hero/main.jpg" alt="컴퓨터시스템 및 고신뢰성 SoC 연구실 대표 이미지">
-      <div class="image-placeholder">
-        <span class="placeholder-label">MAIN VISUAL</span>
-        <strong data-kr="대표 연구 이미지 자리" data-en="Main Research Visual">대표 연구 이미지 자리</strong>
-        <small>images/hero/main.jpg</small>
+    <div class="hero-wordcloud" role="img" aria-label="연구실 로고와 최근 연구업적 빈도를 반영한 영문 연구 분야 워드클라우드">
+      <svg class="hero-cloud-traces" viewBox="0 0 660 360" aria-hidden="true">
+        <path d="M12 48H78V76H154V102H244M648 48H582V76H506V102H416M2 178H82V146H170V168H246M658 178H578V146H490V168H414M14 310H88V282H168V250H244M646 310H572V282H492V250H416" />
+        <path d="M330 90V34H286V8M330 270V326H286V352M254 180H210V211H139V236H54M406 180H450V211H521V236H606" />
+        <path d="M116 112V132H151M544 112V132H509M116 268V247H151M544 268V247H509" />
+        <rect x="240" y="98" width="7" height="7" />
+        <rect x="413" y="98" width="7" height="7" />
+        <rect x="240" y="247" width="7" height="7" />
+        <rect x="413" y="247" width="7" height="7" />
+        <rect x="327" y="87" width="7" height="7" />
+        <rect x="327" y="267" width="7" height="7" />
+      </svg>
+
+      <div class="hero-cloud-row cloud-row-1">
+        <span class="cloud-word cloud-small cloud-tone-3">3D-IC Test</span>
+        <span class="cloud-word cloud-largest cloud-tone-1">TSV Test</span>
+        <span class="cloud-word cloud-large cloud-tone-2">Memory Test</span>
       </div>
-    </figure>
+      <div class="hero-cloud-row cloud-row-2">
+        <span class="cloud-word cloud-large cloud-tone-2">Built-In Self-Test</span>
+        <span class="cloud-word cloud-large cloud-tone-1">Redundancy Analysis</span>
+      </div>
+      <div class="hero-cloud-row cloud-row-3">
+        <span class="cloud-word cloud-medium cloud-tone-1">Memory Repair</span>
+        <span class="cloud-word cloud-medium cloud-tone-2">Scan Test</span>
+        <span class="cloud-word cloud-medium cloud-tone-3">Test Pattern Generation</span>
+      </div>
+      <div class="hero-cloud-row hero-cloud-logo-row">
+        <span class="cloud-word cloud-small cloud-tone-2">Hardware Security</span>
+        <img class="hero-cloud-logo" src="images/logo.png" alt="Computer Systems &amp; Reliable SoC Lab">
+        <span class="cloud-word cloud-small cloud-tone-1">AI-Assisted Test</span>
+      </div>
+      <div class="hero-cloud-row cloud-row-5">
+        <span class="cloud-word cloud-medium cloud-tone-1">Scan Chain Diagnosis</span>
+        <span class="cloud-word cloud-small cloud-tone-3">Test Data Compression</span>
+        <span class="cloud-word cloud-medium cloud-tone-2">PIM</span>
+      </div>
+      <div class="hero-cloud-row cloud-row-6">
+        <span class="cloud-word cloud-small cloud-tone-2">AI Accelerator Test</span>
+        <span class="cloud-word cloud-small cloud-tone-3">Error Correction</span>
+        <span class="cloud-word cloud-small cloud-tone-1">Reliability</span>
+      </div>
+      <div class="hero-cloud-row cloud-row-7">
+        <span class="cloud-word cloud-small cloud-tone-3">Delay Test</span>
+        <span class="cloud-word cloud-small cloud-tone-1">Interconnect Test</span>
+        <span class="cloud-word cloud-small cloud-tone-2">Aging Monitoring</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -189,12 +229,6 @@
       <ul class="highlight-list" data-highlight-board="achievement" aria-live="polite"></ul>
     </article>
 
-    <aside class="highlight-cta">
-      <p class="eyebrow">JOIN US</p>
-      <h2 data-kr="함께 연구할 분을 찾습니다" data-en="Join our lab">함께 연구할 분을 찾습니다</h2>
-      <p data-kr="대학원 진학과 학부 인턴에 관심 있는 학생을 기다립니다." data-en="We welcome prospective graduate students and undergraduate interns.">대학원 진학과 학부 인턴에 관심 있는 학생을 기다립니다.</p>
-      <a class="btn btn-primary" href="#contact" data-kr="연구실 지원 문의" data-en="Contact us">연구실 지원 문의</a>
-    </aside>
   </div>
 </section>
 
@@ -229,28 +263,21 @@
 </section>
 
 <!-- ================= 연구실 소개 ================= -->
-<section id="about" class="about-overview">
+<section id="about" class="about-overview band">
   <div class="wrap">
     <p class="eyebrow">ABOUT</p>
     <h2 data-kr="연구실 소개" data-en="About">연구실 소개</h2>
 
-    <div class="about-grid">
-      <div class="about-copy">
-        <h3 data-kr="설계부터 테스트, 운용 중 신뢰성까지" data-en="From design and test to in-field reliability">설계부터 테스트, 운용 중 신뢰성까지</h3>
-        <p data-kr="프로세서 아키텍처, 설계 검증과 테스트, 3차원 집적회로, 고신뢰성 시스템을 연결하여 복잡한 반도체 시스템이 정확하고 효율적으로 동작하도록 만드는 방법을 연구합니다." data-en="Our work connects processor architecture, design verification and test, three-dimensional integrated circuits, and dependable systems to make complex semiconductor systems accurate and efficient.">프로세서 아키텍처, 설계 검증과 테스트, 3차원 집적회로, 고신뢰성 시스템을 연결하여 복잡한 반도체 시스템이 정확하고 효율적으로 동작하도록 만드는 방법을 연구합니다.</p>
-      </div>
-
-      <div class="about-focus" aria-label="연구 분야 바로가기">
-        <a href="#soc-design">SoC Design</a>
-        <a href="#soc-3dic-test">SoC &amp; 3D-IC Test</a>
-        <a href="#dft-dfd">DFT &amp; DFD</a>
-        <a href="#memory-test-repair">Memory Test &amp; Repair</a>
-      </div>
+    <div class="about-focus" aria-label="연구 분야 바로가기">
+      <a href="#soc-design">SoC Design</a>
+      <a href="#soc-3dic-test">SoC &amp; 3D-IC Test</a>
+      <a href="#dft-dfd">DFT &amp; DFD</a>
+      <a href="#memory-test-repair">Memory Test &amp; Repair</a>
     </div>
 
     <details class="more-panel about-details">
       <summary>
-        <span data-kr="연구실 상세 소개 보기" data-en="Read More">연구실 상세 소개 보기</span>
+        <span data-kr="소개 더보기" data-en="Read More">소개 더보기</span>
         <span class="summary-icon" aria-hidden="true"></span>
       </summary>
       <div class="more-panel-body">
@@ -320,7 +347,7 @@
 </section>
 
 <!-- ================= 연구 분야 ================= -->
-<section id="research" class="research-section band">
+<section id="research" class="research-section">
   <div class="wrap">
     <p class="eyebrow">RESEARCH AREAS</p>
     <h2 data-kr="연구 분야" data-en="Research Areas">연구 분야</h2>
@@ -378,7 +405,7 @@
 </section>
 
 <!-- ================= 연구 과제 ================= -->
-<section id="projects" data-projects-source="projects.json?v=20260905-1">
+<section id="projects" class="band" data-projects-source="projects.json?v=20260905-1">
   <div class="wrap">
     <p class="eyebrow">PROJECTS</p>
     <h2 data-kr="연구과제" data-en="Projects">연구과제</h2>
@@ -402,7 +429,7 @@
 </section>
 
 <!-- ================= 연구업적 ================= -->
-<section id="publications" class="band">
+<section id="publications">
   <div class="wrap">
     <p class="eyebrow">PUBLICATIONS</p>
     <h2 data-kr="연구업적" data-en="Publications">연구업적</h2>
@@ -506,7 +533,7 @@
 </section>
 
 <!-- ================= 구성원 ================= -->
-<section id="members" data-members-source="members.json?v=20260905-3">
+<section id="members" class="band" data-members-source="members.json?v=20260905-3">
   <div class="wrap">
     <p class="eyebrow">MEMBERS</p>
     <h2 data-kr="구성원" data-en="Members">구성원</h2>
@@ -547,7 +574,7 @@
 </section>
 
 <!-- ================= 강의 ================= -->
-<section id="courses" class="band compact-section" data-courses-source="courses.json?v=20260905-1">
+<section id="courses" class="compact-section" data-courses-source="courses.json?v=20260905-1">
   <div class="wrap">
     <p class="eyebrow">COURSES</p>
     <h2 data-kr="현재 진행 강의" data-en="Current Courses">현재 진행 강의</h2>
@@ -577,7 +604,7 @@
      category 값 event / recruit / notice      -> 공지 게시판
      전체 탭에서는 두 게시판을 날짜순으로 함께 보여줍니다.
 -->
-<section id="news">
+<section id="news" class="band">
   <div class="wrap">
     <p class="eyebrow">NEWS + UPDATES</p>
     <h2 data-kr="소식" data-en="News">소식</h2>
