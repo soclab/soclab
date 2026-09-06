@@ -2743,10 +2743,65 @@ async function initializeCourses() {
   }
 }
 
+function initializeHeroWordCloud() {
+  const wordCloud = document.querySelector("[data-hero-wordcloud]");
+  if (!wordCloud) {
+    return;
+  }
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const coarsePointer = window.matchMedia("(pointer: coarse)");
+  if (reducedMotion.matches || coarsePointer.matches) {
+    return;
+  }
+
+  const terms = Array.from(wordCloud.querySelectorAll("[data-cloud-depth]"));
+  if (!terms.length) {
+    return;
+  }
+
+  let frameId = 0;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  function renderPointerMotion() {
+    terms.forEach((term) => {
+      const depth = Number(term.dataset.cloudDepth) || 0;
+      const offsetX = pointerX * depth * 5;
+      const offsetY = pointerY * depth * 4;
+      term.style.transform = `translate(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px)`;
+    });
+    frameId = 0;
+  }
+
+  function requestPointerMotion() {
+    if (!frameId) {
+      frameId = window.requestAnimationFrame(renderPointerMotion);
+    }
+  }
+
+  function handlePointerMove(event) {
+    const bounds = wordCloud.getBoundingClientRect();
+    pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
+    requestPointerMotion();
+  }
+
+  function resetPointerMotion() {
+    pointerX = 0;
+    pointerY = 0;
+    requestPointerMotion();
+  }
+
+  wordCloud.addEventListener("pointermove", handlePointerMove);
+  wordCloud.addEventListener("pointerleave", resetPointerMotion);
+}
+
 function initializePage() {
   initializeNavigation();
   initializeLanguageSwitcher();
   initializeSectionHighlighting();
+  initializeHeroWordCloud();
   initializeImageSlots();
   initializeMembers();
   initializeProjects();

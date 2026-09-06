@@ -26,7 +26,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260905-16">
+  <link rel="stylesheet" href="style.css?v=20260906-1">
 </head>
 <body>
 
@@ -157,53 +157,99 @@
       </div>
     </div>
 
-    <div class="hero-wordcloud" role="img" aria-label="연구실 로고와 최근 연구업적 빈도를 반영한 영문 연구 분야 워드클라우드">
-      <svg class="hero-cloud-traces" viewBox="0 0 660 360" aria-hidden="true">
-        <path d="M12 48H78V76H154V102H244M648 48H582V76H506V102H416M2 178H82V146H170V168H246M658 178H578V146H490V168H414M14 310H88V282H168V250H244M646 310H572V282H492V250H416" />
-        <path d="M330 90V34H286V8M330 270V326H286V352M254 180H210V211H139V236H54M406 180H450V211H521V236H606" />
-        <path d="M116 112V132H151M544 112V132H509M116 268V247H151M544 268V247H509" />
-        <rect x="240" y="98" width="7" height="7" />
-        <rect x="413" y="98" width="7" height="7" />
-        <rect x="240" y="247" width="7" height="7" />
-        <rect x="413" y="247" width="7" height="7" />
-        <rect x="327" y="87" width="7" height="7" />
-        <rect x="327" y="267" width="7" height="7" />
-      </svg>
+    <div class="hero-wordcloud" data-hero-wordcloud>
+      <svg class="hero-cloud-svg" viewBox="0 0 660 392" role="img" aria-labelledby="hero-cloud-title hero-cloud-description">
+        <title id="hero-cloud-title">COMSYS research word cloud</title>
+        <desc id="hero-cloud-description">COMSYS를 중심으로 최근 연구업적의 빈도와 최신성에 따라 연구 분야를 다양한 크기로 배치한 워드클라우드입니다.</desc>
+        <g class="hero-cloud-pan">
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".5">
+            <text x="38" y="38" font-size="16">3D-IC Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth="1.1">
+            <text x="171" y="43" font-size="37">TSV Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".8">
+            <text x="402" y="41" font-size="31">Memory Test</text>
+          </g>
 
-      <div class="hero-cloud-row cloud-row-1">
-        <span class="cloud-word cloud-small cloud-tone-3">3D-IC Test</span>
-        <span class="cloud-word cloud-largest cloud-tone-1">TSV Test</span>
-        <span class="cloud-word cloud-large cloud-tone-2">Memory Test</span>
-      </div>
-      <div class="hero-cloud-row cloud-row-2">
-        <span class="cloud-word cloud-large cloud-tone-2">Built-In Self-Test</span>
-        <span class="cloud-word cloud-large cloud-tone-1">Redundancy Analysis</span>
-      </div>
-      <div class="hero-cloud-row cloud-row-3">
-        <span class="cloud-word cloud-medium cloud-tone-1">Memory Repair</span>
-        <span class="cloud-word cloud-medium cloud-tone-2">Scan Test</span>
-        <span class="cloud-word cloud-medium cloud-tone-3">Test Pattern Generation</span>
-      </div>
-      <div class="hero-cloud-row hero-cloud-logo-row">
-        <span class="cloud-word cloud-small cloud-tone-2">Hardware Security</span>
-        <img class="hero-cloud-logo" src="images/logo.png" alt="Computer Systems &amp; Reliable SoC Lab">
-        <span class="cloud-word cloud-small cloud-tone-1">AI-Assisted Test</span>
-      </div>
-      <div class="hero-cloud-row cloud-row-5">
-        <span class="cloud-word cloud-medium cloud-tone-1">Scan Chain Diagnosis</span>
-        <span class="cloud-word cloud-small cloud-tone-3">Test Data Compression</span>
-        <span class="cloud-word cloud-medium cloud-tone-2">PIM</span>
-      </div>
-      <div class="hero-cloud-row cloud-row-6">
-        <span class="cloud-word cloud-small cloud-tone-2">AI Accelerator Test</span>
-        <span class="cloud-word cloud-small cloud-tone-3">Error Correction</span>
-        <span class="cloud-word cloud-small cloud-tone-1">Reliability</span>
-      </div>
-      <div class="hero-cloud-row cloud-row-7">
-        <span class="cloud-word cloud-small cloud-tone-3">Delay Test</span>
-        <span class="cloud-word cloud-small cloud-tone-1">Interconnect Test</span>
-        <span class="cloud-word cloud-small cloud-tone-2">Aging Monitoring</span>
-      </div>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".7">
+            <text x="43" y="83" font-size="27">Built-In Self-Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth="1">
+            <text x="339" y="82" font-size="26">Redundancy Analysis</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth=".9">
+            <text x="24" y="119" font-size="25">Memory Repair</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".5">
+            <text x="244" y="116" font-size="17">DFT</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".7">
+            <text x="315" y="119" font-size="19">Test Pattern Generation</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".6">
+            <text x="35" y="149" font-size="17">Hardware Security</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".9">
+            <text x="404" y="149" font-size="18">AI-Assisted Test</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".4">
+            <text x="27" y="194" font-size="25">PIM</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".7">
+            <text x="542" y="190" font-size="15">Fault Diagnosis</text>
+          </g>
+          <g class="hero-cloud-term hero-cloud-core cloud-tone-1" data-cloud-depth="1.2">
+            <text x="330" y="230" text-anchor="middle" font-size="82">COMSYS</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth=".8">
+            <text x="28" y="267" font-size="25">Scan Chain Diagnosis</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".5">
+            <text x="407" y="258" font-size="16">Test Data</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".7">
+            <text x="487" y="278" font-size="20">Compression</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".9">
+            <text x="38" y="303" font-size="19">AI Accelerator Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".5">
+            <text x="302" y="303" font-size="16">Error Correction</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth=".8">
+            <text x="513" y="304" font-size="21">Reliability</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".6">
+            <text x="45" y="337" font-size="16">Delay Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth="1">
+            <text x="178" y="339" font-size="22">Interconnect Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".7">
+            <text x="445" y="337" font-size="17">Aging Monitoring</text>
+          </g>
+
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".5">
+            <text x="92" y="374" font-size="14">LBIST</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-2" data-cloud-depth=".7">
+            <text x="178" y="374" font-size="18">Scan Test</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-3" data-cloud-depth=".6">
+            <text x="341" y="374" font-size="15">HBM</text>
+          </g>
+          <g class="hero-cloud-term cloud-tone-1" data-cloud-depth=".9">
+            <text x="421" y="375" font-size="21">Logic Test</text>
+          </g>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -651,6 +697,6 @@
   </div>
 </footer>
   
-  <script src="script.js?v=20260905-16"></script>
+  <script src="script.js?v=20260906-1"></script>
 </body>
 </html>
