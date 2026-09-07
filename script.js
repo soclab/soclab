@@ -4,6 +4,67 @@ const menu = document.getElementById("menu");
 const submenuToggles = [...document.querySelectorAll(".submenu-toggle")];
 const languageOptions = [...document.querySelectorAll(".language-option")];
 
+const ARCHIVE_MENU_ITEMS = [
+  { href: "index.html#top", kr: "홈", en: "Home" },
+  { href: "index.html#about", kr: "연구실소개", en: "About" },
+  { href: "index.html#projects", kr: "연구과제", en: "Projects" },
+  { href: "index.html#publications", kr: "연구업적", en: "Publications" },
+  { href: "index.html#members", kr: "구성원", en: "Members" },
+  { href: "index.html#courses", kr: "강의", en: "Courses" },
+  { href: "index.html#news", kr: "소식", en: "News" },
+  { href: "join.html", kr: "지원안내", en: "Join Our Lab" },
+];
+
+function createArchiveMenuItem(item) {
+  const listItem = document.createElement("li");
+  const link = document.createElement("a");
+  link.href = item.href;
+  setLocalizedContent(link, item.kr, item.en);
+  listItem.append(link);
+  return listItem;
+}
+
+function initializeArchiveNavigation() {
+  const actions = document.querySelector(".archive-page-actions");
+  if (!actions || actions.querySelector(".archive-menu")) {
+    return;
+  }
+
+  const menu = document.createElement("details");
+  menu.className = "archive-menu";
+
+  const summary = document.createElement("summary");
+  setLocalizedContent(summary, "메뉴", "Menu");
+
+  const list = document.createElement("ul");
+  list.className = "archive-menu-list";
+  ARCHIVE_MENU_ITEMS.forEach((item) => {
+    list.append(createArchiveMenuItem(item));
+  });
+
+  list.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      menu.open = false;
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".archive-menu")) {
+      menu.open = false;
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu.open) {
+      menu.open = false;
+      summary.focus();
+    }
+  });
+
+  menu.append(summary, list);
+  actions.insertBefore(menu, actions.querySelector(".language-switcher"));
+}
+
 function setMobileMenuState(isOpen) {
   siteNavigation.classList.toggle("open", isOpen);
   navigationToggle.setAttribute("aria-expanded", String(isOpen));
@@ -1746,7 +1807,7 @@ function openNewsItem(id) {
   );
 
   if (!button) {
-    document.getElementById("news")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("news")?.scrollIntoView();
     return;
   }
 
@@ -1755,7 +1816,7 @@ function openNewsItem(id) {
   }
 
   button.closest(".news-card").scrollIntoView({
-    behavior: "smooth",
+    behavior: "auto",
     block: "center",
   });
 }
@@ -2938,6 +2999,7 @@ function initializeHeroWordCloud() {
 
 function initializePage() {
   initializeNavigation();
+  initializeArchiveNavigation();
   initializeLanguageSwitcher();
   initializeSectionHighlighting();
   initializeHeroWordCloud();

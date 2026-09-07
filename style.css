@@ -25,8 +25,7 @@
 }
  
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{scroll-behavior:auto}
  
 body{
   font-family:var(--font-sans);
@@ -946,14 +945,6 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
   padding:0;
   border-bottom:0;
 }
-.highlight-support .highlight-head::after{
-  content:"";
-  display:block;
-  width:38px;
-  height:3px;
-  margin-top:14px;
-  background:var(--copper-lt);
-}
 .highlight-support .highlight-head h2{
   margin-top:14px;
   color:var(--copper);
@@ -1567,6 +1558,79 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   gap:20px;
 }
 
+.archive-menu{
+  position:relative;
+  flex:none;
+}
+
+.archive-menu > summary{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:7px 12px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  color:var(--copper);
+  font-size:13.5px;
+  font-weight:500;
+  list-style:none;
+  cursor:pointer;
+}
+
+.archive-menu > summary::-webkit-details-marker{
+  display:none;
+}
+
+.archive-menu > summary::after{
+  content:"";
+  width:7px;
+  height:7px;
+  margin-top:-4px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg);
+  transition:transform .15s ease;
+}
+
+.archive-menu[open] > summary{
+  border-color:var(--copper);
+  background:#eef3f8;
+}
+
+.archive-menu[open] > summary::after{
+  margin-top:4px;
+  transform:rotate(225deg);
+}
+
+.archive-menu-list{
+  position:absolute;
+  z-index:60;
+  top:calc(100% + 10px);
+  right:0;
+  width:190px;
+  padding:8px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 14px 30px rgba(29,53,75,.14);
+  list-style:none;
+}
+
+.archive-menu-list a{
+  display:block;
+  padding:9px 11px;
+  border-radius:5px;
+  color:var(--ink-soft);
+  font-size:13.5px;
+}
+
+.archive-menu-list a:hover,
+.archive-menu-list a:focus-visible{
+  background:#eef3f8;
+  color:var(--copper);
+}
+
 .archive-back-link{
   color:var(--copper);
   font-size:14px;
@@ -1605,6 +1669,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
   .archive-back-link{
     display:none;
+  }
+
+  .archive-page-actions{
+    gap:10px;
+  }
+
+  .archive-menu > summary{
+    padding:6px 10px;
   }
 }
 
