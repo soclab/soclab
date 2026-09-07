@@ -919,15 +919,21 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
   list-style:none;
   margin:0;
   padding:0;
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.55fr);
+  align-items:center;
+  gap:clamp(16px,2vw,28px);
+}
+.partner-list li{
   display:flex;
-  flex-wrap:wrap;
+  min-width:0;
+  max-width:100%;
   align-items:center;
   justify-content:center;
-  gap:clamp(28px,5vw,64px);
 }
-.partner-list li{max-width:100%}
 .partner-logo{
   display:flex;
+  width:100%;
   align-items:center;
   justify-content:center;
   height:64px;
@@ -940,14 +946,27 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .partner-logo-bk21 img{max-width:340px}
 .partner-logo-koreatest img{width:420px;max-width:100%}
 
+@media (max-width:980px){
+  .partner-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:30px 24px;
+  }
+}
+
 @media (max-width:760px){
-  .partner-list{gap:26px 32px}
   .partner-logo{height:52px}
   .partner-logo-tall{height:76px}
   .partner-logo img{max-width:190px}
   .partner-logo-asrc img{max-width:235px}
   .partner-logo-bk21 img{max-width:300px}
   .partner-logo-koreatest img{width:340px;max-width:100%}
+}
+
+@media (max-width:600px){
+  .partner-list{
+    grid-template-columns:1fr;
+    gap:26px;
+  }
 }
 
 /* ------------------------------------------------------------
@@ -1917,7 +1936,7 @@ html[lang="en"] .member-detail-name .member-name-english{
   padding:18px 20px;
   border:1px solid var(--line);
   border-radius:7px;
-  background:#fff;
+  background:transparent;
 }
 
 .professor-awards-section{
