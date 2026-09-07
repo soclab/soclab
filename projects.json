@@ -1,5 +1,17 @@
 [
  {
+  "id": 206,
+  "title_en": "Development of AI-Based Autonomous Diagnostic Technology for Predictive Maintenance of Next-Generation HBM Hybrid Test Equipment",
+  "title_kr": "차세대 HBM Hybrid Test 장비의 예지보전을 위한 AI 기반 자율진단 기술 개발",
+  "start": "2026.04.01",
+  "end": "2029.12.31",
+  "agency_en": "Ministry of Trade, Industry and Energy",
+  "agency_kr": "산업통상자원부",
+  "source": "current_page",
+  "image_src": "홈페이지 과제 소개_뉴지보전.pdf",
+  "image": "images/projects/project_motie_hbm_hybrid_ai_diagnosis.png"
+ },
+ {
   "id": 200,
   "title_en": "Test Methodology Development for High Reliability Stacked Integrated Circuits",
   "title_kr": "고신뢰성 적층 반도체를 위한 테스트 기법 개발",
@@ -7,7 +19,9 @@
   "end": "2028.09.30",
   "agency_en": "Samsung Electronics",
   "agency_kr": "삼성전자",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2026/02/김성훈-삼성-과제.png",
+  "image": "images/projects/project_samsung_stacked_ic.png"
  },
  {
   "id": 201,
@@ -17,7 +31,9 @@
   "end": "2027.12.31",
   "agency_en": "Ministry of Trade, Industry and Energy",
   "agency_kr": "산업통상자원부",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2025/09/프레젠테이션2.png",
+  "image": "images/projects/project_motie_imc_dft.png"
  },
  {
   "id": 202,
@@ -27,7 +43,9 @@
   "end": "2030.04.30",
   "agency_en": "National Research Foundation of Korea",
   "agency_kr": "한국연구재단",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2025/09/ERC과제.png",
+  "image": "images/projects/project_nrf_chiplet_erc.png"
  },
  {
   "id": 203,
@@ -37,7 +55,9 @@
   "end": "2028.12.31",
   "agency_en": "Ministry of Trade, Industry and Energy",
   "agency_kr": "산업통상자원부",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2025/03/고신뢰성-확보를-위한-AI-기반-예지보전-기술개발.jpg",
+  "image": "images/projects/project_motie_ai_maintenance.jpg"
  },
  {
   "id": 204,
@@ -47,7 +67,9 @@
   "end": "2027.02.28",
   "agency_en": "Samsung Electronics",
   "agency_kr": "삼성전자",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2025/09/peri.png",
+  "image": "images/projects/project_samsung_nand_peri.png"
  },
  {
   "id": 205,
@@ -57,7 +79,9 @@
   "end": "2026.12.31",
   "agency_en": "National Research Foundation of Korea",
   "agency_kr": "한국연구재단",
-  "source": "current_page"
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2023/01/Human-Resource.png",
+  "image": "images/projects/project_nrf_automotive_hr.png"
  },
  {
   "id": 106,

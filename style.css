@@ -787,6 +787,11 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
   word-break:keep-all;
 }
 
+.research-output-list-chapter{
+  color:var(--ink);
+  font-weight:500;
+}
+
 .research-output-separator{
   color:var(--line-mid);
 }
@@ -1342,6 +1347,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 .project-card .project-agency{
   margin-top:7px;
+}
+
+.project-card .project-more{
+  align-self:flex-start;
+  margin-top:18px;
 }
 
 .project-loading,

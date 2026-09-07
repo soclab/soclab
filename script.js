@@ -1230,6 +1230,23 @@ function getProjectMachineDateRange(project) {
     .join("/");
 }
 
+function createProjectMoreLink(project, titleValue) {
+  const imagePath = String(project.image || "").trim();
+
+  if (!imagePath) {
+    return null;
+  }
+
+  const link = document.createElement("a");
+  link.className = "more project-more";
+  link.href = imagePath;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "View More →";
+  link.setAttribute("aria-label", "View project image: " + titleValue.en);
+  return link;
+}
+
 function createCurrentProjectCard(project, index) {
   const titleValue = getProjectLocalizedValue(project, "title");
   const agencyValue = getProjectLocalizedValue(project, "agency");
@@ -1250,6 +1267,10 @@ function createCurrentProjectCard(project, index) {
   agency.className = "project-agency";
   setLocalizedContent(agency, agencyValue.kr, agencyValue.en);
   card.append(label, title, date, agency);
+  const moreLink = createProjectMoreLink(project, titleValue);
+  if (moreLink) {
+    card.append(moreLink);
+  }
   return card;
 }
 
@@ -1271,6 +1292,10 @@ function createCompletedProjectItem(project) {
   agency.className = "src";
   setLocalizedContent(agency, agencyValue.kr, agencyValue.en);
   item.append(id, date, title, agency);
+  const moreLink = createProjectMoreLink(project, titleValue);
+  if (moreLink) {
+    item.append(moreLink);
+  }
   return item;
 }
 
@@ -2567,7 +2592,12 @@ function createResearchOutputList(records, layout) {
     let sourceText = "";
 
     if (layout === "books") {
-      sourceText = [record.publisher, formatResearchOutputDate(record.date)]
+      sourceText = [
+        record.publisher,
+        record.edition ? String(record.edition).trim() + " ed." : "",
+        record.pages ? "pp. " + String(record.pages).trim() : "",
+        formatResearchOutputDate(record.date),
+      ]
         .map((value) => String(value || "").trim())
         .filter((value) => value && value !== "–")
         .join(", ");
@@ -2585,7 +2615,23 @@ function createResearchOutputList(records, layout) {
       sourceText = sourceParts.join(", ") + (sourceParts.length > 0 ? "." : "");
     }
 
-    [title, authors, createResearchOutputSegment(sourceText)].forEach(
+    const segments = [title];
+    if (layout === "books" && record.chapter) {
+      segments.push(
+        createResearchOutputSegment(
+          "Chapter: “" + String(record.chapter).trim() + "”",
+          "research-output-list-chapter"
+        )
+      );
+    }
+    if (authors.textContent.trim()) {
+      segments.push(authors);
+    }
+    if (sourceText) {
+      segments.push(createResearchOutputSegment(sourceText));
+    }
+
+    segments.forEach(
       (segment, index) => {
         if (index > 0) {
           const separator = document.createElement("span");
