@@ -20,6 +20,7 @@ function closeAllSubmenus(exceptItem = null) {
     }
 
     item.classList.remove("open");
+    item.classList.remove("is-collapsed");
     const button = item.querySelector(":scope > .submenu-toggle");
     if (button) {
       button.setAttribute("aria-expanded", "false");
@@ -34,6 +35,24 @@ function toggleSubmenu(button) {
   closeAllSubmenus(menuItem);
   menuItem.classList.toggle("open", willOpen);
   button.setAttribute("aria-expanded", String(willOpen));
+
+  // 데스크톱에서는 :hover와 :focus-within이 하위 메뉴를 계속 열어두기 때문에,
+  // 사용자가 직접 닫았을 때는 is-collapsed로 그 둘을 눌러 둡니다.
+  menuItem.classList.toggle("is-collapsed", !willOpen);
+  if (!willOpen) {
+    button.blur();
+  }
+}
+
+/* 메뉴에서 섹션으로 갈 때만 부드러운 스크롤을 잠시 꺼서 즉시 이동시킵니다.
+   (뉴스 카드 열기처럼 스스로 behavior를 지정하는 곳은 영향을 받지 않습니다.) */
+function jumpWithoutScrollAnimation() {
+  const root = document.documentElement;
+  const previous = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  window.setTimeout(() => {
+    root.style.scrollBehavior = previous;
+  }, 120);
 }
 
 function initializeNavigation() {
@@ -50,6 +69,13 @@ function initializeNavigation() {
     button.addEventListener("click", () => {
       toggleSubmenu(button);
     });
+
+    const menuItem = button.closest(".menu-item");
+    if (menuItem) {
+      menuItem.addEventListener("mouseleave", () => {
+        menuItem.classList.remove("is-collapsed");
+      });
+    }
   });
 
   menu.addEventListener("click", (event) => {
@@ -61,6 +87,11 @@ function initializeNavigation() {
     if (link.classList.contains("is-placeholder")) {
       event.preventDefault();
       return;
+    }
+
+    // 같은 페이지 앵커는 스르륵 내려가지 않고 곧바로 이동시킵니다.
+    if (link.hash && link.getAttribute("href").startsWith("#")) {
+      jumpWithoutScrollAnimation();
     }
 
     if (window.matchMedia("(max-width: 1060px)").matches) {
@@ -864,9 +895,9 @@ function populateAlumniDetail(detail, member) {
     createProfileField(
       "재직처",
       "Affiliation",
-      affiliationValue || "재직처 확인 중",
+      affiliationValue,
       "",
-      affiliationValue || "Affiliation pending"
+      affiliationValue
     ),
     createProfileField("학위논문", "Thesis", member.thesis),
     createProfileField("메일", "Email", privateDetail.email, "mailto:"),
@@ -923,11 +954,7 @@ function createAlumniElements(member, index) {
   const affiliationValue = String(member.work || "").trim();
   const affiliation = document.createElement("span");
   affiliation.className = "alumni-card-affiliation";
-  setLocalizedContent(
-    affiliation,
-    affiliationValue || "재직처 확인 중",
-    affiliationValue || "Affiliation pending"
-  );
+  setLocalizedContent(affiliation, affiliationValue, affiliationValue);
   button.append(affiliation);
   card.append(button);
 

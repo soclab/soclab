@@ -1,0 +1,334 @@
+diff --git a/alumni.html b/alumni.html
+index 903131b..c6aea3e 100644
+--- a/alumni.html
++++ b/alumni.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 동문 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav">
+@@ -37,6 +37,6 @@
+       </div>
+     </section>
+   </main>
+-  <script src="script.js?v=20260905-6"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/books.html b/books.html
+index 633e868..8723f16 100644
+--- a/books.html
++++ b/books.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 저서 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav">
+@@ -36,6 +36,6 @@
+       </div>
+     </section>
+   </main>
+-  <script src="script.js?v=20260905-10"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/domestic-conferences.html b/domestic-conferences.html
+index 32e1d24..8a7ed76 100644
+--- a/domestic-conferences.html
++++ b/domestic-conferences.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 국내학술대회 논문 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav"><div class="wrap"><a class="brand" href="index.html#publications"><img class="brand-logo" src="images/logo.png" width="296" height="72" alt="Computer Systems &amp; Reliable SoC Lab"></a><div class="archive-page-actions"><a class="archive-back-link" href="index.html#publications" data-kr="연구업적으로 돌아가기" data-en="Back to publications">연구업적으로 돌아가기</a><div class="language-switcher" aria-label="언어 선택"><button class="language-option active" type="button" data-lang="kr" aria-pressed="true">KR</button><span aria-hidden="true">/</span><button class="language-option" type="button" data-lang="en" aria-pressed="false">EN</button></div></div></div></header>
+@@ -18,6 +18,6 @@
+     <div class="research-output-archive" id="research-output-archive" data-source="domestic_conferences.json?v=20260905-1" data-layout="conference-list" data-empty-kr="표시할 국내학술대회 논문이 없습니다." data-empty-en="No domestic conference papers are available."><p class="publication-loading" data-kr="목록을 불러오는 중입니다." data-en="Loading records.">목록을 불러오는 중입니다.</p></div>
+     <noscript><p class="publication-error">목록을 보려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+   </div></section></main>
+-  <script src="script.js?v=20260905-11"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/domestic-journals.html b/domestic-journals.html
+index 1d7c564..aabd497 100644
+--- a/domestic-journals.html
++++ b/domestic-journals.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 국내논문지 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav"><div class="wrap"><a class="brand" href="index.html#publications"><img class="brand-logo" src="images/logo.png" width="296" height="72" alt="Computer Systems &amp; Reliable SoC Lab"></a><div class="archive-page-actions"><a class="archive-back-link" href="index.html#publications" data-kr="연구업적으로 돌아가기" data-en="Back to publications">연구업적으로 돌아가기</a><div class="language-switcher" aria-label="언어 선택"><button class="language-option active" type="button" data-lang="kr" aria-pressed="true">KR</button><span aria-hidden="true">/</span><button class="language-option" type="button" data-lang="en" aria-pressed="false">EN</button></div></div></div></header>
+@@ -18,6 +18,6 @@
+     <div class="research-output-archive" id="research-output-archive" data-source="domestic_journals.json?v=20260905-1" data-layout="journal-list" data-empty-kr="표시할 국내논문지가 없습니다." data-empty-en="No domestic journal papers are available."><p class="publication-loading" data-kr="목록을 불러오는 중입니다." data-en="Loading records.">목록을 불러오는 중입니다.</p></div>
+     <noscript><p class="publication-error">목록을 보려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+   </div></section></main>
+-  <script src="script.js?v=20260905-11"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index 5f736ae..e2cecdb 100644
+--- a/index.html
++++ b/index.html
+@@ -10,9 +10,10 @@
+ 
+ <!-- 브라우저 탭 아이콘. favicon.ico는 사이트 최상단에 있어 하위 페이지에서도 자동으로 잡힙니다. -->
+ <link rel="icon" href="/favicon.ico" sizes="any">
+-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=1">
+-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=1">
+-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=1">
++<link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
++<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2">
++<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2">
++<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2">
+ 
+ <!-- ================= 링크 미리보기(카카오톡·슬랙·페이스북 등) =================
+      주소를 공유했을 때 뜨는 제목·설명·썸네일입니다.
+@@ -56,7 +57,7 @@
+ -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-9">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+ 
+@@ -741,6 +742,6 @@
+   </div>
+ </footer>
+   
+-  <script src="script.js?v=20260907-1"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/international-conferences.html b/international-conferences.html
+index 3fb8cc0..653a3b2 100644
+--- a/international-conferences.html
++++ b/international-conferences.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 국제학술대회 논문 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav"><div class="wrap"><a class="brand" href="index.html#publications"><img class="brand-logo" src="images/logo.png" width="296" height="72" alt="Computer Systems &amp; Reliable SoC Lab"></a><div class="archive-page-actions"><a class="archive-back-link" href="index.html#publications" data-kr="연구업적으로 돌아가기" data-en="Back to publications">연구업적으로 돌아가기</a><div class="language-switcher" aria-label="언어 선택"><button class="language-option active" type="button" data-lang="kr" aria-pressed="true">KR</button><span aria-hidden="true">/</span><button class="language-option" type="button" data-lang="en" aria-pressed="false">EN</button></div></div></div></header>
+@@ -18,6 +18,6 @@
+     <div class="research-output-archive" id="research-output-archive" data-source="international_conferences.json?v=20260905-1" data-layout="conference-list" data-empty-kr="표시할 국제학술대회 논문이 없습니다." data-empty-en="No international conference papers are available."><p class="publication-loading" data-kr="목록을 불러오는 중입니다." data-en="Loading records.">목록을 불러오는 중입니다.</p></div>
+     <noscript><p class="publication-error">목록을 보려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+   </div></section></main>
+-  <script src="script.js?v=20260905-11"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/international-journals.html b/international-journals.html
+index a41f12e..be74d50 100644
+--- a/international-journals.html
++++ b/international-journals.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 국제논문지 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav">
+@@ -30,6 +30,6 @@
+       </div>
+     </section>
+   </main>
+-  <script src="script.js?v=20260905-10"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/other-research-outputs.html b/other-research-outputs.html
+index 7322b09..f17eaed 100644
+--- a/other-research-outputs.html
++++ b/other-research-outputs.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실 기타 연구업적 목록">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-6">
++  <link rel="stylesheet" href="style.css?v=20260907-10">
+ </head>
+ <body>
+   <header class="archive-page-nav">
+@@ -36,6 +36,6 @@
+       </div>
+     </section>
+   </main>
+-  <script src="script.js?v=20260905-10"></script>
++  <script src="script.js?v=20260907-2"></script>
+ </body>
+ </html>
+diff --git a/script.js b/script.js
+index 1774d6e..3a038a2 100644
+--- a/script.js
++++ b/script.js
+@@ -20,6 +20,7 @@ function closeAllSubmenus(exceptItem = null) {
+     }
+ 
+     item.classList.remove("open");
++    item.classList.remove("is-collapsed");
+     const button = item.querySelector(":scope > .submenu-toggle");
+     if (button) {
+       button.setAttribute("aria-expanded", "false");
+@@ -34,6 +35,24 @@ function toggleSubmenu(button) {
+   closeAllSubmenus(menuItem);
+   menuItem.classList.toggle("open", willOpen);
+   button.setAttribute("aria-expanded", String(willOpen));
++
++  // 데스크톱에서는 :hover와 :focus-within이 하위 메뉴를 계속 열어두기 때문에,
++  // 사용자가 직접 닫았을 때는 is-collapsed로 그 둘을 눌러 둡니다.
++  menuItem.classList.toggle("is-collapsed", !willOpen);
++  if (!willOpen) {
++    button.blur();
++  }
++}
++
++/* 메뉴에서 섹션으로 갈 때만 부드러운 스크롤을 잠시 꺼서 즉시 이동시킵니다.
++   (뉴스 카드 열기처럼 스스로 behavior를 지정하는 곳은 영향을 받지 않습니다.) */
++function jumpWithoutScrollAnimation() {
++  const root = document.documentElement;
++  const previous = root.style.scrollBehavior;
++  root.style.scrollBehavior = "auto";
++  window.setTimeout(() => {
++    root.style.scrollBehavior = previous;
++  }, 120);
+ }
+ 
+ function initializeNavigation() {
+@@ -50,6 +69,13 @@ function initializeNavigation() {
+     button.addEventListener("click", () => {
+       toggleSubmenu(button);
+     });
++
++    const menuItem = button.closest(".menu-item");
++    if (menuItem) {
++      menuItem.addEventListener("mouseleave", () => {
++        menuItem.classList.remove("is-collapsed");
++      });
++    }
+   });
+ 
+   menu.addEventListener("click", (event) => {
+@@ -63,6 +89,11 @@ function initializeNavigation() {
+       return;
+     }
+ 
++    // 같은 페이지 앵커는 스르륵 내려가지 않고 곧바로 이동시킵니다.
++    if (link.hash && link.getAttribute("href").startsWith("#")) {
++      jumpWithoutScrollAnimation();
++    }
++
+     if (window.matchMedia("(max-width: 1060px)").matches) {
+       setMobileMenuState(false);
+     } else {
+@@ -864,9 +895,9 @@ function populateAlumniDetail(detail, member) {
+     createProfileField(
+       "재직처",
+       "Affiliation",
+-      affiliationValue || "재직처 확인 중",
++      affiliationValue,
+       "",
+-      affiliationValue || "Affiliation pending"
++      affiliationValue
+     ),
+     createProfileField("학위논문", "Thesis", member.thesis),
+     createProfileField("메일", "Email", privateDetail.email, "mailto:"),
+@@ -923,11 +954,7 @@ function createAlumniElements(member, index) {
+   const affiliationValue = String(member.work || "").trim();
+   const affiliation = document.createElement("span");
+   affiliation.className = "alumni-card-affiliation";
+-  setLocalizedContent(
+-    affiliation,
+-    affiliationValue || "재직처 확인 중",
+-    affiliationValue || "Affiliation pending"
+-  );
++  setLocalizedContent(affiliation, affiliationValue, affiliationValue);
+   button.append(affiliation);
+   card.append(button);
+ 
+diff --git a/style.css b/style.css
+index 1c2e650..8c24ad3 100644
+--- a/style.css
++++ b/style.css
+@@ -174,6 +174,13 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+   transform:translateY(0);
+ }
+ 
++/* 토글을 다시 눌러 접은 상태 — 포인터가 아직 위에 있어도 닫힌 채로 둡니다. */
++.menu-item.is-collapsed > .submenu{
++  opacity:0;
++  visibility:hidden;
++  transform:translateY(-7px);
++}
++
+ .submenu a{
+   display:block;
+   padding:10px 12px;
+@@ -1738,7 +1745,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+   inset:0;
+   width:100%;
+   height:100%;
+-  object-fit:contain;
++  object-fit:cover;
+   object-position:center top;
+ }
+ 
+@@ -1820,6 +1827,13 @@ html[lang="en"] .member-name-english{
+   color:var(--ink-soft);
+   font-size:13.5px;
+   line-height:1.65;
++  /* 한 줄이든 세 줄이든 항상 두 줄 높이를 차지해 카드 높이가 어긋나지 않습니다. */
++  display:-webkit-box;
++  -webkit-box-orient:vertical;
++  -webkit-line-clamp:2;
++  line-clamp:2;
++  min-height:calc(1.65em * 2);
++  overflow:hidden;
+ }
+ 
+ .member-detail-panel{
+@@ -2140,7 +2154,9 @@ html[lang="en"] .alumni-card-name .member-name-english{
+ }
+ 
+ .alumni-card-affiliation{
++  display:block;
+   margin-top:12px;
++  min-height:1.55em;
+   color:var(--ink-soft);
+   font-size:12px;
+   line-height:1.55;
+@@ -2349,6 +2365,12 @@ html[lang="en"] .alumni-card-name .member-name-english{
+   visibility:visible;
+ }
+ 
++/* 토글을 다시 눌러 접은 상태는 hover/focus보다 우선합니다. */
++.nav .site-nav .menu-item.is-collapsed > .submenu{
++  opacity:0;
++  visibility:hidden;
++}
++
+ @media (max-width:1060px){
+   .nav .site-nav .menu{
+     display:block;
