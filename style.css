@@ -1554,11 +1554,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   color:var(--ink-soft);
   font-size:14px;
 }
-.join-support-copy{
-  color:var(--copper);
-  font-size:clamp(24px,3vw,34px);
-  font-weight:600;
-}
 .join-contact{background:#fff}
 .join-contact-card{
   display:grid;
