@@ -1,2 +1,6 @@
 soclab/
 Claude outputs/
+*.patch
+*.patch.txt
+doi_report-*.txt
+publications.backup-*.json
