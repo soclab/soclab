@@ -57,7 +57,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260907-11">
+  <link rel="stylesheet" href="style.css?v=20260907-12">
 </head>
 <body>
 
@@ -121,7 +121,6 @@
               <li><a href="#publications" data-kr="논문" data-en="Papers">논문</a></li>
               <li><a href="#books" data-kr="저서" data-en="Books">저서</a></li>
               <li><a href="#patents" data-kr="특허" data-en="Patents">특허</a></li>
-              <li><a href="#other-research-outputs" data-kr="기타 연구업적" data-en="Other Research Outputs">기타 연구업적</a></li>
             </ul>
           </li>
 
@@ -285,10 +284,10 @@
   </div>
 </section>
 
-<!-- ================= 최근 소식 =================
-     news.json에서 각 게시판의 최신 5건을 자동으로 채웁니다. 직접 손댈 것 없습니다.
+<!-- ================= 주요 안내 =================
+     공지사항과 연구업적은 news.json에서 최신 5건을 자동으로 채웁니다.
 -->
-<section class="news-highlights" id="news-highlights" aria-label="최근 소식">
+<section class="news-highlights" id="news-highlights" aria-label="주요 안내">
   <div class="wrap">
     <article class="highlight-board">
       <div class="highlight-head">
@@ -304,6 +303,19 @@
         <a class="highlight-more" href="#news" data-news-filter="achievement" data-kr="전체 보기" data-en="View all">전체 보기</a>
       </div>
       <ul class="highlight-list" data-highlight-board="achievement" aria-live="polite"></ul>
+    </article>
+
+    <article class="highlight-board highlight-support">
+      <div class="highlight-head">
+        <h2 data-kr="지원문의" data-en="Join Our Lab">지원문의</h2>
+      </div>
+      <div class="highlight-support-content">
+        <p class="highlight-support-copy"
+          data-kr="연구실 지원과 관련된 안내 사항을 확인하실 수 있습니다."
+          data-en="Find information about applying to join our lab.">연구실 지원과 관련된 안내 사항을 확인하실 수 있습니다.</p>
+        <a class="btn btn-primary highlight-support-button" href="join.html"
+          data-kr="지원 안내" data-en="Application Guide">지원 안내</a>
+      </div>
     </article>
 
   </div>
@@ -593,20 +605,6 @@
       </div>
     </details>
 
-    <details class="more-panel achievement-panel" id="other-research-outputs">
-      <summary>
-        <span data-kr="연구업적 더보기" data-en="View More Research Outputs">연구업적 더보기</span>
-        <span class="summary-icon" aria-hidden="true"></span>
-      </summary>
-      <div class="more-panel-body achievement-link-grid achievement-link-grid-single">
-        <a class="achievement-link-card" href="other-research-outputs.html">
-          <span class="item-label">OTHER RESEARCH OUTPUTS</span>
-          <h3 data-kr="기타 연구업적" data-en="Other Research Outputs">기타 연구업적</h3>
-          <p data-kr="학회 기고 및 한국반도체테스트학회지" data-en="Articles and KTC journal contributions">학회 기고 및 한국반도체테스트학회지</p>
-        </a>
-      </div>
-    </details>
-
     <div class="scholar-link-wrap">
       <a class="more scholar-link" href="https://scholar.google.com/citations?hl=ko&amp;user=lH49ndUAAAAJ" target="_blank" rel="noopener noreferrer">View Full List on Google Scholar →</a>
     </div>
@@ -704,11 +702,11 @@
   </div>
 </section>
 
-<!-- ================= 연락처 ================= -->
+<!-- ================= 연구실 문의 ================= -->
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
-      <h2 data-kr="연구실 지원과 문의" data-en="Contact">연구실 지원과 문의</h2>
+      <h2 data-kr="연구실 문의" data-en="Contact">연구실 문의</h2>
       <dl>
         <dt data-kr="연구실명" data-en="Lab">연구실명</dt>
         <dd data-kr="컴퓨터시스템 및 고신뢰성 SoC 연구실" data-en="Computer Systems and Reliable SoC Lab.">컴퓨터시스템 및 고신뢰성 SoC 연구실</dd>
@@ -725,9 +723,6 @@
         <dt data-kr="이메일" data-en="Email">이메일</dt>
         <dd><a href="mailto:comsys.yonsei@gmail.com">comsys.yonsei@gmail.com</a></dd>
       </dl>
-      <div class="contact-application-action">
-        <a class="btn contact-application-link" href="join.html" data-kr="지원 안내 자세히 보기 →" data-en="View Application Details →">지원 안내 자세히 보기 →</a>
-      </div>
     </div>
     <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps?q=%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90+%EC%A0%9C3%EA%B3%B5%ED%95%99%EA%B4%80&t=m&z=17&output=embed&hl=ko"

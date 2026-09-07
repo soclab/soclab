@@ -879,13 +879,13 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 }
  
 /* ------------------------------------------------------------
-   최근 소식 — 히어로 아래 요약 보드
+   주요 안내 — 히어로 아래 요약 보드
    ------------------------------------------------------------ */
 .news-highlights{padding:clamp(48px,6vw,72px) 0 clamp(40px,5vw,60px)}
 .news-highlights .wrap{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(28px,3.5vw,48px);
+  grid-template-columns:minmax(0,3fr) minmax(0,3fr) minmax(0,2fr);
+  gap:clamp(24px,2.8vw,40px);
   align-items:start;
 }
 .highlight-head{
@@ -931,8 +931,29 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 }
 .highlight-item:hover .highlight-item-title{color:var(--copper);text-decoration:underline}
 .highlight-empty{padding:14px 2px;font-size:14px;color:var(--ink-soft)}
+.highlight-support{display:flex;min-width:0;flex-direction:column}
+.highlight-support-content{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:16px 2px 0;
+}
+.highlight-support-copy{
+  margin:0 0 22px;
+  color:var(--ink-soft);
+  font-size:15px;
+  line-height:1.7;
+  word-break:keep-all;
+}
+.highlight-support-button{margin-top:auto}
+@media (max-width:980px){
+  .news-highlights .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .highlight-support{grid-column:1/-1}
+}
 @media (max-width:760px){
   .news-highlights .wrap{grid-template-columns:1fr}
+  .highlight-support{grid-column:auto}
 }
 
 /* ------------------------------------------------------------
@@ -1141,7 +1162,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .news-more-button[hidden]{display:none}
  
 /* ------------------------------------------------------------
-   연락처 + 지원 안내
+   연구실 문의
    ------------------------------------------------------------ */
 .contact{background:var(--bg-deep);color:#eaf2f9}
 .contact h2{color:#fff}
@@ -1154,16 +1175,6 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .contact-lang-en{display:none}
 html[lang="en"] .contact-lang-kr{display:none}
 html[lang="en"] .contact-lang-en{display:inline}
-.contact-application-action{margin-top:28px}
-.contact-application-link{
-  border-color:#fff;
-  background:#fff;
-  color:var(--copper);
-}
-.contact-application-link:hover{
-  border-color:#d6e4f0;
-  background:#eef3f8;
-}
 .contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
 .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
  
