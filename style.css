@@ -1089,6 +1089,16 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .contact-lang-en{display:none}
 html[lang="en"] .contact-lang-kr{display:none}
 html[lang="en"] .contact-lang-en{display:inline}
+.contact-application-action{margin-top:28px}
+.contact-application-link{
+  border-color:#fff;
+  background:#fff;
+  color:var(--copper);
+}
+.contact-application-link:hover{
+  border-color:#d6e4f0;
+  background:#eef3f8;
+}
 .contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
 .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
  
@@ -1413,6 +1423,162 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   .archive-back-link{
     display:none;
   }
+}
+
+/* ------------------------------------------------------------
+   연구실 지원 안내 페이지
+   ------------------------------------------------------------ */
+.join-page{background:#fff}
+.join-hero{
+  padding:clamp(56px,7vw,88px) 0 clamp(64px,8vw,96px);
+  background:var(--bg-soft);
+}
+.join-page-title{
+  margin-bottom:clamp(28px,4vw,44px);
+  color:var(--copper);
+  font-size:clamp(34px,5vw,56px);
+}
+.join-video{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  width:100%;
+  aspect-ratio:16/9;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:linear-gradient(135deg,#dce7f0,#adc7dc);
+  box-shadow:0 18px 42px rgba(58,99,137,.14);
+}
+.join-video img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .3s ease,filter .3s ease;
+}
+.join-video-play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:clamp(64px,8vw,88px);
+  aspect-ratio:1;
+  border:2px solid rgba(255,255,255,.9);
+  border-radius:50%;
+  background:rgba(58,99,137,.88);
+  box-shadow:0 8px 28px rgba(18,45,69,.28);
+  transform:translate(-50%,-50%);
+  transition:background .2s ease,transform .2s ease;
+}
+.join-video-play::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:53%;
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:16px solid #fff;
+  transform:translate(-42%,-50%);
+}
+.join-video:hover img{filter:brightness(.9);transform:scale(1.015)}
+.join-video:hover .join-video-play{background:var(--copper);transform:translate(-50%,-50%) scale(1.06)}
+.join-research{background:#fff}
+.join-research-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:34px;
+}
+.join-research-card{
+  min-height:150px;
+  padding:30px 26px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+}
+.join-research-number{
+  display:block;
+  margin-bottom:24px;
+  color:var(--copper-lt);
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.12em;
+}
+.join-research-card h3{color:var(--ink);font-size:22px}
+.join-information{background:var(--bg-soft)}
+.join-info-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);
+  gap:24px;
+}
+.join-info-card{
+  padding:clamp(28px,4vw,42px);
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+}
+.join-info-card h2{font-size:clamp(24px,3vw,32px)}
+.join-info-card h3{
+  margin:28px 0 12px;
+  color:var(--copper);
+  font-size:17px;
+}
+.join-course-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  list-style:none;
+}
+.join-course-list li{
+  padding:7px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#f8fafc;
+  color:var(--ink-soft);
+  font-size:14px;
+}
+.join-support-copy{
+  color:var(--copper);
+  font-size:clamp(24px,3vw,34px);
+  font-weight:600;
+}
+.join-contact{background:#fff}
+.join-contact-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:32px;
+  padding:clamp(30px,5vw,52px);
+  border-radius:12px;
+  background:var(--bg-deep);
+  color:#eaf2f9;
+}
+.join-contact-card h2{color:#fff}
+.join-contact-card h2::after{background:#7da9cd}
+.join-contact-details{
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr);
+  gap:10px 16px;
+}
+.join-contact-details dt{color:#b9d0e4}
+.join-contact-details a{border-bottom:1px solid #7da9cd}
+.join-email-button{
+  white-space:nowrap;
+  border-color:#fff;
+  background:#fff;
+  color:var(--copper);
+}
+.join-email-button:hover{background:#eef3f8}
+
+@media (max-width:760px){
+  .join-research-grid,
+  .join-info-grid{grid-template-columns:1fr}
+  .join-contact-card{grid-template-columns:1fr}
+  .join-email-button{justify-self:start}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .join-video img,
+  .join-video-play{transition:none}
+  .join-video:hover img{transform:none}
 }
 
 .member-group{
