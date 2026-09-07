@@ -930,26 +930,24 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
   display:flex;
   align-items:center;
   justify-content:center;
-  height:56px;
+  height:64px;
   filter:none;
   opacity:1;
 }
-.partner-logo-tall{height:88px}
-.partner-logo img{max-width:220px;max-height:100%;width:auto;height:auto}
-.partner-logo-asrc img{max-width:245px}
-.partner-logo-bk21{height:64px}
-.partner-logo-bk21 img{max-width:360px}
-.partner-logo-koreatest img{max-width:300px}
+.partner-logo-tall{height:96px}
+.partner-logo img{max-width:240px;max-height:100%;width:auto;height:auto}
+.partner-logo-asrc img{max-width:270px}
+.partner-logo-bk21 img{max-width:340px}
+.partner-logo-koreatest img{width:420px;max-width:100%}
 
 @media (max-width:760px){
   .partner-list{gap:26px 32px}
-  .partner-logo{height:46px}
-  .partner-logo-tall{height:68px}
-  .partner-logo img{max-width:170px}
-  .partner-logo-asrc img{max-width:215px}
-  .partner-logo-bk21{height:54px}
-  .partner-logo-bk21 img{max-width:280px}
-  .partner-logo-koreatest img{max-width:260px}
+  .partner-logo{height:52px}
+  .partner-logo-tall{height:76px}
+  .partner-logo img{max-width:190px}
+  .partner-logo-asrc img{max-width:235px}
+  .partner-logo-bk21 img{max-width:300px}
+  .partner-logo-koreatest img{width:340px;max-width:100%}
 }
 
 /* ------------------------------------------------------------

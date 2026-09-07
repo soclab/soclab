@@ -1614,7 +1614,7 @@ function createNewsCard(item, index) {
   return { card, panel };
 }
 
-const NEWS_HIGHLIGHT_COUNT = 3;
+const NEWS_HIGHLIGHT_COUNT = 5;
 
 function createHighlightItem(item) {
   const entry = document.createElement("li");
