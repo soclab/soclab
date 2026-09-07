@@ -1,0 +1,34 @@
+diff --git a/index.html b/index.html
+index 94958a6..4ecda43 100644
+--- a/index.html
++++ b/index.html
+@@ -5,6 +5,29 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Computer Systems &amp; Reliable SoC Lab — Yonsei University</title>
+ <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실">
++<link rel="canonical" href="https://soc.yonsei.ac.kr/">
++
++<!-- ================= 링크 미리보기(카카오톡·슬랙·페이스북 등) =================
++     주소를 공유했을 때 뜨는 제목·설명·썸네일입니다.
++     썸네일을 바꾸려면 images/og-image.png(1200x630)를 교체하고 뒤의 ?v= 숫자를 올리세요.
++     캐시가 남아 옛 이미지가 보이면 각 서비스의 디버거에서 갱신해야 합니다.
++-->
++<meta property="og:type" content="website">
++<meta property="og:site_name" content="Computer Systems &amp; Reliable SoC Lab">
++<meta property="og:title" content="Computer Systems &amp; Reliable SoC Lab — Yonsei University">
++<meta property="og:description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실">
++<meta property="og:url" content="https://soc.yonsei.ac.kr/">
++<meta property="og:locale" content="ko_KR">
++<meta property="og:image" content="https://soc.yonsei.ac.kr/images/og-image.png?v=1">
++<meta property="og:image:secure_url" content="https://soc.yonsei.ac.kr/images/og-image.png?v=1">
++<meta property="og:image:type" content="image/png">
++<meta property="og:image:width" content="1200">
++<meta property="og:image:height" content="630">
++<meta property="og:image:alt" content="Computer Systems &amp; Reliable SoC Lab, 연세대학교 전기전자공학부">
++<meta name="twitter:card" content="summary_large_image">
++<meta name="twitter:title" content="Computer Systems &amp; Reliable SoC Lab — Yonsei University">
++<meta name="twitter:description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실">
++<meta name="twitter:image" content="https://soc.yonsei.ac.kr/images/og-image.png?v=1">
+ 
+ <!--
+   ============================================================
