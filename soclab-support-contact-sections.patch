@@ -1,0 +1,158 @@
+diff --git a/index.html b/index.html
+index 94d1af55378553e92e44c8d013fc13f29105ddc2..b236d05ba176a9bca958999467829882c16bad53 100644
+--- a/index.html
++++ b/index.html
+@@ -57,7 +57,7 @@
+ -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-11">
++  <link rel="stylesheet" href="style.css?v=20260907-12">
+ </head>
+ <body>
+ 
+@@ -285,10 +285,10 @@
+   </div>
+ </section>
+ 
+-<!-- ================= 최근 소식 =================
+-     news.json에서 각 게시판의 최신 5건을 자동으로 채웁니다. 직접 손댈 것 없습니다.
++<!-- ================= 주요 안내 =================
++     공지사항과 연구업적은 news.json에서 최신 5건을 자동으로 채웁니다.
+ -->
+-<section class="news-highlights" id="news-highlights" aria-label="최근 소식">
++<section class="news-highlights" id="news-highlights" aria-label="주요 안내">
+   <div class="wrap">
+     <article class="highlight-board">
+       <div class="highlight-head">
+@@ -306,6 +306,19 @@
+       <ul class="highlight-list" data-highlight-board="achievement" aria-live="polite"></ul>
+     </article>
+ 
++    <article class="highlight-board highlight-support">
++      <div class="highlight-head">
++        <h2 data-kr="지원문의" data-en="Join Our Lab">지원문의</h2>
++      </div>
++      <div class="highlight-support-content">
++        <p class="highlight-support-copy"
++          data-kr="연구실 지원과 관련된 안내 사항을 확인하실 수 있습니다."
++          data-en="Find information about applying to join our lab.">연구실 지원과 관련된 안내 사항을 확인하실 수 있습니다.</p>
++        <a class="btn btn-primary highlight-support-button" href="join.html"
++          data-kr="지원 안내" data-en="Application Guide">지원 안내</a>
++      </div>
++    </article>
++
+   </div>
+ </section>
+ 
+@@ -704,11 +717,11 @@
+   </div>
+ </section>
+ 
+-<!-- ================= 연락처 ================= -->
++<!-- ================= 연구실 문의 ================= -->
+ <section class="contact" id="contact">
+   <div class="wrap">
+     <div>
+-      <h2 data-kr="연구실 지원과 문의" data-en="Contact">연구실 지원과 문의</h2>
++      <h2 data-kr="연구실 문의" data-en="Contact">연구실 문의</h2>
+       <dl>
+         <dt data-kr="연구실명" data-en="Lab">연구실명</dt>
+         <dd data-kr="컴퓨터시스템 및 고신뢰성 SoC 연구실" data-en="Computer Systems and Reliable SoC Lab.">컴퓨터시스템 및 고신뢰성 SoC 연구실</dd>
+@@ -725,9 +738,6 @@
+         <dt data-kr="이메일" data-en="Email">이메일</dt>
+         <dd><a href="mailto:comsys.yonsei@gmail.com">comsys.yonsei@gmail.com</a></dd>
+       </dl>
+-      <div class="contact-application-action">
+-        <a class="btn contact-application-link" href="join.html" data-kr="지원 안내 자세히 보기 →" data-en="View Application Details →">지원 안내 자세히 보기 →</a>
+-      </div>
+     </div>
+     <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+       src="https://www.google.com/maps?q=%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90+%EC%A0%9C3%EA%B3%B5%ED%95%99%EA%B4%80&t=m&z=17&output=embed&hl=ko"
+@@ -745,4 +755,3 @@
+   <script src="script.js?v=20260907-3"></script>
+ </body>
+ </html>
+-
+diff --git a/style.css b/style.css
+index 036b80165f25364ea03cc87114841cb91ebea57d..698074f0bc4e12a013f59b2f97b2800e2bef299d 100644
+--- a/style.css
++++ b/style.css
+@@ -879,13 +879,13 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ }
+  
+ /* ------------------------------------------------------------
+-   최근 소식 — 히어로 아래 요약 보드
++   주요 안내 — 히어로 아래 요약 보드
+    ------------------------------------------------------------ */
+ .news-highlights{padding:clamp(48px,6vw,72px) 0 clamp(40px,5vw,60px)}
+ .news-highlights .wrap{
+   display:grid;
+-  grid-template-columns:repeat(2,minmax(0,1fr));
+-  gap:clamp(28px,3.5vw,48px);
++  grid-template-columns:minmax(0,3fr) minmax(0,3fr) minmax(0,2fr);
++  gap:clamp(24px,2.8vw,40px);
+   align-items:start;
+ }
+ .highlight-head{
+@@ -931,8 +931,29 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ }
+ .highlight-item:hover .highlight-item-title{color:var(--copper);text-decoration:underline}
+ .highlight-empty{padding:14px 2px;font-size:14px;color:var(--ink-soft)}
++.highlight-support{display:flex;min-width:0;flex-direction:column}
++.highlight-support-content{
++  display:flex;
++  flex:1;
++  flex-direction:column;
++  align-items:flex-start;
++  padding:16px 2px 0;
++}
++.highlight-support-copy{
++  margin:0 0 22px;
++  color:var(--ink-soft);
++  font-size:15px;
++  line-height:1.7;
++  word-break:keep-all;
++}
++.highlight-support-button{margin-top:auto}
++@media (max-width:980px){
++  .news-highlights .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
++  .highlight-support{grid-column:1/-1}
++}
+ @media (max-width:760px){
+   .news-highlights .wrap{grid-template-columns:1fr}
++  .highlight-support{grid-column:auto}
+ }
+ 
+ /* ------------------------------------------------------------
+@@ -1141,7 +1162,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ .news-more-button[hidden]{display:none}
+  
+ /* ------------------------------------------------------------
+-   연락처 + 지원 안내
++   연구실 문의
+    ------------------------------------------------------------ */
+ .contact{background:var(--bg-deep);color:#eaf2f9}
+ .contact h2{color:#fff}
+@@ -1154,16 +1175,6 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ .contact-lang-en{display:none}
+ html[lang="en"] .contact-lang-kr{display:none}
+ html[lang="en"] .contact-lang-en{display:inline}
+-.contact-application-action{margin-top:28px}
+-.contact-application-link{
+-  border-color:#fff;
+-  background:#fff;
+-  color:var(--copper);
+-}
+-.contact-application-link:hover{
+-  border-color:#d6e4f0;
+-  background:#eef3f8;
+-}
+ .contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
+ .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
+  
+@@ -2532,4 +2543,3 @@ html[lang="en"] .alumni-card-name .member-name-english{
+     border-right:0;
+   }
+ }
+-

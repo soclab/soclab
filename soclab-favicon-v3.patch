@@ -1,0 +1,21 @@
+diff --git a/index.html b/index.html
+index e2cecdb..b091e15 100644
+--- a/index.html
++++ b/index.html
+@@ -9,11 +9,11 @@
+ <meta name="theme-color" content="#3a6389">
+ 
+ <!-- 브라우저 탭 아이콘. favicon.ico는 사이트 최상단에 있어 하위 페이지에서도 자동으로 잡힙니다. -->
+-<link rel="icon" href="/favicon.ico" sizes="any">
+-<link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2">
+-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2">
+-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2">
++<link rel="icon" href="/favicon.ico?v=3" sizes="any">
++<link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=3">
++<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=3">
++<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=3">
++<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3">
+ 
+ <!-- ================= 링크 미리보기(카카오톡·슬랙·페이스북 등) =================
+      주소를 공유했을 때 뜨는 제목·설명·썸네일입니다.
