@@ -1,0 +1,837 @@
+diff --git a/index.html b/index.html
+index 1cf019b..ec5acf3 100644
+--- a/index.html
++++ b/index.html
+@@ -26,7 +26,7 @@
+ -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260905-16">
++  <link rel="stylesheet" href="style.css?v=20260905-17">
+ </head>
+ <body>
+ 
+@@ -156,14 +156,12 @@
+       </div>
+     </div>
+ 
+-    <!-- 대표 사진은 images/hero/main.jpg 업로드 시 자동으로 표시됩니다. -->
+-    <figure class="hero-media image-slot is-missing" data-image-slot>
+-      <img src="images/hero/main.jpg" alt="컴퓨터시스템 및 고신뢰성 SoC 연구실 대표 이미지">
+-      <div class="image-placeholder">
+-        <span class="placeholder-label">MAIN VISUAL</span>
+-        <strong data-kr="대표 연구 이미지 자리" data-en="Main Research Visual">대표 연구 이미지 자리</strong>
+-        <small>images/hero/main.jpg</small>
+-      </div>
++    <!-- 연구 키워드 그래프: research-keywords.json에서 자동으로 그립니다. -->
++    <figure class="hero-media hero-graph" id="keyword-graph" data-source="research-keywords.json?v=20260905-1">
++      <figcaption class="hero-graph-caption">
++        <span data-kr="연구 키워드 지도" data-en="Research keyword map">연구 키워드 지도</span>
++        <small data-kr="국제 논문 · 학술대회 · 특허 제목에서 추출" data-en="Extracted from journal, conference and patent titles">국제 논문 · 학술대회 · 특허 제목에서 추출</small>
++      </figcaption>
+     </figure>
+   </div>
+ </section>
+@@ -624,6 +622,6 @@
+   </div>
+ </footer>
+   
+-  <script src="script.js?v=20260905-16"></script>
++  <script src="script.js?v=20260905-17"></script>
+ </body>
+ </html>
+diff --git a/research-keywords.json b/research-keywords.json
+new file mode 100644
+index 0000000..a8bcfed
+--- /dev/null
++++ b/research-keywords.json
+@@ -0,0 +1,482 @@
++{
++ "meta": {
++  "width": 480,
++  "height": 300,
++  "corpus": 481,
++  "groups": {
++   "memory": "메모리 테스트 · 리페어",
++   "scan": "스캔 · 진단",
++   "3d": "3D-IC · TSV",
++   "soc": "SoC · 저전력"
++  },
++  "compactNodes": 14
++ },
++ "nodes": [
++  {
++   "id": "BIST",
++   "label": "BIST",
++   "group": "memory",
++   "count": 45,
++   "x": 202.8,
++   "y": 132.4,
++   "r": 14.0,
++   "cx": 190.4,
++   "cy": 88.1,
++   "cr": 18.0
++  },
++  {
++   "id": "Scan Chain",
++   "label": "Scan Chain",
++   "group": "scan",
++   "count": 39,
++   "x": 399.8,
++   "y": 141.0,
++   "r": 13.3,
++   "cx": 356.2,
++   "cy": 87.7,
++   "cr": 17.2
++  },
++  {
++   "id": "Fault Diagnosis",
++   "label": "Fault Diagnosis",
++   "group": "scan",
++   "count": 39,
++   "x": 431.5,
++   "y": 89.0,
++   "r": 13.3,
++   "cx": 421.5,
++   "cy": 108.2,
++   "cr": 17.2
++  },
++  {
++   "id": "Low-Power Test",
++   "label": "Low-Power Test",
++   "group": "soc",
++   "count": 37,
++   "x": 326.7,
++   "y": 182.2,
++   "r": 13.1,
++   "cx": 302.3,
++   "cy": 160.3,
++   "cr": 16.9
++  },
++  {
++   "id": "Redundancy Analysis",
++   "label": "Redundancy Analysis",
++   "group": "memory",
++   "count": 33,
++   "x": 52.1,
++   "y": 30.3,
++   "r": 12.6,
++   "cx": 91.4,
++   "cy": 108.7,
++   "cr": 16.3
++  },
++  {
++   "id": "3D IC",
++   "label": "3D IC",
++   "group": "3d",
++   "count": 32,
++   "x": 147.3,
++   "y": 221.1,
++   "r": 12.5,
++   "cx": 137.3,
++   "cy": 210.6,
++   "cr": 16.1
++  },
++  {
++   "id": "TSV",
++   "label": "TSV",
++   "group": "3d",
++   "count": 26,
++   "x": 81.5,
++   "y": 224.8,
++   "r": 11.7,
++   "cx": 176.3,
++   "cy": 277.2,
++   "cr": 15.1
++  },
++  {
++   "id": "Test Data Compression",
++   "label": "Test Compression",
++   "group": "soc",
++   "count": 24,
++   "x": 324.4,
++   "y": 265.5,
++   "r": 11.4,
++   "cx": 286.9,
++   "cy": 237.9,
++   "cr": 14.8
++  },
++  {
++   "id": "BIRA",
++   "label": "BIRA",
++   "group": "memory",
++   "count": 21,
++   "x": 122.9,
++   "y": 13.7,
++   "r": 11.0,
++   "cx": 100.8,
++   "cy": 33.3,
++   "cr": 14.2
++  },
++  {
++   "id": "Path Delay Test",
++   "label": "Path Delay Test",
++   "group": "scan",
++   "count": 20,
++   "x": 426,
++   "y": 30.3,
++   "r": 10.8,
++   "cx": 388.3,
++   "cy": 25.5,
++   "cr": 14.0
++  },
++  {
++   "id": "Test Pattern Generation",
++   "label": "ATPG",
++   "group": "scan",
++   "count": 16,
++   "x": 300.6,
++   "y": 99.7,
++   "r": 10.2,
++   "cx": 296.9,
++   "cy": 57.6,
++   "cr": 13.2
++  },
++  {
++   "id": "Reliability",
++   "label": "Reliability",
++   "group": "soc",
++   "count": 16,
++   "x": 232.6,
++   "y": 198.8,
++   "r": 10.2,
++   "cx": 335.2,
++   "cy": 278,
++   "cr": 13.2
++  },
++  {
++   "id": "Test Scheduling",
++   "label": "Test Scheduling",
++   "group": "3d",
++   "count": 15,
++   "x": 197.9,
++   "y": 286.3,
++   "r": 10.0,
++   "cx": 71.2,
++   "cy": 258.4,
++   "cr": 12.9
++  },
++  {
++   "id": "AI Accelerator",
++   "label": "AI Accelerator",
++   "group": "soc",
++   "count": 15,
++   "x": 427.2,
++   "y": 243.6,
++   "r": 10.0,
++   "cx": 402.2,
++   "cy": 219.1,
++   "cr": 12.9
++  },
++  {
++   "id": "SoC Test",
++   "label": "SoC Test",
++   "group": "soc",
++   "count": 12,
++   "x": 381.8,
++   "y": 282.2,
++   "r": 9.4
++  },
++  {
++   "id": "Spare Allocation",
++   "label": "Spare Allocation",
++   "group": "memory",
++   "count": 11,
++   "x": 113.9,
++   "y": 84.0,
++   "r": 9.2
++  },
++  {
++   "id": "Interconnect Test",
++   "label": "Interconnect",
++   "group": "3d",
++   "count": 11,
++   "x": 91.2,
++   "y": 278,
++   "r": 9.2
++  },
++  {
++   "id": "ECC",
++   "label": "ECC",
++   "group": "memory",
++   "count": 10,
++   "x": 77.8,
++   "y": 141.9,
++   "r": 9.0
++  },
++  {
++   "id": "Scan Chain Diagnosis",
++   "label": "Scan Diagnosis",
++   "group": "scan",
++   "count": 10,
++   "x": 363.3,
++   "y": 72.3,
++   "r": 9.0
++  },
++  {
++   "id": "Built-In Self-Repair",
++   "label": "BISR",
++   "group": "memory",
++   "count": 9,
++   "x": 136.9,
++   "y": 138.5,
++   "r": 8.7
++  },
++  {
++   "id": "DRAM",
++   "label": "DRAM",
++   "group": "memory",
++   "count": 9,
++   "x": 188.2,
++   "y": 50.9,
++   "r": 8.7
++  },
++  {
++   "id": "Design Error Diagnosis",
++   "label": "Design Error",
++   "group": "scan",
++   "count": 9,
++   "x": 364.2,
++   "y": 9.5,
++   "r": 8.7
++  },
++  {
++   "id": "Silicon Debug",
++   "label": "Silicon Debug",
++   "group": "scan",
++   "count": 9,
++   "x": 299.1,
++   "y": 26.2,
++   "r": 8.7
++  },
++  {
++   "id": "Yield Enhancement",
++   "label": "Yield",
++   "group": "soc",
++   "count": 8,
++   "x": 268.9,
++   "y": 247.5,
++   "r": 8.5
++  },
++  {
++   "id": "HBM",
++   "label": "HBM",
++   "group": "memory",
++   "count": 6,
++   "x": 54,
++   "y": 80.7,
++   "r": 8.0
++  }
++ ],
++ "links": [
++  {
++   "source": "Scan Chain",
++   "target": "Fault Diagnosis",
++   "weight": 14
++  },
++  {
++   "source": "Redundancy Analysis",
++   "target": "BIRA",
++   "weight": 12
++  },
++  {
++   "source": "BIST",
++   "target": "Low-Power Test",
++   "weight": 11
++  },
++  {
++   "source": "Fault Diagnosis",
++   "target": "Scan Chain Diagnosis",
++   "weight": 10
++  },
++  {
++   "source": "Scan Chain",
++   "target": "Scan Chain Diagnosis",
++   "weight": 8
++  },
++  {
++   "source": "Scan Chain",
++   "target": "Low-Power Test",
++   "weight": 8
++  },
++  {
++   "source": "BIRA",
++   "target": "Spare Allocation",
++   "weight": 7
++  },
++  {
++   "source": "3D IC",
++   "target": "TSV",
++   "weight": 7
++  },
++  {
++   "source": "3D IC",
++   "target": "Yield Enhancement",
++   "weight": 6
++  },
++  {
++   "source": "TSV",
++   "target": "Reliability",
++   "weight": 5
++  },
++  {
++   "source": "Redundancy Analysis",
++   "target": "Spare Allocation",
++   "weight": 4
++  },
++  {
++   "source": "Built-In Self-Repair",
++   "target": "HBM",
++   "weight": 4
++  },
++  {
++   "source": "Spare Allocation",
++   "target": "3D IC",
++   "weight": 4
++  },
++  {
++   "source": "ECC",
++   "target": "Reliability",
++   "weight": 4
++  },
++  {
++   "source": "Test Pattern Generation",
++   "target": "Low-Power Test",
++   "weight": 4
++  },
++  {
++   "source": "BIST",
++   "target": "Test Pattern Generation",
++   "weight": 3
++  },
++  {
++   "source": "BIST",
++   "target": "Interconnect Test",
++   "weight": 3
++  },
++  {
++   "source": "DRAM",
++   "target": "Reliability",
++   "weight": 3
++  },
++  {
++   "source": "Fault Diagnosis",
++   "target": "Path Delay Test",
++   "weight": 3
++  },
++  {
++   "source": "Test Scheduling",
++   "target": "SoC Test",
++   "weight": 3
++  },
++  {
++   "source": "Built-In Self-Repair",
++   "target": "TSV",
++   "weight": 2
++  },
++  {
++   "source": "Built-In Self-Repair",
++   "target": "Yield Enhancement",
++   "weight": 2
++  },
++  {
++   "source": "ECC",
++   "target": "HBM",
++   "weight": 2
++  },
++  {
++   "source": "DRAM",
++   "target": "Silicon Debug",
++   "weight": 2
++  },
++  {
++   "source": "Test Data Compression",
++   "target": "SoC Test",
++   "weight": 2
++  }
++ ],
++ "compactLinks": [
++  {
++   "source": "Scan Chain",
++   "target": "Fault Diagnosis",
++   "weight": 14
++  },
++  {
++   "source": "Redundancy Analysis",
++   "target": "BIRA",
++   "weight": 12
++  },
++  {
++   "source": "BIST",
++   "target": "Low-Power Test",
++   "weight": 11
++  },
++  {
++   "source": "Scan Chain",
++   "target": "Low-Power Test",
++   "weight": 8
++  },
++  {
++   "source": "3D IC",
++   "target": "TSV",
++   "weight": 7
++  },
++  {
++   "source": "TSV",
++   "target": "Reliability",
++   "weight": 5
++  },
++  {
++   "source": "Scan Chain",
++   "target": "Path Delay Test",
++   "weight": 4
++  },
++  {
++   "source": "Low-Power Test",
++   "target": "Test Pattern Generation",
++   "weight": 4
++  },
++  {
++   "source": "BIST",
++   "target": "Test Pattern Generation",
++   "weight": 3
++  },
++  {
++   "source": "Fault Diagnosis",
++   "target": "Path Delay Test",
++   "weight": 3
++  },
++  {
++   "source": "Fault Diagnosis",
++   "target": "AI Accelerator",
++   "weight": 2
++  },
++  {
++   "source": "Redundancy Analysis",
++   "target": "3D IC",
++   "weight": 2
++  },
++  {
++   "source": "3D IC",
++   "target": "Test Data Compression",
++   "weight": 2
++  },
++  {
++   "source": "Reliability",
++   "target": "AI Accelerator",
++   "weight": 2
++  }
++ ]
++}
+\ No newline at end of file
+diff --git a/script.js b/script.js
+index 5c45395..bd91379 100644
+--- a/script.js
++++ b/script.js
+@@ -2743,11 +2743,207 @@ async function initializeCourses() {
+   }
+ }
+ 
++/* ------------------------------------------------------------
++   연구 키워드 그래프 (히어로)
++   research-keywords.json의 노드/링크를 SVG 네트워크로 그립니다.
++   색은 단일 청색 계열의 순차 스케일이며, 진할수록 관련 논문이 많습니다.
++   ------------------------------------------------------------ */
++const KEYWORD_SVG_NS = "http://www.w3.org/2000/svg";
++const KEYWORD_RAMP = ["#6d97c1", "#5b88b2", "#4a7599", "#3a6389", "#2b4a67"];
++
++function keywordRampColor(count, maxCount) {
++  const ratio = maxCount > 0 ? Math.sqrt(count / maxCount) : 0;
++  const index = Math.min(
++    KEYWORD_RAMP.length - 1,
++    Math.floor(ratio * KEYWORD_RAMP.length)
++  );
++  return KEYWORD_RAMP[index];
++}
++
++function createSvgElement(name, attributes) {
++  const element = document.createElementNS(KEYWORD_SVG_NS, name);
++  Object.entries(attributes).forEach(([key, value]) => {
++    element.setAttribute(key, String(value));
++  });
++  return element;
++}
++
++const KEYWORD_COMPACT_WIDTH = 430;
++
++function renderKeywordGraph(container, graph) {
++  const width = Number(graph.meta?.width) || 480;
++  const height = Number(graph.meta?.height) || 360;
++  const allNodes = Array.isArray(graph.nodes) ? graph.nodes : [];
++
++  if (!allNodes.length) {
++    return;
++  }
++
++  // On narrow screens the labels would shrink below readable size, so the map
++  // keeps only the strongest keywords and draws them larger.
++  const compact = container.clientWidth < KEYWORD_COMPACT_WIDTH;
++  const nodes = (compact
++    ? allNodes.filter((node) => typeof node.cx === "number")
++    : allNodes
++  ).map((node) =>
++    compact
++      ? { ...node, x: node.cx, y: node.cy, r: node.cr }
++      : node
++  );
++  const links =
++    (compact
++      ? graph.compactLinks
++      : graph.links) || [];
++
++  container.classList.toggle("is-compact", compact);
++  container.dataset.compact = String(compact);
++
++  const byId = new Map(nodes.map((node) => [node.id, node]));
++  const maxCount = Math.max(...nodes.map((node) => Number(node.count) || 0));
++  const maxWeight = Math.max(1, ...links.map((link) => Number(link.weight) || 0));
++  const neighbours = new Map(nodes.map((node) => [node.id, new Set([node.id])]));
++
++  const svg = createSvgElement("svg", {
++    viewBox: "0 0 " + width + " " + height,
++    preserveAspectRatio: "xMidYMid meet",
++    role: "img",
++  });
++
++  const title = createSvgElement("title", {});
++  title.textContent =
++    document.documentElement.lang === "en"
++      ? "Research keyword map of the lab's publications"
++      : "연구실 출판물에서 추출한 연구 키워드 지도";
++  svg.append(title);
++
++  const linkLayer = createSvgElement("g", { class: "keyword-links" });
++  const nodeLayer = createSvgElement("g", { class: "keyword-nodes" });
++
++  links.forEach((link) => {
++    const source = byId.get(link.source);
++    const target = byId.get(link.target);
++    if (!source || !target) {
++      return;
++    }
++
++    neighbours.get(source.id).add(target.id);
++    neighbours.get(target.id).add(source.id);
++
++    const line = createSvgElement("line", {
++      x1: source.x,
++      y1: source.y,
++      x2: target.x,
++      y2: target.y,
++      "stroke-width": (
++        0.7 + 1.5 * ((Number(link.weight) || 1) / maxWeight)
++      ).toFixed(2),
++    });
++    line.dataset.source = source.id;
++    line.dataset.target = target.id;
++    linkLayer.append(line);
++  });
++
++  nodes.forEach((node) => {
++    const group = createSvgElement("g", { class: "keyword-node", tabindex: "0" });
++    group.dataset.id = node.id;
++
++    const onRight = node.x > width * 0.58;
++    const labelX = onRight ? node.x - node.r - 6 : node.x + node.r + 6;
++
++    const circle = createSvgElement("circle", {
++      cx: node.x,
++      cy: node.y,
++      r: node.r,
++      fill: keywordRampColor(Number(node.count) || 0, maxCount),
++    });
++
++    const label = createSvgElement("text", {
++      x: labelX,
++      y: node.y,
++      "text-anchor": onRight ? "end" : "start",
++      "dominant-baseline": "middle",
++    });
++    label.textContent = node.label || node.id;
++
++    const caption = createSvgElement("title", {});
++    caption.textContent =
++      (node.label || node.id) + " · " + (node.count || 0);
++    group.append(caption, circle, label);
++    nodeLayer.append(group);
++  });
++
++  svg.append(linkLayer, nodeLayer);
++
++  const setActive = (id) => {
++    svg.classList.toggle("is-focused", Boolean(id));
++    const related = id ? neighbours.get(id) : null;
++
++    nodeLayer.querySelectorAll(".keyword-node").forEach((element) => {
++      element.classList.toggle(
++        "is-dimmed",
++        Boolean(related) && !related.has(element.dataset.id)
++      );
++      element.classList.toggle("is-active", element.dataset.id === id);
++    });
++
++    linkLayer.querySelectorAll("line").forEach((line) => {
++      line.classList.toggle(
++        "is-active",
++        Boolean(id) &&
++          (line.dataset.source === id || line.dataset.target === id)
++      );
++    });
++  };
++
++  nodeLayer.querySelectorAll(".keyword-node").forEach((element) => {
++    element.addEventListener("mouseenter", () => setActive(element.dataset.id));
++    element.addEventListener("focus", () => setActive(element.dataset.id));
++    element.addEventListener("mouseleave", () => setActive(null));
++    element.addEventListener("blur", () => setActive(null));
++  });
++
++  container.querySelector("svg")?.remove();
++  container.prepend(svg);
++  container.classList.add("is-ready");
++}
++
++async function initializeKeywordGraph() {
++  const container = document.getElementById("keyword-graph");
++  if (!container) {
++    return;
++  }
++
++  try {
++    const response = await fetch(container.dataset.source, { cache: "no-cache" });
++    if (!response.ok) {
++      throw new Error("Keyword graph request failed: " + response.status);
++    }
++
++    const graph = await response.json();
++    renderKeywordGraph(container, graph);
++
++    let keywordResizeFrame = 0;
++    window.addEventListener("resize", () => {
++      window.cancelAnimationFrame(keywordResizeFrame);
++      keywordResizeFrame = window.requestAnimationFrame(() => {
++        const compact = container.clientWidth < KEYWORD_COMPACT_WIDTH;
++        if (String(compact) !== container.dataset.compact) {
++          renderKeywordGraph(container, graph);
++        }
++      });
++    });
++  } catch (error) {
++    container.remove();
++    console.error(error);
++  }
++}
++
+ function initializePage() {
+   initializeNavigation();
+   initializeLanguageSwitcher();
+   initializeSectionHighlighting();
+   initializeImageSlots();
++  initializeKeywordGraph();
+   initializeMembers();
+   initializeProjects();
+   initializeNews();
+diff --git a/style.css b/style.css
+index 60f84a9..e7f3354 100644
+--- a/style.css
++++ b/style.css
+@@ -382,7 +382,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ .btn-primary:hover{background:#2d4f6e}
+ .btn-ghost{border-color:var(--copper);color:var(--copper);background:#fff}
+ .btn-ghost:hover{background:#eef3f8}
+-@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero h1{white-space:normal}}
++@media (max-width:1024px){.hero .wrap{grid-template-columns:1fr}.hero h1{white-space:normal}}
+  
+ /* ------------------------------------------------------------
+    연구 분야
+@@ -2081,6 +2081,80 @@ html[lang="en"] .alumni-card-name .member-name-english{
+   box-shadow:0 20px 46px rgba(45,79,110,.12);
+ }
+ 
++.hero-graph{
++  position:relative;
++  display:flex;
++  flex-direction:column;
++  justify-content:flex-end;
++  padding:0;
++  background:
++    linear-gradient(180deg,#ffffff 0%,#f6f9fc 100%);
++}
++
++.hero-graph svg{
++  position:absolute;
++  inset:10px 10px 46px;
++  width:auto;
++  height:auto;
++}
++
++.keyword-links line{
++  stroke:#c6d9e9;
++  transition:stroke .18s ease,opacity .18s ease;
++}
++
++.keyword-links line.is-active{stroke:var(--copper);}
++
++.hero-graph svg.is-focused .keyword-links line{opacity:.35}
++.hero-graph svg.is-focused .keyword-links line.is-active{opacity:1}
++
++.keyword-node{cursor:default;outline:none}
++
++.keyword-node circle{
++  stroke:#fff;
++  stroke-width:1.6;
++  transition:opacity .18s ease;
++}
++
++.keyword-node text{
++  font-family:"IBM Plex Sans KR",var(--font-sans);
++  font-size:12px;
++  font-weight:500;
++  fill:var(--ink-soft);
++  paint-order:stroke;
++  stroke:#fff;
++  stroke-width:2.6px;
++  stroke-linejoin:round;
++  pointer-events:none;
++  transition:fill .18s ease,opacity .18s ease;
++}
++
++.hero-graph.is-compact .keyword-node text{font-size:15px}
++
++.keyword-node.is-dimmed{opacity:.28}
++.keyword-node.is-active text{fill:var(--copper);font-weight:600}
++.keyword-node:focus-visible circle{stroke:var(--copper);stroke-width:2.4}
++
++.hero-graph-caption{
++  position:relative;
++  z-index:1;
++  display:flex;
++  flex-direction:column;
++  gap:2px;
++  margin:0;
++  padding:0 16px 12px;
++  color:var(--copper);
++  font-size:12.5px;
++  font-weight:600;
++  letter-spacing:-.01em;
++}
++
++.hero-graph-caption small{
++  font-size:12px;
++  font-weight:400;
++  color:var(--ink-soft);
++}
++
+ .image-slot{
+   position:relative;
+ }

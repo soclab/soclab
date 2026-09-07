@@ -1,0 +1,42 @@
+diff --git a/index.html b/index.html
+index 5b2b5fe..90a870b 100644
+--- a/index.html
++++ b/index.html
+@@ -26,7 +26,7 @@
+ -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-3">
++  <link rel="stylesheet" href="style.css?v=20260907-4">
+ </head>
+ <body>
+ 
+diff --git a/join.html b/join.html
+index 2e71518..2be719e 100644
+--- a/join.html
++++ b/join.html
+@@ -7,7 +7,7 @@
+   <meta name="description" content="연세대학교 컴퓨터시스템 및 고신뢰성 SoC 연구실의 연구 분야, 지원 요건, 연구지원 및 연락처 안내">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260907-3">
++  <link rel="stylesheet" href="style.css?v=20260907-4">
+ </head>
+ <body>
+   <header class="archive-page-nav">
+diff --git a/style.css b/style.css
+index 7826a94..65c5b74 100644
+--- a/style.css
++++ b/style.css
+@@ -1554,11 +1554,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+   color:var(--ink-soft);
+   font-size:14px;
+ }
+-.join-support-copy{
+-  color:var(--copper);
+-  font-size:clamp(24px,3vw,34px);
+-  font-weight:600;
+-}
+ .join-contact{background:#fff}
+ .join-contact-card{
+   display:grid;

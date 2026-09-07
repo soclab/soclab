@@ -1,0 +1,63 @@
+diff --git a/index.html b/index.html
+index 642b061..b3f84bf 100644
+--- a/index.html
++++ b/index.html
+@@ -26,7 +26,7 @@
+ -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+-  <link rel="stylesheet" href="style.css?v=20260906-2">
++  <link rel="stylesheet" href="style.css?v=20260906-3">
+ </head>
+ <body>
+ 
+@@ -669,19 +669,26 @@
+   </div>
+ </section>
+ 
+-<!-- ================= 연락처 =================
+-     채울 것: 주소, 대표 이메일(개인 아닌 연구실 대표 주소 권장), 전화, 지도 좌표.
+--->
++<!-- ================= 연락처 ================= -->
+ <section class="contact" id="contact">
+   <div class="wrap">
+     <div>
+-      <h2>연구실 지원과 문의</h2>
+-      <p>[[대학원 진학과 학부 인턴에 관심 있는 학생을 기다립니다. 아래 대표 메일로 관심 분야와 이력을 보내주세요.]]</p>
++      <h2 data-kr="연구실 지원과 문의" data-en="Contact">연구실 지원과 문의</h2>
+       <dl>
+-        <dt>주소</dt><dd>[[제N공학관 000호]]<br>연세대학교, 서울 03722</dd>
+-        <dt>이메일</dt><dd><a href="mailto:[[comsys@soc.yonsei.ac.kr]]">[[comsys@soc.yonsei.ac.kr]]</a></dd>
+-        <dt>전화</dt><dd>[[02-2123-0000]]</dd>
+-        <dt>소속</dt><dd>전기전자공학과</dd>
++        <dt data-kr="연구실명" data-en="Lab">연구실명</dt>
++        <dd data-kr="컴퓨터시스템 및 고신뢰성 SoC 연구실" data-en="Computer Systems and Reliable SoC Lab.">컴퓨터시스템 및 고신뢰성 SoC 연구실</dd>
++
++        <dt data-kr="주소" data-en="Address">주소</dt>
++        <dd>
++          <span class="contact-lang contact-lang-kr" lang="ko">[03722] 서울특별시 서대문구 연세로 50 연세대학교 제3공학관 <strong>C631호</strong> (C623호 – 강성호 교수님 연구실)</span>
++          <span class="contact-lang contact-lang-en" lang="en">[03722] Room C631 (Room <strong>C623</strong> – Professor's Office), 3rd Engineering Building, Yonsei Univ., Sinchon-dong, Seodaemun-gu, Seoul, Korea</span>
++        </dd>
++
++        <dt data-kr="전화" data-en="Phone">전화</dt>
++        <dd><a href="tel:+82221237726">02-2123-7726</a></dd>
++
++        <dt data-kr="이메일" data-en="Email">이메일</dt>
++        <dd><a href="mailto:comsys.yonsei@gmail.com">comsys.yonsei@gmail.com</a></dd>
+       </dl>
+     </div>
+     <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+diff --git a/style.css b/style.css
+index 33ed621..75f8946 100644
+--- a/style.css
++++ b/style.css
+@@ -1088,6 +1088,9 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
+ .contact dl{display:grid;grid-template-columns:90px 1fr;row-gap:14px;column-gap:16px;font-size:15.5px}
+ .contact dt{color:#b9d0e4}
+ .contact dd a{border-bottom:1px solid #7da9cd}
++.contact-lang-en{display:none}
++html[lang="en"] .contact-lang-kr{display:none}
++html[lang="en"] .contact-lang-en{display:inline}
+ .contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
+ .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
+  
