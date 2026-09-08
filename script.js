@@ -203,6 +203,10 @@ function setLanguage(language) {
     element.setAttribute("alt", element.dataset["alt" + selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)]);
   });
 
+  document.querySelectorAll("[data-placeholder-kr][data-placeholder-en]").forEach((element) => {
+    element.setAttribute("placeholder", element.dataset["placeholder" + selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)]);
+  });
+
   languageOptions.forEach((button) => {
     const isActive = button.dataset.lang === selectedLanguage;
     button.classList.toggle("active", isActive);
@@ -397,6 +401,12 @@ function createMemberPhoto(member, className) {
   if (Number.isFinite(requestedPhotoScale)) {
     const photoScale = Math.min(Math.max(requestedPhotoScale, 1), 1.25);
     frame.style.setProperty("--member-photo-scale", String(photoScale));
+  }
+
+  const requestedPhotoOffsetY = Number(member.photo_offset_y);
+  if (Number.isFinite(requestedPhotoOffsetY)) {
+    const photoOffsetY = Math.min(Math.max(requestedPhotoOffsetY, -10), 10);
+    frame.style.setProperty("--member-photo-offset-y", photoOffsetY + "%");
   }
 
   const placeholder = document.createElement("span");
@@ -2931,6 +2941,373 @@ async function initializeCourses() {
   }
 }
 
+const SITE_SEARCH_ARCHIVE_PAGES = [
+  ["international-conferences.html", "international-conference", "국제학술대회", "International Conference"],
+  ["domestic-journals.html", "domestic-journal", "국내논문지", "Domestic Journal"],
+  ["domestic-conferences.html", "domestic-conference", "국내학술대회", "Domestic Conference"],
+  ["books.html", "book", "저서", "Book"],
+  ["international-patents-granted.html", "patent", "국제특허등록", "International Patent Granted"],
+  ["international-patents-filed.html", "patent", "국제특허출원", "International Patent Application"],
+  ["domestic-patents-granted.html", "patent", "국내특허등록", "Domestic Patent Granted"],
+  ["domestic-patents-filed.html", "patent", "국내특허출원", "Domestic Patent Application"],
+].map(([page, kind, typeKr, typeEn]) => ({ page, kind, typeKr, typeEn }));
+
+const siteSearchState = {
+  entries: [],
+  loadPromise: null,
+};
+
+function normalizeSiteSearchText(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLocaleLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function collectSiteSearchValues(value, output = []) {
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectSiteSearchValues(item, output));
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach((item) => collectSiteSearchValues(item, output));
+  } else if (value !== null && value !== undefined) {
+    output.push(String(value));
+  }
+  return output;
+}
+
+function getSiteSearchTitle(record) {
+  const koreanTitle = String(
+    record.title_kr || record.title || record.name_kr || record.name || ""
+  ).trim();
+  const englishTitle = String(
+    record.title_en || record.title || record.name_en || koreanTitle
+  ).trim();
+  return {
+    kr: koreanTitle || englishTitle,
+    en: englishTitle || koreanTitle,
+  };
+}
+
+function getSiteSearchMeta(record, kind) {
+  const date = String(record.date || record.end || record.start || record.year || "").trim();
+  const koreanSource = String(
+    record.agency_kr || record.journal || record.conference || record.publisher || ""
+  ).trim();
+  const englishSource = String(
+    record.agency_en || record.journal || record.conference || record.publisher || koreanSource
+  ).trim();
+  const identifier = record.id === undefined || record.id === null
+    ? ""
+    : "#" + String(record.id);
+  const koreanParts = [koreanSource, date, identifier].filter(Boolean);
+  const englishParts = [englishSource, date, identifier].filter(Boolean);
+
+  if (kind === "book" && record.isbn) {
+    koreanParts.unshift("ISBN " + record.isbn);
+    englishParts.unshift("ISBN " + record.isbn);
+  }
+
+  return {
+    kr: koreanParts.join(" · "),
+    en: englishParts.join(" · "),
+  };
+}
+
+function getSiteSearchType(config, record) {
+  if (config.kind === "news") {
+    return getNewsFilterCategory(record.category) === "achievement"
+      ? { kr: "연구업적 소식", en: "Research Update" }
+      : { kr: "공지사항", en: "Notice" };
+  }
+
+  if (config.kind === "project") {
+    return record.status === "completed"
+      ? { kr: "기수행과제", en: "Completed Project" }
+      : { kr: "수행과제", en: "Current Project" };
+  }
+
+  return { kr: config.typeKr, en: config.typeEn };
+}
+
+function getSiteSearchHref(config, record) {
+  if (config.kind === "news") {
+    return "#news";
+  }
+  if (config.kind === "project") {
+    return record.status === "completed" ? "#completed-projects" : "#projects";
+  }
+  return config.page || "#publications";
+}
+
+function createSiteSearchEntry(record, config) {
+  const title = getSiteSearchTitle(record);
+  if (!title.kr && !title.en) {
+    return null;
+  }
+
+  const type = getSiteSearchType(config, record);
+  const meta = getSiteSearchMeta(record, config.kind);
+  const searchableText = collectSiteSearchValues(record)
+    .concat([title.kr, title.en, type.kr, type.en])
+    .join(" ");
+
+  return {
+    id: record.id,
+    kind: config.kind,
+    titleKr: title.kr,
+    titleEn: title.en,
+    typeKr: type.kr,
+    typeEn: type.en,
+    metaKr: meta.kr,
+    metaEn: meta.en,
+    href: getSiteSearchHref(config, record),
+    normalizedTitle: normalizeSiteSearchText(title.kr + " " + title.en),
+    normalizedText: normalizeSiteSearchText(searchableText),
+    sortDate: String(record.date || record.end || record.start || record.year || ""),
+  };
+}
+
+async function fetchSiteSearchRecords(source) {
+  const response = await fetch(source, { cache: "no-cache" });
+  if (!response.ok) {
+    throw new Error("Search data request failed: " + response.status + " (" + source + ")");
+  }
+  const records = await response.json();
+  if (!Array.isArray(records)) {
+    throw new TypeError("Search data must be an array: " + source);
+  }
+  return records;
+}
+
+async function loadArchiveSiteSearchEntries(config) {
+  const pageResponse = await fetch(config.page, { cache: "no-cache" });
+  if (!pageResponse.ok) {
+    throw new Error("Search archive request failed: " + pageResponse.status);
+  }
+
+  const archiveDocument = new DOMParser().parseFromString(
+    await pageResponse.text(),
+    "text/html"
+  );
+  const archive = archiveDocument.querySelector(
+    "#research-output-archive, #patent-years"
+  );
+  const declaredSources = archive
+    ? String(archive.dataset.sources || archive.dataset.source || "")
+    : "";
+  const sources = declaredSources
+    .split(",")
+    .map((source) => source.trim())
+    .filter(Boolean)
+    .map((source) => new URL(source, pageResponse.url).href);
+
+  if (!sources.length) {
+    throw new Error("No searchable data source found in " + config.page);
+  }
+
+  const datasets = await Promise.all(sources.map(fetchSiteSearchRecords));
+  return datasets
+    .flat()
+    .map((record) => createSiteSearchEntry(record, config))
+    .filter(Boolean);
+}
+
+function getMainSiteSearchSources() {
+  const newsContainer = document.getElementById("news-list");
+  const projectSection = document.getElementById("projects");
+  const publicationContainer = document.getElementById("publication-years");
+  return [
+    {
+      source: newsContainer ? newsContainer.dataset.source : "news.json",
+      kind: "news",
+      typeKr: "소식",
+      typeEn: "News",
+    },
+    {
+      source: projectSection ? projectSection.dataset.projectsSource : "projects.json",
+      kind: "project",
+      typeKr: "연구과제",
+      typeEn: "Project",
+    },
+    {
+      source: publicationContainer ? publicationContainer.dataset.source : "publications.json",
+      kind: "international-journal",
+      typeKr: "국제논문지",
+      typeEn: "International Journal",
+    },
+  ].filter((config) => config.source);
+}
+
+async function loadSiteSearchEntries() {
+  const directTasks = getMainSiteSearchSources().map(async (config) => {
+    const records = await fetchSiteSearchRecords(config.source);
+    return records
+      .filter((record) => config.kind !== "international-journal" || record.type === "international-journal")
+      .map((record) => createSiteSearchEntry(record, config))
+      .filter(Boolean);
+  });
+  const archiveTasks = SITE_SEARCH_ARCHIVE_PAGES.map(loadArchiveSiteSearchEntries);
+  const results = await Promise.allSettled([...directTasks, ...archiveTasks]);
+
+  results
+    .filter((result) => result.status === "rejected")
+    .forEach((result) => console.error(result.reason));
+
+  siteSearchState.entries = results
+    .filter((result) => result.status === "fulfilled")
+    .flatMap((result) => result.value);
+  return siteSearchState.entries;
+}
+
+function scoreSiteSearchEntry(entry, query, terms) {
+  if (!terms.every((term) => entry.normalizedText.includes(term))) {
+    return -1;
+  }
+
+  let score = 20;
+  if (entry.normalizedTitle === query) {
+    score += 200;
+  } else if (entry.normalizedTitle.startsWith(query)) {
+    score += 130;
+  } else if (entry.normalizedTitle.includes(query)) {
+    score += 90;
+  }
+  terms.forEach((term) => {
+    if (entry.normalizedTitle.includes(term)) {
+      score += 25;
+    }
+  });
+  return score;
+}
+
+function createSiteSearchResult(entry) {
+  const item = document.createElement("li");
+  const link = document.createElement("a");
+  link.className = "site-search-result-link";
+  link.href = entry.href;
+  const type = document.createElement("span");
+  type.className = "site-search-result-type";
+  setLocalizedContent(type, entry.typeKr, entry.typeEn);
+  const title = document.createElement("strong");
+  title.className = "site-search-result-title";
+  setLocalizedContent(title, entry.titleKr, entry.titleEn);
+  link.append(type, title);
+
+  if (entry.metaKr || entry.metaEn) {
+    const meta = document.createElement("span");
+    meta.className = "site-search-result-meta";
+    setLocalizedContent(meta, entry.metaKr, entry.metaEn);
+    link.append(meta);
+  }
+
+  if (entry.kind === "news") {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openNewsItem(entry.id);
+    });
+  } else if (entry.href.startsWith("#")) {
+    link.addEventListener("click", jumpWithoutScrollAnimation);
+  }
+
+  item.append(link);
+  return item;
+}
+
+function renderSiteSearchResults(entries, query) {
+  const resultsContainer = document.getElementById("site-search-results");
+  const status = document.getElementById("site-search-status");
+  if (!resultsContainer || !status) {
+    return;
+  }
+
+  resultsContainer.hidden = false;
+  resultsContainer.replaceChildren();
+  if (!entries.length) {
+    setLocalizedContent(
+      status,
+      "‘" + query + "’에 대한 검색 결과가 없습니다.",
+      "No results found for ‘" + query + "’."
+    );
+    return;
+  }
+
+  const visibleEntries = entries.slice(0, 60);
+  setLocalizedContent(
+    status,
+    "‘" + query + "’ 검색 결과 " + entries.length + "건",
+    entries.length + " results for ‘" + query + "’"
+  );
+  const summary = document.createElement("p");
+  summary.className = "site-search-result-summary";
+  setLocalizedContent(
+    summary,
+    entries.length > visibleEntries.length
+      ? "관련도 높은 결과 " + visibleEntries.length + "건을 표시합니다."
+      : "검색 결과를 선택하면 해당 자료로 이동합니다.",
+    entries.length > visibleEntries.length
+      ? "Showing the " + visibleEntries.length + " most relevant results."
+      : "Select a result to open the related content."
+  );
+  const list = document.createElement("ol");
+  list.className = "site-search-result-list";
+  visibleEntries.forEach((entry) => list.append(createSiteSearchResult(entry)));
+  resultsContainer.append(summary, list);
+}
+
+function initializeSiteSearch() {
+  const form = document.getElementById("site-search-form");
+  const input = document.getElementById("site-search-input");
+  const status = document.getElementById("site-search-status");
+  if (!form || !input || !status) {
+    return;
+  }
+
+  siteSearchState.loadPromise = loadSiteSearchEntries().then((entries) => {
+    setLocalizedContent(
+      status,
+      "공지사항, 과제, 논문 및 연구업적 " + entries.length + "건을 검색할 수 있습니다.",
+      "Search across " + entries.length + " notices, projects, papers, and research outputs."
+    );
+    return entries;
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const originalQuery = input.value.trim();
+    const query = normalizeSiteSearchText(originalQuery);
+    if (!query) {
+      input.focus();
+      setLocalizedContent(status, "검색어를 입력해 주세요.", "Enter a search term.");
+      return;
+    }
+
+    setLocalizedContent(status, "검색 중입니다.", "Searching.");
+    try {
+      const entries = await siteSearchState.loadPromise;
+      const terms = query.split(" ").filter(Boolean);
+      const matches = entries
+        .map((entry) => ({ entry, score: scoreSiteSearchEntry(entry, query, terms) }))
+        .filter((match) => match.score >= 0)
+        .sort((first, second) => {
+          if (first.score !== second.score) {
+            return second.score - first.score;
+          }
+          return second.entry.sortDate.localeCompare(first.entry.sortDate);
+        })
+        .map((match) => match.entry);
+      renderSiteSearchResults(matches, originalQuery);
+    } catch (error) {
+      setLocalizedContent(
+        status,
+        "검색 자료를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "The search index could not be loaded. Please try again later."
+      );
+      console.error(error);
+    }
+  });
+}
+
 function initializeHeroWordCloud() {
   const wordCloud = document.querySelector("[data-hero-wordcloud]");
   if (!wordCloud) {
@@ -3066,6 +3443,7 @@ function initializePage() {
   initializePatents();
   initializeResearchOutputs();
   initializeCourses();
+  initializeSiteSearch();
 }
 
 document.addEventListener("DOMContentLoaded", initializePage);

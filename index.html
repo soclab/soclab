@@ -57,7 +57,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260908-3">
+  <link rel="stylesheet" href="style.css?v=20260908-4">
 </head>
 <body>
 
@@ -691,6 +691,23 @@
 -->
 <section id="news" class="band">
   <div class="wrap">
+    <div class="site-search" id="site-search">
+      <p class="site-search-eyebrow">SEARCH BOARD</p>
+      <h2 data-kr="통합 검색" data-en="Search the Lab">통합 검색</h2>
+      <form class="site-search-form" id="site-search-form" role="search">
+        <label class="sr-only" for="site-search-input" data-kr="검색어" data-en="Search query">검색어</label>
+        <span class="site-search-icon" aria-hidden="true"></span>
+        <input id="site-search-input" name="q" type="search" autocomplete="off"
+          placeholder="공지사항, 과제, 논문 등을 검색하세요"
+          data-placeholder-kr="공지사항, 과제, 논문 등을 검색하세요"
+          data-placeholder-en="Search notices, projects, papers, and more">
+        <button type="submit" data-kr="검색" data-en="Search">검색</button>
+      </form>
+      <p class="site-search-status" id="site-search-status" aria-live="polite"
+        data-kr="검색 자료를 준비하는 중입니다." data-en="Preparing the search index.">검색 자료를 준비하는 중입니다.</p>
+      <div class="site-search-results" id="site-search-results" aria-live="polite" hidden></div>
+    </div>
+
     <p class="eyebrow">NEWS + UPDATES</p>
     <h2 data-kr="소식" data-en="News">소식</h2>
     <div class="filters">
@@ -739,10 +756,9 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Computer Systems &amp; Reliable SoC Lab, Yonsei University</span>
-    <span><a href="fun/minesweeper.html">지뢰찾기</a></span>
   </div>
 </footer>
   
-  <script src="script.js?v=20260908-2"></script>
+  <script src="script.js?v=20260908-3"></script>
 </body>
 </html>
