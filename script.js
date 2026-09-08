@@ -393,6 +393,12 @@ function createMemberPhoto(member, className) {
   const frame = document.createElement("figure");
   frame.className = className + " member-photo-frame";
 
+  const requestedPhotoScale = Number(member.photo_scale);
+  if (Number.isFinite(requestedPhotoScale)) {
+    const photoScale = Math.min(Math.max(requestedPhotoScale, 1), 1.25);
+    frame.style.setProperty("--member-photo-scale", String(photoScale));
+  }
+
   const placeholder = document.createElement("span");
   placeholder.className = "member-photo-placeholder";
   placeholder.textContent = getMemberInitials(member);

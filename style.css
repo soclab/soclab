@@ -993,25 +993,24 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
    ------------------------------------------------------------ */
 .partners{padding:0 0 clamp(34px,4vw,52px)}
 .partners .wrap{padding-top:clamp(28px,3.5vw,40px);border-top:1px solid var(--line)}
-/* 첫 로고와 마지막 로고를 본문 좌우 끝선에 맞추고,
-   가운데 로고는 각 열의 중심에 정렬합니다. */
+/* 실제 로고의 좌우 외곽을 기준으로 같은 간격을 유지합니다. */
 .partner-list{
   list-style:none;
   margin:0;
   padding:0;
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  display:flex;
+  flex-wrap:nowrap;
   align-items:center;
+  justify-content:space-between;
   gap:clamp(20px,2.5vw,36px);
 }
 .partner-list li{
   display:flex;
+  flex:0 1 auto;
   min-width:0;
   align-items:center;
   justify-content:center;
 }
-.partner-list li:first-child{justify-content:flex-start}
-.partner-list li:last-child{justify-content:flex-end}
 .partner-logo{
   display:flex;
   min-width:0;
@@ -1040,6 +1039,7 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 /* 태블릿에서는 두 줄 모두 좌우 끝선이 맞는 2열로 전환합니다. */
 @media (max-width:900px){
   .partner-list{
+    display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:28px 34px;
   }
@@ -1952,6 +1952,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   height:100%;
   object-fit:cover;
   object-position:center top;
+  transform:scale(var(--member-photo-scale,1));
+  transform-origin:center top;
 }
 
 .member-photo-placeholder{

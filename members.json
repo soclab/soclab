@@ -222,7 +222,8 @@
   "photo_in_backup": true,
   "post_title": "통합과정-김승태",
   "post_id": 6376,
-  "photo_new": "images/members/Seungtae_Kim.jpg"
+  "photo_new": "images/members/Seungtae_Kim.jpg",
+  "photo_scale": 1.07
  },
  {
   "group": "student",
@@ -392,7 +393,8 @@
   "photo_in_backup": true,
   "post_title": "박사과정- 유연우",
   "post_id": 5348,
-  "photo_new": "images/members/Younwoo_Yoo.jpg"
+  "photo_new": "images/members/Younwoo_Yoo.jpg",
+  "photo_scale": 1.07
  },
  {
   "group": "student",
@@ -664,7 +666,8 @@
   "photo_in_backup": true,
   "post_title": "인턴-권인아",
   "post_id": 6727,
-  "photo_new": "images/members/Ina_Gwon.jpg"
+  "photo_new": "images/members/Ina_Gwon.jpg",
+  "photo_scale": 1.07
  },
  {
   "group": "student",
