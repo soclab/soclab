@@ -333,6 +333,7 @@ function getMemberCategoryLabels(category) {
     "박사/통합과정": { kr: "박사/통합과정", en: "Ph.D. / Integrated Program" },
     "석사과정": { kr: "석사과정", en: "M.S. Program" },
     "인턴": { kr: "학부인턴", en: "Undergraduate Intern" },
+    "사무원": { kr: "사무원", en: "Administrative Staff" },
     "박사": { kr: "박사", en: "Ph.D." },
     "석사": { kr: "석사", en: "M.S." },
   };
@@ -611,15 +612,54 @@ function createCurrentMemberElements(member, index) {
   return { card, detail };
 }
 
+function createStaffMemberCard(member) {
+  const koreanName = String(member.name_kr || member.name_en || "").trim();
+  const englishName = String(member.name_en || member.name_kr || "").trim();
+  const positionKr = String(member.position_kr || "행정 담당").trim();
+  const positionEn = String(member.position_en || positionKr).trim();
+  const emailAddress = String(member.email || "").trim();
+  const card = document.createElement("article");
+  card.className = "staff-card";
+
+  const monogram = document.createElement("span");
+  monogram.className = "staff-card-monogram";
+  monogram.textContent = getMemberInitials(member);
+  monogram.setAttribute("aria-hidden", "true");
+
+  const content = document.createElement("div");
+  content.className = "staff-card-content";
+  const name = document.createElement("h4");
+  name.className = "staff-card-name";
+  setLocalizedContent(name, koreanName, englishName);
+  const position = document.createElement("p");
+  position.className = "staff-card-position";
+  setLocalizedContent(position, positionKr, positionEn);
+  content.append(name, position);
+
+  if (emailAddress) {
+    const email = document.createElement("a");
+    email.className = "staff-card-email";
+    email.href = "mailto:" + emailAddress;
+    email.textContent = emailAddress;
+    content.append(email);
+  }
+
+  card.append(monogram, content);
+  return card;
+}
+
 function renderCurrentMembers(members) {
   document.querySelectorAll("[data-member-category]").forEach((container) => {
     const category = container.dataset.memberCategory;
+    const isStaffCategory = category === "사무원";
     const categoryMembers = members
       .filter(
         (member) =>
           member &&
           member.category === category &&
-          !["faculty", "staff", "alumni"].includes(member.group)
+          (isStaffCategory
+            ? member.group === "staff"
+            : !["faculty", "staff", "alumni"].includes(member.group))
       )
       .sort(
         (first, second) =>
@@ -633,10 +673,18 @@ function renderCurrentMembers(members) {
       empty.className = "member-empty";
       setLocalizedContent(
         empty,
-        "현재 해당 과정의 구성원이 없습니다.",
-        "There are currently no members in this group."
+        isStaffCategory
+          ? "등록된 사무원 정보가 없습니다."
+          : "현재 해당 과정의 구성원이 없습니다.",
+        isStaffCategory
+          ? "No administrative staff information is available."
+          : "There are currently no members in this group."
       );
       fragment.append(empty);
+    } else if (isStaffCategory) {
+      categoryMembers.forEach((member) => {
+        fragment.append(createStaffMemberCard(member));
+      });
     } else {
       const cards = document.createDocumentFragment();
       const details = document.createDocumentFragment();

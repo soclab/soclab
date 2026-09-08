@@ -701,6 +701,16 @@
   "photo_new": "images/members/Jaewoo_Shin.jpg"
  },
  {
+  "group": "staff",
+  "category": "사무원",
+  "name_en": "",
+  "name_kr": "최승아",
+  "position_kr": "행정 담당",
+  "position_en": "Administrative Staff",
+  "email": "erc@yonsei.ac.kr",
+  "photo_new": ""
+ },
+ {
   "group": "alumni",
   "category": "연구교수",
   "name_en": "Byeongin Mun",
@@ -3263,22 +3273,5 @@
   "affiliation_verification": "provided",
   "private_detail_obfuscated": "v1.nFwbKhZzAuBLPXrn0CO0fXiUle6v4qR0FVOvdTQMb4_URHlhBgF9eSJe",
   "email_verification": "provided"
- },
- {
-  "group": "staff",
-  "category": "사무원",
-  "name_en": "Jinsil Jeong",
-  "name_kr": "정진실",
-  "email": "erc@yonsei.ac.kr",
-  "research_interests": "",
-  "thesis": "",
-  "graduation": "",
-  "work": "",
-  "hobby": "",
-  "photo": "wp-content/uploads/2014/08/phic.jpg",
-  "photo_in_backup": true,
-  "post_title": "사무원-정진실",
-  "post_id": 700,
-  "photo_new": "images/members/Jinsil_Jeong.jpg"
  }
 ]

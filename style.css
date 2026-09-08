@@ -1849,6 +1849,67 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   font-size:21px;
 }
 
+.staff-list{
+  display:grid;
+  grid-template-columns:minmax(0,520px);
+}
+
+.staff-card{
+  display:flex;
+  min-width:0;
+  align-items:center;
+  gap:20px;
+  padding:20px 22px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+}
+
+.staff-card-monogram{
+  display:grid;
+  flex:0 0 68px;
+  aspect-ratio:1;
+  place-items:center;
+  border-radius:50%;
+  background:#eef3f8;
+  color:var(--copper);
+  font-size:24px;
+  font-weight:600;
+}
+
+.staff-card-content{min-width:0}
+
+.staff-card-name{
+  margin:0;
+  color:var(--ink);
+  font-size:18px;
+  font-weight:600;
+}
+
+.staff-card-position{
+  margin:4px 0 0;
+  color:var(--ink-soft);
+  font-size:14.5px;
+}
+
+.staff-card-email{
+  display:inline-block;
+  max-width:100%;
+  margin-top:10px;
+  border-bottom:1px solid var(--line-mid);
+  color:var(--copper);
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+
+.staff-card-email:hover{color:#2d4f6e}
+
+@media (max-width:600px){
+  .staff-list{grid-template-columns:1fr}
+  .staff-card{gap:16px;padding:18px}
+  .staff-card-monogram{flex-basis:58px;font-size:21px}
+}
+
 .person{
   min-width:0;
 }
