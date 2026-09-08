@@ -993,26 +993,25 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
    ------------------------------------------------------------ */
 .partners{padding:0 0 clamp(34px,4vw,52px)}
 .partners .wrap{padding-top:clamp(28px,3.5vw,40px);border-top:1px solid var(--line)}
-/* 로고 폭이 제각각이라 균등 그리드에 넣으면 로고 사이 간격이 달라 보입니다.
-   flex + gap으로 두면 인접한 로고 사이 거리가 항상 같습니다. */
+/* 첫 로고와 마지막 로고를 본문 좌우 끝선에 맞추고,
+   가운데 로고는 각 열의 중심에 정렬합니다. */
 .partner-list{
   list-style:none;
   margin:0;
   padding:0;
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
   align-items:center;
-  justify-content:center;
-  gap:clamp(30px,3.4vw,50px);
+  gap:clamp(20px,2.5vw,36px);
 }
 .partner-list li{
   display:flex;
-  flex:0 0 auto;
   min-width:0;
-  max-width:100%;
   align-items:center;
   justify-content:center;
 }
+.partner-list li:first-child{justify-content:flex-start}
+.partner-list li:last-child{justify-content:flex-end}
 .partner-logo{
   display:flex;
   min-width:0;
@@ -1038,15 +1037,15 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .partner-logo-koreatest img{width:245px}
 .partner-logo-tall img{width:100px;max-height:94px}
 
-/* 한 줄에 넷이 더 들어가지 않는 폭부터 3+1로 외따로 떨어지지 않도록 2+2로 나눕니다. */
+/* 태블릿에서는 두 줄 모두 좌우 끝선이 맞는 2열로 전환합니다. */
 @media (max-width:900px){
   .partner-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:28px 34px;
   }
 
-  .partner-list li{
-    flex:0 0 calc(50% - 17px);
-  }
+  .partner-list li:nth-child(odd){justify-content:flex-start}
+  .partner-list li:nth-child(even){justify-content:flex-end}
 }
 
 @media (max-width:760px){
@@ -1060,11 +1059,16 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 
 @media (max-width:600px){
   .partner-list{
+    grid-template-columns:1fr;
     gap:26px;
   }
 
-  .partner-list li{
-    flex:0 0 100%;
+  .partner-list li,
+  .partner-list li:first-child,
+  .partner-list li:last-child,
+  .partner-list li:nth-child(odd),
+  .partner-list li:nth-child(even){
+    justify-content:center;
   }
 }
 
@@ -1199,16 +1203,21 @@ h2::after{content:"";display:block;width:40px;height:3px;background:var(--line-m
 .contact{background:var(--bg-deep);color:#eaf2f9}
 .contact h2{color:#fff}
 .contact h2::after{background:#7da9cd}
-.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-@media (max-width:820px){.contact .wrap{grid-template-columns:1fr}}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:48px}
+@media (max-width:820px){
+  .contact .wrap{grid-template-columns:1fr}
+}
 .contact dl{display:grid;grid-template-columns:90px 1fr;row-gap:14px;column-gap:16px;font-size:15.5px}
 .contact dt{color:#b9d0e4}
 .contact dd a{border-bottom:1px solid #7da9cd}
 .contact-lang-en{display:none}
 html[lang="en"] .contact-lang-kr{display:none}
 html[lang="en"] .contact-lang-en{display:inline}
-.contact .map{aspect-ratio:4/3;border:0;border-radius:8px;width:100%;filter:grayscale(.3)}
+.contact .map{display:block;width:100%;height:auto;min-height:0;align-self:stretch;border:0;border-radius:8px;filter:grayscale(.3)}
 .contact p{color:#d6e4f0;max-width:48ch;margin-bottom:24px}
+@media (max-width:820px){
+  .contact .map{height:clamp(220px,48vw,320px)}
+}
  
 footer{padding:28px 0;font-size:13.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
@@ -1230,7 +1239,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 }
 
 .about-intro{
-  max-width:920px;
+  width:100%;
+  max-width:none;
   margin:40px 0 36px;
   color:var(--ink);
 }
@@ -2658,7 +2668,8 @@ html[lang="en"] .alumni-card-name .member-name-english{
 }
 
 .about-article{
-  max-width:920px;
+  width:100%;
+  max-width:none;
   color:var(--ink);
 }
 
