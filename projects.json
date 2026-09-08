@@ -1,41 +1,5 @@
 [
  {
-  "id": 206,
-  "title_en": "Development of AI-Based Autonomous Diagnostic Technology for Predictive Maintenance of Next-Generation HBM Hybrid Test Equipment",
-  "title_kr": "차세대 HBM Hybrid Test 장비의 예지보전을 위한 AI 기반 자율진단 기술 개발",
-  "start": "2026.04.01",
-  "end": "2029.12.31",
-  "agency_en": "Ministry of Trade, Industry and Energy",
-  "agency_kr": "산업통상자원부",
-  "source": "current_page",
-  "image_src": "홈페이지 과제 소개_뉴지보전.pdf",
-  "image": "images/projects/project_motie_hbm_hybrid_ai_diagnosis.png"
- },
- {
-  "id": 200,
-  "title_en": "Test Methodology Development for High Reliability Stacked Integrated Circuits",
-  "title_kr": "고신뢰성 적층 반도체를 위한 테스트 기법 개발",
-  "start": "2025.10.01",
-  "end": "2028.09.30",
-  "agency_en": "Samsung Electronics",
-  "agency_kr": "삼성전자",
-  "source": "current_page",
-  "image_src": "wp-content/uploads/2026/02/김성훈-삼성-과제.png",
-  "image": "images/projects/project_samsung_stacked_ic.png"
- },
- {
-  "id": 201,
-  "title_en": "Design-for-testability for In-Memory Computing in AI Semiconductor",
-  "title_kr": "메모리와 로직 반도체가 연동된 지능형 반도체 테스트 용이화 설계 기술",
-  "start": "2025.04.01",
-  "end": "2027.12.31",
-  "agency_en": "Ministry of Trade, Industry and Energy",
-  "agency_kr": "산업통상자원부",
-  "source": "current_page",
-  "image_src": "wp-content/uploads/2025/09/프레젠테이션2.png",
-  "image": "images/projects/project_motie_imc_dft.png"
- },
- {
   "id": 202,
   "title_en": "Plug & Play (P&P) Chiplet Integration Research Center",
   "title_kr": "플러그앤플레이(P&P) 칩렛 인티그레이션 연구센터",
@@ -45,7 +9,8 @@
   "agency_kr": "한국연구재단",
   "source": "current_page",
   "image_src": "wp-content/uploads/2025/09/ERC과제.png",
-  "image": "images/projects/project_nrf_chiplet_erc.png"
+  "image": "images/projects/project_nrf_chiplet_erc.png",
+  "status": "ongoing"
  },
  {
   "id": 203,
@@ -57,7 +22,78 @@
   "agency_kr": "산업통상자원부",
   "source": "current_page",
   "image_src": "wp-content/uploads/2025/03/고신뢰성-확보를-위한-AI-기반-예지보전-기술개발.jpg",
-  "image": "images/projects/project_motie_ai_maintenance.jpg"
+  "image": "images/projects/project_motie_ai_maintenance.jpg",
+  "status": "ongoing"
+ },
+ {
+  "id": 200,
+  "title_en": "Test Methodology Development for High Reliability Stacked Integrated Circuits",
+  "title_kr": "고신뢰성 적층 반도체를 위한 테스트 기법 개발",
+  "start": "2025.10.01",
+  "end": "2028.09.30",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2026/02/김성훈-삼성-과제.png",
+  "image": "images/projects/project_samsung_stacked_ic.png",
+  "status": "ongoing"
+ },
+ {
+  "id": 206,
+  "title_en": "Standards-Based High-Reliability Test Architecture for Heterogeneous Die Stacking",
+  "title_kr": "이종 다이 적층 구조를 위한 표준 기반 고신뢰성 테스트 구조 개발",
+  "start": "2025.07.01",
+  "end": "2028.06.30",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "ongoing"
+ },
+ {
+  "id": 201,
+  "title_en": "Design-for-testability for In-Memory Computing in AI Semiconductor",
+  "title_kr": "메모리와 로직 반도체가 연동된 지능형 반도체 테스트 용이화 설계 기술",
+  "start": "2025.04.01",
+  "end": "2027.12.31",
+  "agency_en": "Ministry of Trade, Industry and Energy",
+  "agency_kr": "산업통상자원부",
+  "source": "current_page",
+  "image_src": "wp-content/uploads/2025/09/프레젠테이션2.png",
+  "image": "images/projects/project_motie_imc_dft.png",
+  "status": "ongoing"
+ },
+ {
+  "id": 207,
+  "title_en": "Layout-Aware Scan Chain Diagnosis for Yield Improvement",
+  "title_kr": "수율 향상을 위한 Layout-Aware Scan Chain Diagnosis",
+  "start": "2020.09.01",
+  "end": "2027.09.30",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "ongoing"
+ },
+ {
+  "id": 208,
+  "title_en": "TSV Repair Architecture Minimizing Signal Delay",
+  "title_kr": "신호 지연을 최소화하는 TSV 수리 구조",
+  "start": "2023.03.01",
+  "end": "2027.06.30",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "ongoing"
+ },
+ {
+  "id": 211,
+  "title_en": "Pattern Generation and Core Technologies for High-Speed Test Equipment",
+  "title_kr": "High-Speed 테스트 장치를 위한 패턴 생성 및 기반기술 개발",
+  "start": "2024.04.01",
+  "end": "2027.03.31",
+  "agency_en": "SK hynix",
+  "agency_kr": "SK하이닉스",
+  "source": "university_list_2026",
+  "status": "ongoing"
  },
  {
   "id": 204,
@@ -69,7 +105,30 @@
   "agency_kr": "삼성전자",
   "source": "current_page",
   "image_src": "wp-content/uploads/2025/09/peri.png",
-  "image": "images/projects/project_samsung_nand_peri.png"
+  "image": "images/projects/project_samsung_nand_peri.png",
+  "status": "ongoing"
+ },
+ {
+  "id": 209,
+  "title_en": "High-Reliability Self-Test Technology for Automotive SoC",
+  "title_kr": "차량용 SoC를 위한 고신뢰성 자가 테스트 기술",
+  "start": "2022.03.01",
+  "end": "2027.02.28",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "ongoing"
+ },
+ {
+  "id": 210,
+  "title_en": "DFT-Based Test Methodology for Peripheral Circuits of Memory Semiconductors",
+  "title_kr": "메모리 반도체 Peri. 영역을 위한 DFT 기반 테스트 방법",
+  "start": "2023.03.01",
+  "end": "2027.02.28",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "ongoing"
  },
  {
   "id": 205,
@@ -81,7 +140,210 @@
   "agency_kr": "한국연구재단",
   "source": "current_page",
   "image_src": "wp-content/uploads/2023/01/Human-Resource.png",
-  "image": "images/projects/project_nrf_automotive_hr.png"
+  "image": "images/projects/project_nrf_automotive_hr.png",
+  "status": "ongoing"
+ },
+  {
+    "id": 212,
+    "title_en": "Development of AI-Based Autonomous Diagnostic Technology for Predictive Maintenance of Next-Generation HBM Hybrid Test Equipment",
+    "title_kr": "차세대 HBM Hybrid Test 장비의 예지보전을 위한 AI 기반 자율진단 기술 개발",
+    "start": "2026.04.01",
+    "end": "2029.12.31",
+    "agency_en": "Ministry of Trade, Industry and Energy",
+    "agency_kr": "산업통상자원부",
+    "source": "current_page",
+    "image_src": "홈페이지 과제 소개_뉴지보전.pdf",
+    "image": "images/projects/project_motie_hbm_hybrid_ai_diagnosis.png",
+    "status": "ongoing"
+  },
+ {
+  "id": 213,
+  "title_en": "Samsung Cluster Research Project: DRAM-Based Memory Hierarchy Design and Applications",
+  "title_kr": "삼성전자 클러스터 연구과제: DRAM 기반 메모리 계층구조 설계 및 응용",
+  "start": "2020.09.01",
+  "end": "2025.12.31",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "completed"
+ },
+ {
+  "id": 214,
+  "title_en": "Samsung Cluster Research Project: PIM Core Technology and System Development",
+  "title_kr": "삼성전자 클러스터 연구과제: PIM Core Technology and System Development",
+  "start": "2017.04.01",
+  "end": "2025.12.31",
+  "agency_en": "Samsung Electronics",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "status": "completed"
+ },
+ {
+  "id": 107,
+  "title_en": "",
+  "title_kr": "테스트 비용 절감을 위한 인공지능 기반의 테스터 기술",
+  "start": "2023.07.01",
+  "end": "2025.12.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 108,
+  "title_en": "",
+  "title_kr": "인-메모리 컴퓨팅의 로버스트니스 향상을 위한 반도체 설계 기술",
+  "start": "2019.03.01",
+  "end": "2025.02.28",
+  "agency_en": "",
+  "agency_kr": "한국연구재단",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 109,
+  "title_en": "",
+  "title_kr": "초고속 메모리 시스템(CK 8GHz DQ 16Gbps) 장비 구조 개발",
+  "start": "2022.04.01",
+  "end": "2024.12.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 110,
+  "title_en": "",
+  "title_kr": "SoC 반도체의 고품질 병렬 테스트 장비의 원천 기술 개발",
+  "start": "2022.04.01",
+  "end": "2024.12.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 111,
+  "title_en": "",
+  "title_kr": "메모리향 RTL 기반 DFT 방법론 최적화",
+  "start": "2020.11.01",
+  "end": "2024.11.30",
+  "agency_en": "",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 112,
+  "title_en": "",
+  "title_kr": "현장출동 요원용 신원확인 정보처리 기술 개발",
+  "start": "2018.07.01",
+  "end": "2023.07.31",
+  "agency_en": "",
+  "agency_kr": "한국연구재단",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 113,
+  "title_en": "",
+  "title_kr": "Statistical DRAM fault 모델링과 이에 기반한 fault 생성 기술",
+  "start": "2018.08.01",
+  "end": "2023.07.31",
+  "agency_en": "",
+  "agency_kr": "SK하이닉스",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 114,
+  "title_en": "",
+  "title_kr": "수율 향상을 위한 DFT 구조 설계",
+  "start": "2018.07.01",
+  "end": "2023.06.30",
+  "agency_en": "",
+  "agency_kr": "삼성전자",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 115,
+  "title_en": "",
+  "title_kr": "지능형 반도체를 위한 테스트 회로 설계 기술",
+  "start": "2020.05.01",
+  "end": "2022.12.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "",
+  "status": "completed"
+ },
+ {
+  "id": 105,
+  "title_en": "",
+  "title_kr": "Test Parallelism 확대를 위한 SoC Self-Test Methodology 개발",
+  "start": "2015.07.01",
+  "end": "2021.12.31",
+  "agency_en": "",
+  "agency_kr": "삼성전자(주)",
+  "source": "기수행과제1.htm",
+  "status": "completed"
+ },
+ {
+  "id": 116,
+  "title_en": "",
+  "title_kr": "차세대 반도체 테스트 핀 감소를 위한 Built-Off Self-Test(BOST) 기술 연구",
+  "start": "2016.01.01",
+  "end": "2021.09.30",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "시작일은 학교 목록 기준 추정, 확인 필요",
+  "status": "completed"
+ },
+ {
+  "id": 117,
+  "title_en": "",
+  "title_kr": "TSV 기반 3D IC의 수율 향상을 위한 테스트 및 테스터 기술",
+  "start": "2015.01.01",
+  "end": "2020.05.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "시작일은 학교 목록 기준 추정, 확인 필요",
+  "status": "completed"
+ },
+ {
+  "id": 118,
+  "title_en": "",
+  "title_kr": "스마트 센서 SoC용 초저전압 회로 및 IP 설계 기술 개발",
+  "start": "2015.01.01",
+  "end": "2020.05.31",
+  "agency_en": "",
+  "agency_kr": "산업통상자원부",
+  "source": "university_list_2026",
+  "note": "시작일은 학교 목록 기준 추정, 확인 필요",
+  "status": "completed"
+ },
+ {
+  "id": 119,
+  "title_en": "",
+  "title_kr": "HPC 시스템 응용 프로그램 최적화를 위한 개발도구",
+  "start": "2016.01.01",
+  "end": "2018.12.31",
+  "agency_en": "",
+  "agency_kr": "정보통신기술진흥센터",
+  "source": "university_list_2026",
+  "note": "시작일은 학교 목록 기준 추정, 확인 필요",
+  "status": "completed"
  },
  {
   "id": 106,
@@ -91,17 +353,8 @@
   "end": "2018.04.30",
   "agency_en": "",
   "agency_kr": "미래창조과학부",
-  "source": "기수행과제1.htm"
- },
- {
-  "id": 105,
-  "title_en": "",
-  "title_kr": "Test Parallelism 확대를 위한 SoC Self-Test Methodology 개발",
-  "start": "2015.07.01",
-  "end": "2017.06.30",
-  "agency_en": "",
-  "agency_kr": "삼성전자(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 104,
@@ -111,7 +364,8 @@
   "end": "2016.07.31",
   "agency_en": "",
   "agency_kr": "SK하이닉스(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 103,
@@ -121,7 +375,8 @@
   "end": "2015.12.18",
   "agency_en": "",
   "agency_kr": "LG전자",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 102,
@@ -131,7 +386,8 @@
   "end": "2015.06.30",
   "agency_en": "",
   "agency_kr": "삼성전자(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 101,
@@ -141,7 +397,8 @@
   "end": "2015.04.30",
   "agency_en": "",
   "agency_kr": "한국연구재단",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 100,
@@ -151,7 +408,8 @@
   "end": "2015.03.31",
   "agency_en": "",
   "agency_kr": "SK하이닉스(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 99,
@@ -161,27 +419,8 @@
   "end": "2014.12.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
- },
- {
-  "id": 98,
-  "title_en": "",
-  "title_kr": "병렬비교 High speed I/O 테스트 기법 개발",
-  "start": "2012.04.01",
-  "end": "2014.03.31",
-  "agency_en": "",
-  "agency_kr": "SK하이닉스(주)",
-  "source": "기수행과제1.htm"
- },
- {
-  "id": 97,
-  "title_en": "",
-  "title_kr": "차세대 선행설계(메모리&System LSI)",
-  "start": "2012.04.01",
-  "end": "2014.03.31",
-  "agency_en": "",
-  "agency_kr": "SK하이닉스(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 96,
@@ -191,7 +430,30 @@
   "end": "2014.06.30",
   "agency_en": "",
   "agency_kr": "삼성전자(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
+ },
+ {
+  "id": 98,
+  "title_en": "",
+  "title_kr": "병렬비교 High speed I/O 테스트 기법 개발",
+  "start": "2012.04.01",
+  "end": "2014.03.31",
+  "agency_en": "",
+  "agency_kr": "SK하이닉스(주)",
+  "source": "기수행과제1.htm",
+  "status": "completed"
+ },
+ {
+  "id": 97,
+  "title_en": "",
+  "title_kr": "차세대 선행설계(메모리&System LSI)",
+  "start": "2012.04.01",
+  "end": "2014.03.31",
+  "agency_en": "",
+  "agency_kr": "SK하이닉스(주)",
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 95,
@@ -201,7 +463,8 @@
   "end": "2013.12.31",
   "agency_en": "",
   "agency_kr": "LG전자(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 94,
@@ -211,7 +474,8 @@
   "end": "2013.08.31",
   "agency_en": "",
   "agency_kr": "교육과학기술부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 93,
@@ -221,7 +485,8 @@
   "end": "2012.10.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 92,
@@ -231,7 +496,8 @@
   "end": "2011.07.31",
   "agency_en": "",
   "agency_kr": "삼성전자(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 91,
@@ -241,7 +507,8 @@
   "end": "2011.06.01",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 90,
@@ -251,7 +518,8 @@
   "end": "2011.03.31",
   "agency_en": "",
   "agency_kr": "하이닉스반도체(주)",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 89,
@@ -261,7 +529,8 @@
   "end": "2010.12.31",
   "agency_en": "",
   "agency_kr": "ETRI",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 88,
@@ -271,7 +540,8 @@
   "end": "2010.12.31",
   "agency_en": "",
   "agency_kr": "ETRI",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 87,
@@ -281,7 +551,8 @@
   "end": "2010.09.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 86,
@@ -291,7 +562,8 @@
   "end": "2010.09.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 85,
@@ -301,7 +573,8 @@
   "end": "2010.09.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 84,
@@ -311,7 +584,8 @@
   "end": "2010.09.30",
   "agency_en": "",
   "agency_kr": "(주)LG전자",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 83,
@@ -321,7 +595,8 @@
   "end": "2010.05.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 82,
@@ -331,7 +606,8 @@
   "end": "2010.04.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 81,
@@ -341,7 +617,8 @@
   "end": "2010.04.30",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제1.htm"
+  "source": "기수행과제1.htm",
+  "status": "completed"
  },
  {
   "id": 80,
@@ -351,7 +628,8 @@
   "end": "2010.03.31",
   "agency_en": "",
   "agency_kr": "(주)하이닉스 반도체",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 79,
@@ -361,7 +639,8 @@
   "end": "2010.01.25",
   "agency_en": "",
   "agency_kr": "지식경제부, ETRI",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 78,
@@ -371,7 +650,8 @@
   "end": "2009.12.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 77,
@@ -381,7 +661,8 @@
   "end": "2009.09.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 76,
@@ -391,7 +672,8 @@
   "end": "2009.08.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 75,
@@ -401,7 +683,8 @@
   "end": "2009.08.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 74,
@@ -411,17 +694,8 @@
   "end": "2009.07.31",
   "agency_en": "",
   "agency_kr": "LG전자",
-  "source": "기수행과제2.htm"
- },
- {
-  "id": 73,
-  "title_en": "",
-  "title_kr": "Deep Packet Inspection 엔진 설계",
-  "start": "2008.08.01",
-  "end": "2009.01.15",
-  "agency_en": "",
-  "agency_kr": "ETRI",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 72,
@@ -431,7 +705,8 @@
   "end": "2009.06.30",
   "agency_en": "",
   "agency_kr": "From30",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 71,
@@ -441,7 +716,8 @@
   "end": "2009.03.31",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 70,
@@ -451,7 +727,19 @@
   "end": "2009.02.28",
   "agency_en": "",
   "agency_kr": "한국과학재단",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
+ },
+ {
+  "id": 73,
+  "title_en": "",
+  "title_kr": "Deep Packet Inspection 엔진 설계",
+  "start": "2008.08.01",
+  "end": "2009.01.15",
+  "agency_en": "",
+  "agency_kr": "ETRI",
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 69,
@@ -461,7 +749,8 @@
   "end": "2008.12.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 68,
@@ -471,7 +760,8 @@
   "end": "2008.09.30",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 67,
@@ -481,7 +771,8 @@
   "end": "2008.08.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 66,
@@ -491,7 +782,8 @@
   "end": "2008.08.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제2.htm"
+  "source": "기수행과제2.htm",
+  "status": "completed"
  },
  {
   "id": 65,
@@ -501,7 +793,8 @@
   "end": "2008.08.31",
   "agency_en": "",
   "agency_kr": "지식경제부",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 64,
@@ -511,27 +804,8 @@
   "end": "2008.08.31",
   "agency_en": "",
   "agency_kr": "정보통신부",
-  "source": "기수행과제3.htm"
- },
- {
-  "id": 63,
-  "title_en": "",
-  "title_kr": "IT SOC 설계기술 연구 [6]",
-  "start": "2007.09.01",
-  "end": "2007.12.31",
-  "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제3.htm"
- },
- {
-  "id": 62,
-  "title_en": "",
-  "title_kr": "네트워크 온 칩 개발 요구사항 정의 및 개발 방법 연구",
-  "start": "2007.06.01",
-  "end": "2007.12.15",
-  "agency_en": "",
-  "agency_kr": "ETRI",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 61,
@@ -541,17 +815,8 @@
   "end": "2008.03.31",
   "agency_en": "",
   "agency_kr": "하이닉스",
-  "source": "기수행과제3.htm"
- },
- {
-  "id": 60,
-  "title_en": "",
-  "title_kr": "모바일용 소형 LCD 패널의 SOP 구동회로를 위한 DFT 기법 연구 [1]",
-  "start": "2007.04.01",
-  "end": "2008.03.30",
-  "agency_en": "",
-  "agency_kr": "삼성전자",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 59,
@@ -561,7 +826,8 @@
   "end": "2008.03.31",
   "agency_en": "",
   "agency_kr": "LG전자",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 58,
@@ -571,7 +837,19 @@
   "end": "2008.03.31",
   "agency_en": "",
   "agency_kr": "하이닉스",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
+ },
+ {
+  "id": 60,
+  "title_en": "",
+  "title_kr": "모바일용 소형 LCD 패널의 SOP 구동회로를 위한 DFT 기법 연구 [1]",
+  "start": "2007.04.01",
+  "end": "2008.03.30",
+  "agency_en": "",
+  "agency_kr": "삼성전자",
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 57,
@@ -581,7 +859,8 @@
   "end": "2008.02.28",
   "agency_en": "",
   "agency_kr": "과학재단",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 56,
@@ -591,7 +870,30 @@
   "end": "2008.02.28",
   "agency_en": "",
   "agency_kr": "FROM30",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
+ },
+ {
+  "id": 63,
+  "title_en": "",
+  "title_kr": "IT SOC 설계기술 연구 [6]",
+  "start": "2007.09.01",
+  "end": "2007.12.31",
+  "agency_en": "",
+  "agency_kr": "정보통신부",
+  "source": "기수행과제3.htm",
+  "status": "completed"
+ },
+ {
+  "id": 62,
+  "title_en": "",
+  "title_kr": "네트워크 온 칩 개발 요구사항 정의 및 개발 방법 연구",
+  "start": "2007.06.01",
+  "end": "2007.12.15",
+  "agency_en": "",
+  "agency_kr": "ETRI",
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 55,
@@ -601,17 +903,8 @@
   "end": "2007.11.30",
   "agency_en": "",
   "agency_kr": "정보통신부",
-  "source": "기수행과제3.htm"
- },
- {
-  "id": 54,
-  "title_en": "",
-  "title_kr": "내장 메모리용 자체테스트 설계기술",
-  "start": "2006.12.01",
-  "end": "2007.05.31",
-  "agency_en": "",
-  "agency_kr": "서울시",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 53,
@@ -621,7 +914,8 @@
   "end": "2007.08.31",
   "agency_en": "",
   "agency_kr": "산업자원부",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 52,
@@ -631,7 +925,8 @@
   "end": "2007.08.31",
   "agency_en": "",
   "agency_kr": "산업자원부",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 51,
@@ -641,7 +936,8 @@
   "end": "2007.08.31",
   "agency_en": "",
   "agency_kr": "정보통신부",
-  "source": "기수행과제3.htm"
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 50,
@@ -651,7 +947,19 @@
   "end": "2007.08.31",
   "agency_en": "",
   "agency_kr": "산업자원부",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
+ },
+ {
+  "id": 54,
+  "title_en": "",
+  "title_kr": "내장 메모리용 자체테스트 설계기술",
+  "start": "2006.12.01",
+  "end": "2007.05.31",
+  "agency_en": "",
+  "agency_kr": "서울시",
+  "source": "기수행과제3.htm",
+  "status": "completed"
  },
  {
   "id": 49,
@@ -661,7 +969,8 @@
   "end": "2007.02.28",
   "agency_en": "",
   "agency_kr": "과학재단",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 48,
@@ -671,7 +980,8 @@
   "end": "2007.02.28",
   "agency_en": "",
   "agency_kr": "FROM30",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 47,
@@ -681,27 +991,8 @@
   "end": "2007.02.28",
   "agency_en": "",
   "agency_kr": "하이닉스",
-  "source": "기수행과제4.htm"
- },
- {
-  "id": 46,
-  "title_en": "",
-  "title_kr": "유비쿼터스 네트워크 정보보호 기술 연구 [2]",
-  "start": "2005.09.01",
-  "end": "2006.08.31",
-  "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제4.htm"
- },
- {
-  "id": 45,
-  "title_en": "",
-  "title_kr": "SOC를 위한 DFM 코아 기술",
-  "start": "2005.09.01",
-  "end": "2006.08.31",
-  "agency_en": "",
-  "agency_kr": "산업자원부",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 44,
@@ -711,7 +1002,30 @@
   "end": "2006.10.31",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
+ },
+ {
+  "id": 46,
+  "title_en": "",
+  "title_kr": "유비쿼터스 네트워크 정보보호 기술 연구 [2]",
+  "start": "2005.09.01",
+  "end": "2006.08.31",
+  "agency_en": "",
+  "agency_kr": "정보통신부",
+  "source": "기수행과제4.htm",
+  "status": "completed"
+ },
+ {
+  "id": 45,
+  "title_en": "",
+  "title_kr": "SOC를 위한 DFM 코아 기술",
+  "start": "2005.09.01",
+  "end": "2006.08.31",
+  "agency_en": "",
+  "agency_kr": "산업자원부",
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 43,
@@ -721,27 +1035,8 @@
   "end": "2006.08.31",
   "agency_en": "",
   "agency_kr": "LG전자",
-  "source": "기수행과제4.htm"
- },
- {
-  "id": 42,
-  "title_en": "",
-  "title_kr": "SOC 테스팅 기술 연구",
-  "start": "2004.04.01",
-  "end": "2005.02.28",
-  "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제4.htm"
- },
- {
-  "id": 41,
-  "title_en": "",
-  "title_kr": "SOC 테스팅 기술 개발",
-  "start": "2003.10.01",
-  "end": "2004.03.31",
-  "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 40,
@@ -751,17 +1046,8 @@
   "end": "2006.08.31",
   "agency_en": "",
   "agency_kr": "과학재단",
-  "source": "기수행과제4.htm"
- },
- {
-  "id": 39,
-  "title_en": "",
-  "title_kr": "선행핵심 IP 및 플랫폼 연구개발",
-  "start": "2003.09.01",
-  "end": "2005.08.31",
-  "agency_en": "",
-  "agency_kr": "산업자원부",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 38,
@@ -771,17 +1057,30 @@
   "end": "2006.02.28",
   "agency_en": "",
   "agency_kr": "교육부",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
-  "id": 37,
+  "id": 39,
   "title_en": "",
-  "title_kr": "IP 설계 기준안 개발 : IP 테스트 기준안 개발",
-  "start": "2003.02.01",
-  "end": "2003.11.30",
+  "title_kr": "선행핵심 IP 및 플랫폼 연구개발",
+  "start": "2003.09.01",
+  "end": "2005.08.31",
   "agency_en": "",
-  "agency_kr": "SIPAC",
-  "source": "기수행과제4.htm"
+  "agency_kr": "산업자원부",
+  "source": "기수행과제4.htm",
+  "status": "completed"
+ },
+ {
+  "id": 42,
+  "title_en": "",
+  "title_kr": "SOC 테스팅 기술 연구",
+  "start": "2004.04.01",
+  "end": "2005.02.28",
+  "agency_en": "",
+  "agency_kr": "정보통신부",
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 36,
@@ -791,27 +1090,30 @@
   "end": "2004.11.30",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제4.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
-  "id": 35,
+  "id": 41,
   "title_en": "",
-  "title_kr": "생태계를 위한 네트워크 프로토콜 기술",
-  "start": "2001.12.01",
-  "end": "2002.09.30",
-  "agency_en": "",
-  "agency_kr": "한국산업기술평가원",
-  "source": "기수행과제5.htm"
- },
- {
-  "id": 34,
-  "title_en": "",
-  "title_kr": "SOC 설계 기술 연구 [1]",
-  "start": "2001.11.01",
-  "end": "2002.07.31",
+  "title_kr": "SOC 테스팅 기술 개발",
+  "start": "2003.10.01",
+  "end": "2004.03.31",
   "agency_en": "",
   "agency_kr": "정보통신부",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제4.htm",
+  "status": "completed"
+ },
+ {
+  "id": 37,
+  "title_en": "",
+  "title_kr": "IP 설계 기준안 개발 : IP 테스트 기준안 개발",
+  "start": "2003.02.01",
+  "end": "2003.11.30",
+  "agency_en": "",
+  "agency_kr": "SIPAC",
+  "source": "기수행과제4.htm",
+  "status": "completed"
  },
  {
   "id": 33,
@@ -821,37 +1123,19 @@
   "end": "2002.11.30",
   "agency_en": "",
   "agency_kr": "SIPAC",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 32,
+  "id": 35,
   "title_en": "",
-  "title_kr": "고성능 DSP 아키텍처 [2]",
-  "start": "2001.02.01",
-  "end": "2002.01.31",
+  "title_kr": "생태계를 위한 네트워크 프로토콜 기술",
+  "start": "2001.12.01",
+  "end": "2002.09.30",
   "agency_en": "",
-  "agency_kr": "삼성전자",
-  "source": "기수행과제5.htm"
- },
- {
-  "id": 31,
-  "title_en": "",
-  "title_kr": "웹가속기, System Intergration, Testbed 구조 및 성능 평가 [1]",
-  "start": "2000.12.01",
-  "end": "2001.08.31",
-  "agency_en": "",
-  "agency_kr": "산업자원부",
-  "source": "기수행과제5.htm"
- },
- {
-  "id": 30,
-  "title_en": "",
-  "title_kr": "인공 신경망 기반의 지능모듈 개발 [1]",
-  "start": "2000.12.01",
-  "end": "2001.08.31",
-  "agency_en": "",
-  "agency_kr": "산업자원부",
-  "source": "기수행과제5.htm"
+  "agency_kr": "한국산업기술평가원",
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
   "id": 29,
@@ -861,7 +1145,8 @@
   "end": "2002.08.31",
   "agency_en": "",
   "agency_kr": "28 \"상위수준 테스트합성\" 2000.9.1 - 2002.8.31.과학재단",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
   "id": 28,
@@ -871,17 +1156,19 @@
   "end": "2002.08.31",
   "agency_en": "",
   "agency_kr": "과학재단",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 27,
+  "id": 34,
   "title_en": "",
-  "title_kr": "HDR 기지국용 터보 복호기 구조 및 설계에 관한 연구",
-  "start": "2000.09.01",
-  "end": "2001.08.31",
+  "title_kr": "SOC 설계 기술 연구 [1]",
+  "start": "2001.11.01",
+  "end": "2002.07.31",
   "agency_en": "",
-  "agency_kr": "삼성전자",
-  "source": "기수행과제5.htm"
+  "agency_kr": "정보통신부",
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
   "id": 26,
@@ -891,27 +1178,52 @@
   "end": "2002.06.30",
   "agency_en": "",
   "agency_kr": "산업자원부",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 25,
+  "id": 32,
   "title_en": "",
-  "title_kr": "비동기 RISC 마이크로프로세서 연구 [3]",
-  "start": "1999.12.01",
-  "end": "2000.11.30",
+  "title_kr": "고성능 DSP 아키텍처 [2]",
+  "start": "2001.02.01",
+  "end": "2002.01.31",
   "agency_en": "",
-  "agency_kr": "학술진흥재단",
-  "source": "기수행과제5.htm"
+  "agency_kr": "삼성전자",
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 24,
+  "id": 31,
   "title_en": "",
-  "title_kr": "Reconfigurable 시스템 테스트를 위한 Boundary-scan BIST의 연구",
-  "start": "2000.03.01",
-  "end": "2000.10.31",
+  "title_kr": "웹가속기, System Intergration, Testbed 구조 및 성능 평가 [1]",
+  "start": "2000.12.01",
+  "end": "2001.08.31",
   "agency_en": "",
-  "agency_kr": "한국전자통신연구원",
-  "source": "기수행과제5.htm"
+  "agency_kr": "산업자원부",
+  "source": "기수행과제5.htm",
+  "status": "completed"
+ },
+ {
+  "id": 30,
+  "title_en": "",
+  "title_kr": "인공 신경망 기반의 지능모듈 개발 [1]",
+  "start": "2000.12.01",
+  "end": "2001.08.31",
+  "agency_en": "",
+  "agency_kr": "산업자원부",
+  "source": "기수행과제5.htm",
+  "status": "completed"
+ },
+ {
+  "id": 27,
+  "title_en": "",
+  "title_kr": "HDR 기지국용 터보 복호기 구조 및 설계에 관한 연구",
+  "start": "2000.09.01",
+  "end": "2001.08.31",
+  "agency_en": "",
+  "agency_kr": "삼성전자",
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
   "id": 23,
@@ -921,37 +1233,30 @@
   "end": "2001.07.31",
   "agency_en": "",
   "agency_kr": "베라테스트",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 22,
+  "id": 25,
   "title_en": "",
-  "title_kr": "저전력 SRAM BIST",
-  "start": "1999.03.01",
-  "end": "2000.02.28",
-  "agency_en": "",
-  "agency_kr": "삼성전자",
-  "source": "기수행과제5.htm"
- },
- {
-  "id": 21,
-  "title_en": "",
-  "title_kr": "내장된 메모리의 효율적인 테스팅에 관한 연구",
-  "start": "1998.12.01",
-  "end": "1999.11.30",
+  "title_kr": "비동기 RISC 마이크로프로세서 연구 [3]",
+  "start": "1999.12.01",
+  "end": "2000.11.30",
   "agency_en": "",
   "agency_kr": "학술진흥재단",
-  "source": "기수행과제5.htm"
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
-  "id": 20,
+  "id": 24,
   "title_en": "",
-  "title_kr": "비동기 RISC 마이크로프로세서 연구",
-  "start": "1998.01.01",
-  "end": "1999.11.30",
+  "title_kr": "Reconfigurable 시스템 테스트를 위한 Boundary-scan BIST의 연구",
+  "start": "2000.03.01",
+  "end": "2000.10.31",
   "agency_en": "",
-  "agency_kr": "학술진흥재단",
-  "source": "기수행과제6.htm"
+  "agency_kr": "한국전자통신연구원",
+  "source": "기수행과제5.htm",
+  "status": "completed"
  },
  {
   "id": 19,
@@ -961,17 +1266,41 @@
   "end": "2000.07.31",
   "agency_en": "",
   "agency_kr": "산업자원부/삼성전자",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
-  "id": 18,
+  "id": 22,
   "title_en": "",
-  "title_kr": "ASIC설계를 위한 원격 테스트 시스템",
-  "start": "1998.09.01",
-  "end": "1999.08.31",
+  "title_kr": "저전력 SRAM BIST",
+  "start": "1999.03.01",
+  "end": "2000.02.28",
   "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제6.htm"
+  "agency_kr": "삼성전자",
+  "source": "기수행과제5.htm",
+  "status": "completed"
+ },
+ {
+  "id": 21,
+  "title_en": "",
+  "title_kr": "내장된 메모리의 효율적인 테스팅에 관한 연구",
+  "start": "1998.12.01",
+  "end": "1999.11.30",
+  "agency_en": "",
+  "agency_kr": "학술진흥재단",
+  "source": "기수행과제5.htm",
+  "status": "completed"
+ },
+ {
+  "id": 20,
+  "title_en": "",
+  "title_kr": "비동기 RISC 마이크로프로세서 연구",
+  "start": "1998.01.01",
+  "end": "1999.11.30",
+  "agency_en": "",
+  "agency_kr": "학술진흥재단",
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 17,
@@ -981,7 +1310,19 @@
   "end": "1999.09.30",
   "agency_en": "",
   "agency_kr": "학술진흥재단",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
+ },
+ {
+  "id": 18,
+  "title_en": "",
+  "title_kr": "ASIC설계를 위한 원격 테스트 시스템",
+  "start": "1998.09.01",
+  "end": "1999.08.31",
+  "agency_en": "",
+  "agency_kr": "정보통신부",
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 16,
@@ -991,7 +1332,8 @@
   "end": "1999.08.31",
   "agency_en": "",
   "agency_kr": "한국과학재단",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 15,
@@ -1001,7 +1343,8 @@
   "end": "1999.06.30",
   "agency_en": "",
   "agency_kr": "연세대학교",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 14,
@@ -1011,7 +1354,8 @@
   "end": "1999.03.31",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 13,
@@ -1021,7 +1365,8 @@
   "end": "1999.02.28",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 12,
@@ -1031,17 +1376,8 @@
   "end": "1999.02.28",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제6.htm"
- },
- {
-  "id": 11,
-  "title_en": "",
-  "title_kr": "초고속 통신망을 이용한 MHEG-5 기반 Multimedia 업종별 기업안내 서비스 개발",
-  "start": "1997.07.01",
-  "end": "1998.06.30",
-  "agency_en": "",
-  "agency_kr": "정보통신부",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 10,
@@ -1051,7 +1387,8 @@
   "end": "1998.08.18",
   "agency_en": "",
   "agency_kr": "한국전력 기초전력공학공동연구소",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 9,
@@ -1061,7 +1398,19 @@
   "end": "1998.07.31",
   "agency_en": "",
   "agency_kr": "교육부",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
+ },
+ {
+  "id": 11,
+  "title_en": "",
+  "title_kr": "초고속 통신망을 이용한 MHEG-5 기반 Multimedia 업종별 기업안내 서비스 개발",
+  "start": "1997.07.01",
+  "end": "1998.06.30",
+  "agency_en": "",
+  "agency_kr": "정보통신부",
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 8,
@@ -1071,7 +1420,8 @@
   "end": "1998.05.31",
   "agency_en": "",
   "agency_kr": "산학협동재단",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 7,
@@ -1081,17 +1431,8 @@
   "end": "1998.02.28",
   "agency_en": "",
   "agency_kr": "삼성전자",
-  "source": "기수행과제6.htm"
- },
- {
-  "id": 6,
-  "title_en": "",
-  "title_kr": "SRAM의 내장된 자체 검사 기법에 관한 연구",
-  "start": "1996.02.01",
-  "end": "1997.01.31",
-  "agency_en": "",
-  "agency_kr": "삼성전자",
-  "source": "기수행과제6.htm"
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 5,
@@ -1101,7 +1442,8 @@
   "end": "1997.10.31",
   "agency_en": "",
   "agency_kr": "한국전자통신연구소",
-  "source": "기수행과제7.htm"
+  "source": "기수행과제7.htm",
+  "status": "completed"
  },
  {
   "id": 4,
@@ -1111,27 +1453,19 @@
   "end": "1997.07.31",
   "agency_en": "",
   "agency_kr": "대우전자",
-  "source": "기수행과제7.htm"
+  "source": "기수행과제7.htm",
+  "status": "completed"
  },
  {
-  "id": 3,
+  "id": 6,
   "title_en": "",
-  "title_kr": "고집적회로에 대한 경로 지연고장 시뮬레이터의 개발",
-  "start": "1995.09.01",
-  "end": "1996.08.31",
+  "title_kr": "SRAM의 내장된 자체 검사 기법에 관한 연구",
+  "start": "1996.02.01",
+  "end": "1997.01.31",
   "agency_en": "",
-  "agency_kr": "학술진흥재단",
-  "source": "기수행과제7.htm"
- },
- {
-  "id": 2,
-  "title_en": "",
-  "title_kr": "VLSI를 위한 검사입력 생성기 개발",
-  "start": "1995.06.01",
-  "end": "1996.05.31",
-  "agency_en": "",
-  "agency_kr": "연세대학교",
-  "source": "기수행과제7.htm"
+  "agency_kr": "삼성전자",
+  "source": "기수행과제6.htm",
+  "status": "completed"
  },
  {
   "id": 1,
@@ -1141,6 +1475,29 @@
   "end": "1996.12.19",
   "agency_en": "",
   "agency_kr": "학술진흥재단",
-  "source": "기수행과제7.htm"
+  "source": "기수행과제7.htm",
+  "status": "completed"
+ },
+ {
+  "id": 3,
+  "title_en": "",
+  "title_kr": "고집적회로에 대한 경로 지연고장 시뮬레이터의 개발",
+  "start": "1995.09.01",
+  "end": "1996.08.31",
+  "agency_en": "",
+  "agency_kr": "학술진흥재단",
+  "source": "기수행과제7.htm",
+  "status": "completed"
+ },
+ {
+  "id": 2,
+  "title_en": "",
+  "title_kr": "VLSI를 위한 검사입력 생성기 개발",
+  "start": "1995.06.01",
+  "end": "1996.05.31",
+  "agency_en": "",
+  "agency_kr": "연세대학교",
+  "source": "기수행과제7.htm",
+  "status": "completed"
  }
 ]
