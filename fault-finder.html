@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wafer Fault Finder — Computer Systems &amp; Reliable SoC Lab</title>
-  <meta name="description" content="Computer Systems &amp; Reliable SoC Lab의 웨이퍼 Fault 찾기 게임">
+  <title>Fault Detection Game — Computer Systems &amp; Reliable SoC Lab</title>
+  <meta name="description" content="Computer Systems &amp; Reliable SoC Lab의 Fault Detection Game">
   <meta name="theme-color" content="#3a6389">
   <meta name="robots" content="noindex, nofollow">
 
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="fault-game.css?v=20260909-1">
+  <link rel="stylesheet" href="fault-game.css?v=20260909-2">
 </head>
 <body>
   <header class="game-nav">
@@ -35,17 +35,19 @@
     <div class="game-wrap">
       <header class="game-heading">
         <p class="game-eyebrow">EASTER EGG · FAULT FINDER</p>
-        <h1>웨이퍼 Fault 찾기</h1>
-        <p class="game-lead">웨이퍼 속 결함을 피해 정상 다이를 모두 찾아보세요.</p>
+        <h1>Fault Detection Game</h1>
+        <p class="game-lead">웨이퍼 속 Fault를 판별하고 정상 다이를 모두 검사해 보세요.</p>
         <details class="game-help">
           <summary>게임 설명 보기</summary>
           <div class="game-help-body">
-            <p>숫자는 인접한 다이 8칸 안에 있는 Fault 수를 뜻합니다. Fault가 아닌 모든 다이를 열면 완료됩니다.</p>
+            <p>숫자는 인접한 다이 8칸 안에 있는 Fault 수를 나타냅니다. Fault로 의심되는 다이는 X로 표시하고, 나머지 정상 다이를 모두 열면 검출에 성공합니다.</p>
             <ul>
-              <li>PC: 왼쪽 클릭으로 열고, 오른쪽 클릭으로 깃발을 표시합니다.</li>
-              <li>모바일: ‘깃발 모드’를 켠 뒤 의심되는 다이를 누릅니다.</li>
-              <li>첫 번째로 여는 다이와 그 주변에는 Fault가 배치되지 않습니다.</li>
-              <li>완료 기록은 선택한 난이도의 공용 Top 10에 반영됩니다.</li>
+              <li>PC: 왼쪽 클릭으로 다이를 검사하고, 오른쪽 클릭으로 Fault 의심 다이에 X를 표시합니다.</li>
+              <li>모바일: ‘Fault 표시 모드’를 켠 뒤 의심되는 다이를 눌러 X를 표시합니다.</li>
+              <li>첫 번째로 검사하는 다이와 그 주변에는 Fault가 배치되지 않습니다.</li>
+              <li>Fault 다이를 직접 열면 검출에 실패합니다.</li>
+              <li>닉네임이나 난이도를 바꾸려면 ‘설정 변경’을 누르세요.</li>
+              <li>검출 성공 기록은 선택한 난이도의 공용 Top 10에 반영됩니다.</li>
             </ul>
           </div>
         </details>
@@ -102,7 +104,7 @@
 
           <div class="wafer-stage">
             <div class="wafer-shell difficulty-easy" id="wafer-shell">
-              <div class="wafer-board" id="wafer-board" role="grid" aria-label="웨이퍼 Fault 찾기 보드"></div>
+              <div class="wafer-board" id="wafer-board" role="grid" aria-label="Fault Detection Game 보드"></div>
               <div class="board-lock" id="board-lock">
                 <span class="board-lock-icon" aria-hidden="true"></span>
                 <strong>게임 시작을 눌러주세요</strong>
@@ -112,8 +114,8 @@
 
           <div class="board-actions">
             <button class="mode-button" id="flag-mode" type="button" aria-pressed="false">
-              <span aria-hidden="true">⚑</span>
-              <span id="flag-mode-label">깃발 모드: 끔</span>
+              <span class="fault-mode-symbol" aria-hidden="true">X</span>
+              <span id="flag-mode-label">Fault 표시 모드: 끔</span>
             </button>
             <button class="secondary-button" id="reset-game" type="button">같은 단계 다시 시작</button>
             <button class="text-button" id="change-settings" type="button">설정 변경</button>
@@ -142,6 +144,12 @@
     </div>
   </footer>
 
-  <script type="module" src="fault-game.js?v=20260909-1"></script>
+  <svg class="svg-symbols" aria-hidden="true" width="0" height="0">
+    <symbol id="fault-burst-symbol" viewBox="0 0 100 100">
+      <path d="M50 2 L58 23 L76 10 L74 32 L97 28 L80 46 L99 57 L76 62 L85 85 L62 75 L55 99 L44 77 L25 92 L27 68 L3 72 L20 52 L1 41 L25 37 L15 14 L39 25 Z"></path>
+    </symbol>
+  </svg>
+
+  <script type="module" src="fault-game.js?v=20260909-2"></script>
 </body>
 </html>

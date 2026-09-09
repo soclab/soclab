@@ -119,11 +119,17 @@ function createCells(difficulty) {
     for (let column = 0; column < config.size; column += 1) {
       const x = (column - center) / radiusScale;
       const y = (row - center) / radiusScale;
+      const halfCell = 1 / config.size;
+      const farthestCornerRadius = Math.hypot(
+        Math.abs(x) + halfCell,
+        Math.abs(y) + halfCell
+      );
       cells.push({
         index: row * config.size + column,
         row,
         column,
-        active: (x * x) + (y * y) <= 0.92,
+        // 다이의 중심뿐 아니라 네 모서리까지 웨이퍼 원 안에 들어오는 칸만 사용합니다.
+        active: farthestCornerRadius <= 1,
         mine: false,
         count: 0,
         revealed: false,
@@ -138,7 +144,7 @@ function createCells(difficulty) {
 function describeCell(cell) {
   const position = (cell.row + 1) + "행 " + (cell.column + 1) + "열";
   if (cell.flagged && !cell.revealed) {
-    return position + ", 깃발 표시됨";
+    return position + ", Fault로 표시됨";
   }
   if (!cell.revealed) {
     return position + ", 닫힌 다이";
@@ -150,6 +156,20 @@ function describeCell(cell) {
     return position + ", 인접 Fault " + cell.count + "개";
   }
   return position + ", 인접 Fault 없음";
+}
+
+function createFaultBurstIcon() {
+  const svgNamespace = "http://www.w3.org/2000/svg";
+  const xlinkNamespace = "http://www.w3.org/1999/xlink";
+  const icon = document.createElementNS(svgNamespace, "svg");
+  const symbolUse = document.createElementNS(svgNamespace, "use");
+  icon.classList.add("fault-burst");
+  icon.setAttribute("viewBox", "0 0 100 100");
+  icon.setAttribute("aria-hidden", "true");
+  symbolUse.setAttribute("href", "#fault-burst-symbol");
+  symbolUse.setAttributeNS(xlinkNamespace, "xlink:href", "#fault-burst-symbol");
+  icon.append(symbolUse);
+  return icon;
 }
 
 function updateCellElement(cell) {
@@ -166,14 +186,14 @@ function updateCellElement(cell) {
     element.classList.add("is-revealed");
     if (cell.mine) {
       element.classList.add(cell.exploded ? "is-exploded" : "is-mine");
-      element.textContent = "●";
+      element.append(createFaultBurstIcon());
     } else if (cell.count > 0) {
       element.dataset.count = String(cell.count);
       element.textContent = String(cell.count);
     }
   } else if (cell.flagged) {
     element.classList.add("is-flagged");
-    element.textContent = "⚑";
+    element.textContent = "X";
   }
 
   element.setAttribute("aria-label", describeCell(cell));
@@ -251,7 +271,7 @@ function beginTimer() {
 
 function syncFlagButton() {
   elements.flagButton.setAttribute("aria-pressed", String(state.flagMode));
-  elements.flagLabel.textContent = "깃발 모드: " + (state.flagMode ? "켬" : "끔");
+  elements.flagLabel.textContent = "Fault 표시 모드: " + (state.flagMode ? "켬" : "끔");
 }
 
 function syncControls() {
@@ -388,7 +408,7 @@ function toggleFlag(index) {
 
   const mineLimit = DIFFICULTIES[state.difficulty].mines;
   if (!cell.flagged && state.flaggedCount >= mineLimit) {
-    setMessage("사용할 수 있는 깃발을 모두 표시했습니다.");
+    setMessage("표시할 수 있는 Fault 수만큼 X를 모두 사용했습니다.");
     return;
   }
 
@@ -441,7 +461,60 @@ function finishLoss(explodedIndex) {
   });
   updateTimer();
   syncControls();
-  setMessage("Fault를 찾았습니다. 같은 단계에 다시 도전해 보세요.", "error");
+  setMessage("Fault 검출 실패 — 결함 다이를 정상 다이로 판정했습니다.", "error");
+}
+
+function getFirebaseErrorDetails(error) {
+  return {
+    code: String(error && error.code ? error.code : ""),
+    message: String(error && error.message ? error.message : "")
+  };
+}
+
+function getScoreSaveErrorMessage(error) {
+  const details = getFirebaseErrorDetails(error);
+  const combinedMessage = (details.code + " " + details.message).toLowerCase();
+
+  if (
+    combinedMessage.includes("cloud firestore api")
+    && (combinedMessage.includes("disabled") || combinedMessage.includes("not been used"))
+  ) {
+    return "게임은 완료했지만 기록을 저장하지 못했습니다. Firebase에서 Cloud Firestore 데이터베이스를 먼저 생성해 주세요.";
+  }
+  if (details.code.includes("auth/operation-not-allowed")) {
+    return "게임은 완료했지만 기록을 저장하지 못했습니다. Firebase Authentication에서 익명 로그인을 활성화해 주세요.";
+  }
+  if (details.code.includes("auth/unauthorized-domain")) {
+    return "게임은 완료했지만 기록을 저장하지 못했습니다. Firebase Authentication의 승인된 도메인에 soc.yonsei.ac.kr을 추가해 주세요.";
+  }
+  if (details.code.includes("permission-denied")) {
+    return "게임은 완료했지만 기록을 저장하지 못했습니다. Firestore 보안 규칙이 게시되었는지 확인해 주세요.";
+  }
+  if (details.code.includes("unavailable") || combinedMessage.includes("network")) {
+    return "게임은 완료했지만 네트워크 문제로 기록을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.";
+  }
+
+  const errorCode = details.code ? " (" + details.code + ")" : "";
+  return "게임은 완료했지만 기록을 저장하지 못했습니다. Firebase 설정을 확인해 주세요." + errorCode;
+}
+
+function getLeaderboardErrorMessage(error) {
+  const details = getFirebaseErrorDetails(error);
+  const combinedMessage = (details.code + " " + details.message).toLowerCase();
+
+  if (
+    combinedMessage.includes("cloud firestore api")
+    && (combinedMessage.includes("disabled") || combinedMessage.includes("not been used"))
+  ) {
+    return "Cloud Firestore 데이터베이스가 아직 생성되지 않았습니다.";
+  }
+  if (details.code.includes("permission-denied")) {
+    return "Firestore 보안 규칙이 순위표 읽기를 허용하지 않습니다.";
+  }
+  if (details.code.includes("unavailable") || combinedMessage.includes("network")) {
+    return "네트워크 문제로 순위표에 연결하지 못했습니다.";
+  }
+  return "순위표 서버에 연결하지 못했습니다. 게임은 계속할 수 있습니다.";
 }
 
 async function finishWin() {
@@ -463,17 +536,17 @@ async function finishWin() {
   const score = Math.max(1000, Math.round(state.elapsedMs));
   const nickname = state.nickname;
   const difficulty = state.difficulty;
-  setMessage("완료! " + formatDuration(score) + " · 공용 순위표에 기록하는 중입니다.", "success");
+  setMessage("Fault detection complete! 모든 고장 다이를 판별했습니다. " + formatDuration(score) + " · 기록 저장 중", "success");
 
   try {
     await saveScore({ nickname, difficulty, elapsedMs: score });
     if (state.roundId === completedRoundId && state.phase === "won") {
-      setMessage("완료! " + formatDuration(score) + " · 공용 순위표에 기록되었습니다.", "success");
+      setMessage("Fault detection complete! 모든 고장 다이를 판별했습니다. " + formatDuration(score) + " · 공용 순위표 기록 완료", "success");
     }
   } catch (error) {
     console.error("Fault Finder score save failed:", error);
     if (state.roundId === completedRoundId && state.phase === "won") {
-      setMessage("게임은 완료했지만 기록을 저장하지 못했습니다. Firebase 설정을 확인해 주세요.", "error");
+      setMessage(getScoreSaveErrorMessage(error), "error");
     }
   }
 }
@@ -660,7 +733,7 @@ async function subscribeLeaderboard(difficulty) {
           return;
         }
         renderLeaderboard([]);
-        setLeaderboardStatus("순위표를 불러오지 못했습니다. Firebase 설정을 확인해 주세요.", true);
+        setLeaderboardStatus(getLeaderboardErrorMessage(error), true);
       }
     );
   } catch (error) {
@@ -669,7 +742,7 @@ async function subscribeLeaderboard(difficulty) {
       return;
     }
     renderLeaderboard([]);
-    setLeaderboardStatus("순위표 서버에 연결하지 못했습니다. 게임은 계속할 수 있습니다.", true);
+    setLeaderboardStatus(getLeaderboardErrorMessage(error), true);
   }
 }
 

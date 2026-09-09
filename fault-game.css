@@ -326,13 +326,12 @@ a:focus-visible{
   width:var(--wafer-size);
   aspect-ratio:1;
   flex:none;
-  border:9px solid #c8deed;
+  border:7px solid #a9cbe1;
   border-radius:50%;
-  background:#c8deed;
+  background:#e6f1f8;
   box-shadow:
-    0 0 0 1px #91b8d4,
-    0 20px 45px rgba(58,99,137,.17),
-    inset 0 0 24px rgba(42,78,110,.12);
+    0 0 0 1px #83afcd,
+    0 16px 34px rgba(58,99,137,.13);
   transition:width .24s ease;
 }
 
@@ -371,12 +370,11 @@ a:focus-visible{
   display:grid;
   grid-template-columns:repeat(var(--grid-size),1fr);
   grid-template-rows:repeat(var(--grid-size),1fr);
-  gap:2px;
-  padding:2.6%;
-  overflow:hidden;
+  gap:1.5px;
+  padding:3%;
+  overflow:visible;
   border-radius:50%;
-  background:#b4d2e7;
-  clip-path:circle(50% at 50% 50%);
+  background:#d8eaf5;
   touch-action:manipulation;
   user-select:none;
 }
@@ -386,38 +384,41 @@ a:focus-visible{
   min-width:0;
   min-height:0;
   border:0;
-  border-radius:2px;
+  border-radius:1px;
 }
 
 .wafer-cell{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(145deg,#abd2ec,#82b5d9);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32);
+  border:1px solid rgba(58,99,137,.16);
+  background:#a8cee7;
+  box-shadow:none;
   color:#173f61;
   font-family:var(--font-utility);
-  font-size:clamp(10px,1.45vw,17px);
+  font-size:clamp(12px,1.7vw,20px);
   font-weight:700;
   line-height:1;
   cursor:pointer;
-  transition:filter .1s ease,transform .1s ease,background .1s ease;
+  transition:background .1s ease,border-color .1s ease;
 }
 
-.difficulty-hard .wafer-cell{font-size:clamp(8px,1vw,13px)}
-.difficulty-normal .wafer-cell{font-size:clamp(9px,1.2vw,15px)}
+.difficulty-hard .wafer-cell{font-size:clamp(10px,1.15vw,15px)}
+.difficulty-normal .wafer-cell{font-size:clamp(11px,1.4vw,17px)}
 
-.wafer-cell:not(:disabled):hover{filter:brightness(1.08);transform:scale(.94)}
+.wafer-cell:not(:disabled):hover{border-color:#5f8fb6;background:#91bfdd}
 .wafer-cell:disabled{cursor:default}
 
 .wafer-cell.is-revealed{
-  background:#eaf3f9;
-  box-shadow:inset 0 0 0 1px #c6dbe9;
+  border-color:#c5dae8;
+  background:#f0f6fa;
+  box-shadow:none;
 }
 
-.wafer-cell.is-flagged{background:linear-gradient(145deg,#5f8fb6,#3a6389);color:#fff}
-.wafer-cell.is-mine{background:#dce3e8;color:#263947}
+.wafer-cell.is-flagged{border-color:#739fbe;background:#c4deee;color:#173f61;font-size:clamp(11px,1.45vw,18px);font-weight:700}
+.wafer-cell.is-mine{background:#e1ebf1;color:#294d69}
 .wafer-cell.is-exploded{background:#c95b60;color:#fff}
+.fault-burst{display:block;width:72%;height:72%;fill:currentColor;pointer-events:none}
 .wafer-cell[data-count="1"]{color:#2569a0}
 .wafer-cell[data-count="2"]{color:#2c7c62}
 .wafer-cell[data-count="3"]{color:#b04f4f}
@@ -427,6 +428,13 @@ a:focus-visible{
 .wafer-cell[data-count="7"]{color:#343434}
 .wafer-cell[data-count="8"]{color:#69737c}
 .wafer-cell-outside{visibility:hidden;pointer-events:none}
+
+.svg-symbols{
+  position:absolute;
+  width:0;
+  height:0;
+  overflow:hidden;
+}
 
 .board-lock{
   position:absolute;
@@ -497,6 +505,7 @@ a:focus-visible{
 
 .mode-button{display:inline-flex;align-items:center;gap:7px}
 .mode-button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
+.fault-mode-symbol{font-family:var(--font-utility);font-size:15px;font-weight:700;line-height:1}
 .mode-button:disabled,.secondary-button:disabled,.text-button:disabled{cursor:not-allowed;opacity:.48}
 
 .text-button{padding:8px;border:0;background:transparent;text-decoration:underline;text-underline-offset:3px}
