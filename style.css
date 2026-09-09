@@ -2054,14 +2054,32 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 }
 
 .staff-card{
-  display:flex;
   min-width:0;
-  align-items:center;
-  gap:20px;
-  padding:20px 22px;
+  overflow:hidden;
   border:1px solid var(--line);
   border-radius:8px;
   background:#fff;
+}
+
+.staff-card-button{
+  display:flex;
+  width:100%;
+  align-items:center;
+  gap:20px;
+  padding:20px 22px;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  transition:background-color .2s ease;
+}
+
+.staff-card-button:hover,
+.staff-card-button:focus-visible,
+.staff-card-button[aria-expanded="true"]{
+  background:#f7fafc;
 }
 
 .staff-card-monogram{
@@ -2105,7 +2123,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 @media (max-width:600px){
   .staff-list{grid-template-columns:1fr}
-  .staff-card{gap:16px;padding:18px}
+  .staff-card-button{gap:16px;padding:18px}
   .staff-card-monogram{flex-basis:58px;font-size:21px}
 }
 

@@ -345,51 +345,11 @@ function getMemberCategoryLabels(category) {
   return labels[category] || { kr: category, en: category };
 }
 
-const currentMemberOrderByCategory = {
-  "박사후연구원": [
-    "윤효준",
-  ],
-  "박사/통합과정": [
-    "박종호",
-    "이수령",
-    "김성훈",
-    "유연우",
-    "신승호",
-    "문영기",
-    "이주용",
-    "원두연",
-    "김원준",
-    "김재현",
-    "윤두현",
-    "김나연",
-    "김다영",
-    "정유진",
-    "김다훈",
-    "김승태",
-    "박경규",
-    "이미혜",
-    "임수민",
-    "김강현",
-  ],
-  "석사과정": [
-    "손누리",
-    "최연호",
-    "손정현",
-    "위호연",
-    "김준거",
-    "조준희",
-    "신재우",
-    "권인아",
-  ],
-  "인턴": [
-    "김준혁",
-  ],
-};
-
 function getCurrentMemberDisplayOrder(member) {
-  const categoryOrder = currentMemberOrderByCategory[member.category] || [];
-  const memberIndex = categoryOrder.indexOf(member.name_kr);
-  return memberIndex === -1 ? Number.MAX_SAFE_INTEGER : memberIndex;
+  const displayOrder = Number(member.display_order);
+  return Number.isInteger(displayOrder) && displayOrder > 0
+    ? displayOrder
+    : Number.MAX_SAFE_INTEGER;
 }
 
 function createMemberPhoto(member, className) {
@@ -415,7 +375,7 @@ function createMemberPhoto(member, className) {
   placeholder.setAttribute("aria-hidden", "true");
   frame.append(placeholder);
 
-  const photoPath = String(member.photo_new || "").trim();
+  const photoPath = String(member.photo || "").trim();
   if (!photoPath) {
     frame.classList.add("is-missing");
     return frame;
@@ -495,12 +455,17 @@ function createCurrentMemberName(member, className) {
   return name;
 }
 
-function createCurrentMemberDetail(member, detailId) {
-  const category = getMemberCategoryLabels(member.category);
+function createCurrentMemberDetail(detailId) {
   const detail = document.createElement("section");
   detail.className = "member-detail-panel";
   detail.id = detailId;
   detail.hidden = true;
+  return detail;
+}
+
+function populateCurrentMemberDetail(detail, member) {
+  const category = getMemberCategoryLabels(member.category);
+  const privateDetail = decodeMemberPrivateDetail(member);
 
   const photo = createMemberPhoto(member, "member-detail-photo");
   const content = document.createElement("div");
@@ -512,13 +477,17 @@ function createCurrentMemberDetail(member, detailId) {
   [
     createProfileField("과정", "Program", category.kr, "", category.en),
     createProfileField("연구분야", "Research Area", member.research_interests),
-    createProfileField("메일", "Email", member.email, "mailto:"),
-    createProfileField("취미", "Hobby", member.hobby),
+    createProfileField("메일", "Email", privateDetail.email, "mailto:"),
+    createProfileField("취미", "Hobby", privateDetail.hobby),
   ].filter(Boolean).forEach((field) => fields.append(field));
 
   content.append(name, fields);
-  detail.append(photo, content);
-  return detail;
+  detail.replaceChildren(photo, content);
+}
+
+function clearCurrentMemberDetail(detail) {
+  detail.hidden = true;
+  detail.replaceChildren();
 }
 
 function closeCurrentMemberDetails(exceptButton = null) {
@@ -530,7 +499,7 @@ function closeCurrentMemberDetails(exceptButton = null) {
     button.setAttribute("aria-expanded", "false");
     const detail = document.getElementById(button.getAttribute("aria-controls"));
     if (detail) {
-      detail.hidden = true;
+      clearCurrentMemberDetail(detail);
     }
   });
 }
@@ -585,7 +554,7 @@ window.addEventListener("resize", () => {
 
 function createCurrentMemberElements(member, index) {
   const names = getMemberDisplayNames(member);
-  const detailId = "member-detail-" + String(member.post_id || index);
+  const detailId = "member-detail-" + String(member.id || index);
   const card = document.createElement("article");
   card.className = "person member-card";
   const photoButton = document.createElement("button");
@@ -612,16 +581,19 @@ function createCurrentMemberElements(member, index) {
     card.append(research);
   }
 
-  const detail = createCurrentMemberDetail(member, detailId);
+  const detail = createCurrentMemberDetail(detailId);
   photoButton.addEventListener("click", () => {
     const willOpen = detail.hidden;
     closeCurrentMemberDetails(photoButton);
 
     if (willOpen) {
       placeDetailAfterCardRow(card, detail);
+      populateCurrentMemberDetail(detail, member);
+      detail.hidden = false;
+    } else {
+      clearCurrentMemberDetail(detail);
     }
 
-    detail.hidden = !willOpen;
     photoButton.setAttribute("aria-expanded", String(willOpen));
   });
 
@@ -633,9 +605,20 @@ function createStaffMemberCard(member) {
   const englishName = String(member.name_en || member.name_kr || "").trim();
   const positionKr = String(member.position_kr || "행정 담당").trim();
   const positionEn = String(member.position_en || positionKr).trim();
-  const emailAddress = String(member.email || "").trim();
   const card = document.createElement("article");
   card.className = "staff-card";
+  const button = document.createElement("button");
+  button.className = "staff-card-button";
+  button.type = "button";
+  button.setAttribute("aria-expanded", "false");
+  button.dataset.ariaKr = koreanName + " 연락처 보기";
+  button.dataset.ariaEn = "View contact for " + englishName;
+  button.setAttribute(
+    "aria-label",
+    localStorage.getItem("soclab-language") === "en"
+      ? button.dataset.ariaEn
+      : button.dataset.ariaKr
+  );
 
   const monogram = document.createElement("span");
   monogram.className = "staff-card-monogram";
@@ -652,15 +635,26 @@ function createStaffMemberCard(member) {
   setLocalizedContent(position, positionKr, positionEn);
   content.append(name, position);
 
-  if (emailAddress) {
-    const email = document.createElement("a");
-    email.className = "staff-card-email";
-    email.href = "mailto:" + emailAddress;
-    email.textContent = emailAddress;
-    content.append(email);
-  }
+  button.append(monogram, content);
+  button.addEventListener("click", () => {
+    const willOpen = button.getAttribute("aria-expanded") !== "true";
+    content.querySelector(".staff-card-email")?.remove();
 
-  card.append(monogram, content);
+    if (willOpen) {
+      const privateDetail = decodeMemberPrivateDetail(member);
+      const emailAddress = String(privateDetail.email || "").trim();
+      if (emailAddress) {
+        const email = document.createElement("span");
+        email.className = "staff-card-email";
+        email.textContent = emailAddress;
+        content.append(email);
+      }
+    }
+
+    button.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  card.append(button);
   return card;
 }
 
@@ -944,12 +938,24 @@ function compareAlumniByGraduation(first, second) {
   );
 }
 
-function getObfuscationSeed(member) {
-  return [
-    String(member.name_kr || ""),
-    String(member.graduation || ""),
-    "soclab-alumni-v1",
-  ].join("|");
+function getObfuscationSeed(member, version) {
+  if (version === "v2") {
+    return [
+      String(member.id || ""),
+      String(member.name_kr || ""),
+      "soclab-member-v2",
+    ].join("|");
+  }
+
+  if (version === "v1") {
+    return [
+      String(member.name_kr || ""),
+      String(member.graduation || ""),
+      "soclab-alumni-v1",
+    ].join("|");
+  }
+
+  return "";
 }
 
 function createObfuscationState(value) {
@@ -972,11 +978,12 @@ function advanceObfuscationState(state) {
   return next >>> 0;
 }
 
-function decodeAlumniPrivateDetail(member) {
+function decodeMemberPrivateDetail(member) {
   const protectedValue = String(member.private_detail_obfuscated || "");
   const [version, encodedValue] = protectedValue.split(".", 2);
+  const seed = getObfuscationSeed(member, version);
 
-  if (version !== "v1" || !encodedValue) {
+  if (!seed || !encodedValue) {
     return {};
   }
 
@@ -988,7 +995,7 @@ function decodeAlumniPrivateDetail(member) {
     );
     const encryptedText = window.atob(paddedValue);
     const decryptedBytes = new Uint8Array(encryptedText.length);
-    let state = createObfuscationState(getObfuscationSeed(member));
+    let state = createObfuscationState(seed);
 
     for (let index = 0; index < encryptedText.length; index += 1) {
       state = advanceObfuscationState(state);
@@ -998,13 +1005,13 @@ function decodeAlumniPrivateDetail(member) {
     const detail = JSON.parse(new TextDecoder().decode(decryptedBytes));
     return detail && typeof detail === "object" ? detail : {};
   } catch (error) {
-    console.error("Alumni detail could not be decoded.", error);
+    console.error("Member detail could not be decoded.", error);
     return {};
   }
 }
 
 function populateAlumniDetail(detail, member) {
-  const privateDetail = decodeAlumniPrivateDetail(member);
+  const privateDetail = decodeMemberPrivateDetail(member);
   const affiliationValue = String(member.work || "").trim();
   const photo = createMemberPhoto(
     member,

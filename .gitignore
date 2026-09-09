@@ -6,6 +6,8 @@
 db_backup*
 members.backup*.json
 *_원본*.json
-publications.backup.json
-doi_report.txt
+publications.backup*.json
+doi_report*.txt
+private-data/
+*.tmp
 __pycache__/
