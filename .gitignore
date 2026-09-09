@@ -1,6 +1,11 @@
-soclab/
-Claude outputs/
-*.patch
-*.patch.txt
-doi_report-*.txt
-publications.backup-*.json
+*.xls
+*.xlsx
+*.sql
+*.zip
+*.tar.gz
+db_backup*
+members.backup*.json
+*_원본*.json
+publications.backup.json
+doi_report.txt
+__pycache__/
