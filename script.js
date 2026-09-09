@@ -3275,6 +3275,11 @@ function initializeSiteSearch() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const originalQuery = input.value.trim();
+    if (originalQuery === "강성호교수님최고!") {
+      window.location.href = "fault-finder.html";
+      return;
+    }
+
     const query = normalizeSiteSearchText(originalQuery);
     if (!query) {
       input.focus();
