@@ -9,10 +9,11 @@
 5. 연도가 일치하거나 1년 이내
 6. https://doi.org/<DOI>가 정상적으로 해석됨
 
-조건을 모두 충족한 항목은 확정 DOI로 기록합니다. 완화된 임시 입력 조건을
-충족한 후보는 ``doi_review_required: true``와 함께 DOI를 먼저 기록하고,
-보고서에서 추후 검토 대상으로 구분합니다. 임시 입력 조건에도 미달하거나
-DOI가 실제로 열리지 않는 후보는 JSON을 수정하지 않습니다.
+조건을 모두 충족한 항목은 확정 DOI로 기록합니다. 완화된 임시 입력 조건은
+연도와 DOI가 일치하면서 제목이 거의 같거나, 제목·첫 저자·논문지 정보가
+함께 뒷받침되는 경우입니다. 이 후보는 ``doi_review_required: true``와 함께
+DOI를 먼저 기록하고 보고서에서 추후 검토 대상으로 구분합니다. DOI가 실제로
+열리지 않거나 제목과 연도가 명백히 다른 후보는 JSON을 수정하지 않습니다.
 
 사용법
 ------
@@ -60,10 +61,11 @@ USER_AGENT = f"soclab-publications/2.0 (mailto:{MAILTO})"
 
 TITLE_MATCH_MIN = 0.95
 JOURNAL_MATCH_MIN = 1.00
-REVIEW_TITLE_MATCH_MIN = 0.75
-REVIEW_JOURNAL_MATCH_MIN = 0.80
+REVIEW_STRONG_TITLE_MATCH_MIN = 0.95
+REVIEW_TITLE_MATCH_MIN = 0.60
+REVIEW_JOURNAL_MATCH_MIN = 0.90
 YEAR_TOLERANCE = 1
-SEARCH_RESULT_COUNT = 5
+SEARCH_RESULT_COUNT = 20
 DEFAULT_DELAY_SECONDS = 0.35
 REQUEST_TIMEOUT = (8, 25)
 REDIRECT_STATUS_CODES = {301, 302, 303, 307, 308}
@@ -210,12 +212,25 @@ def evaluate_candidate(
     }
     review_checks = {
         "title": title_score >= REVIEW_TITLE_MATCH_MIN,
+        "strong_title": title_score >= REVIEW_STRONG_TITLE_MATCH_MIN,
         "first_author": author_matches,
         "journal": journal_score >= REVIEW_JOURNAL_MATCH_MIN,
         "year": year_matches,
         "type": type_matches,
         "doi": bool(doi),
     }
+    review_eligible = (
+        review_checks["year"]
+        and review_checks["doi"]
+        and (
+            review_checks["strong_title"]
+            or (
+                review_checks["title"]
+                and review_checks["first_author"]
+                and review_checks["journal"]
+            )
+        )
+    )
 
     return {
         "item": item,
@@ -229,7 +244,7 @@ def evaluate_candidate(
         "checks": checks,
         "review_checks": review_checks,
         "metadata_passed": all(checks.values()),
-        "review_eligible": all(review_checks.values()),
+        "review_eligible": review_eligible,
     }
 
 
@@ -368,11 +383,19 @@ def build_evaluation_report(
             f"{evaluation['journal_score']:.3f}, 기준 {JOURNAL_MATCH_MIN:.2f}",
         ),
         format_check(
-            "임시 입력 제목 기준",
+            "임시 입력 보조 제목 기준",
             review_checks["title"],
             (
                 f"{evaluation['title_score']:.3f}, "
                 f"기준 {REVIEW_TITLE_MATCH_MIN:.2f}"
+            ),
+        ),
+        format_check(
+            "임시 입력 강한 제목 기준",
+            review_checks["strong_title"],
+            (
+                f"{evaluation['title_score']:.3f}, "
+                f"기준 {REVIEW_STRONG_TITLE_MATCH_MIN:.2f}"
             ),
         ),
         format_check(
@@ -403,7 +426,7 @@ def build_evaluation_report(
         format_check(
             "임시 입력 자격",
             evaluation["review_eligible"],
-            "완화된 전체 조건",
+            "연도·DOI + (강한 제목 또는 보조 제목·첫 저자·논문지)",
         ),
     ]
 
@@ -489,10 +512,11 @@ def write_report(
         f"실행 모드: {'DRY RUN' if dry_run else 'WRITE'}",
         f"제목 기준: {TITLE_MATCH_MIN:.2f} 이상",
         f"논문지 기준: {JOURNAL_MATCH_MIN:.2f} 이상",
-        f"임시 입력 제목 기준: {REVIEW_TITLE_MATCH_MIN:.2f} 이상",
-        f"임시 입력 논문지 기준: {REVIEW_JOURNAL_MATCH_MIN:.2f} 이상",
+        f"임시 입력 강한 제목 기준: {REVIEW_STRONG_TITLE_MATCH_MIN:.2f} 이상",
+        f"임시 입력 보조 제목 기준: {REVIEW_TITLE_MATCH_MIN:.2f} 이상",
+        f"임시 입력 보조 논문지 기준: {REVIEW_JOURNAL_MATCH_MIN:.2f} 이상",
         "자동 확정 조건: 엄격 제목 + 첫 저자 성 + 엄격 논문지 + 연도 + 자료 유형 + DOI 해석",
-        "임시 입력 조건: 완화 제목 + 첫 저자 성 + 완화 논문지 + 연도 + 자료 유형 + DOI 해석",
+        "임시 입력 조건: 연도 + DOI 해석 + (강한 제목 또는 보조 제목 + 첫 저자 성 + 보조 논문지)",
         "",
     ]
     footer = [

@@ -1606,7 +1606,9 @@
     "issue": "8",
     "pages": "e0221043",
     "date": "2019.08",
-    "url": ""
+    "url": "https://doi.org/10.1371/journal.pone.0221043",
+    "doi": "10.1371/journal.pone.0221043",
+    "doi_review_required": true
   },
   {
     "id": 161,
@@ -1749,7 +1751,9 @@
     "issue": "9",
     "pages": "e0202216",
     "date": "2018.09",
-    "url": ""
+    "url": "https://doi.org/10.1371/journal.pone.0202216",
+    "doi": "10.1371/journal.pone.0202216",
+    "doi_review_required": true
   },
   {
     "id": 154,
@@ -2059,7 +2063,9 @@
     "issue": "2",
     "pages": "e0172331",
     "date": "2017.02",
-    "url": ""
+    "url": "https://doi.org/10.1371/journal.pone.0172331",
+    "doi": "10.1371/journal.pone.0172331",
+    "doi_review_required": true
   },
   {
     "id": 139,
@@ -2226,7 +2232,9 @@
     "issue": "1",
     "pages": "9:1–9:25",
     "date": "2015.09",
-    "url": ""
+    "url": "https://doi.org/10.1145/2785988",
+    "doi": "10.1145/2785988",
+    "doi_review_required": true
   },
   {
     "id": 131,
@@ -2347,7 +2355,9 @@
     "issue": "6",
     "pages": "e0129736",
     "date": "2015.06",
-    "url": ""
+    "url": "https://doi.org/10.1371/journal.pone.0129736",
+    "doi": "10.1371/journal.pone.0129736",
+    "doi_review_required": true
   },
   {
     "id": 125,
@@ -2510,7 +2520,9 @@
     "issue": "11",
     "pages": "1–5.",
     "date": "2014.6",
-    "url": ""
+    "url": "https://doi.org/10.1587/elex.11.20140324",
+    "doi": "10.1587/elex.11.20140324",
+    "doi_review_required": true
   },
   {
     "id": 117,
@@ -2590,7 +2602,9 @@
     "issue": "6",
     "pages": "1–6.",
     "date": "2014.3",
-    "url": ""
+    "url": "https://doi.org/10.1587/elex.11.20140093",
+    "doi": "10.1587/elex.11.20140093",
+    "doi_review_required": true
   },
   {
     "id": 113,
@@ -2607,7 +2621,9 @@
     "issue": "23",
     "pages": "1–6.",
     "date": "2013.12",
-    "url": ""
+    "url": "https://doi.org/10.1587/elex.10.20130800",
+    "doi": "10.1587/elex.10.20130800",
+    "doi_review_required": true
   },
   {
     "id": 112,
@@ -2645,7 +2661,9 @@
     "issue": "14",
     "pages": "1–6",
     "date": "2013.07",
-    "url": ""
+    "url": "https://doi.org/10.1587/elex.10.20130463",
+    "doi": "10.1587/elex.10.20130463",
+    "doi_review_required": true
   },
   {
     "id": 110,
@@ -3556,7 +3574,9 @@
     "issue": "",
     "pages": "591–595",
     "date": "2008.12.",
-    "url": ""
+    "url": "https://doi.org/10.1007/s10836-008-5077-z",
+    "doi": "10.1007/s10836-008-5077-z",
+    "doi_review_required": true
   },
   {
     "id": 66,
@@ -3683,7 +3703,9 @@
     "issue": "4",
     "pages": "365–378",
     "date": "2008.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/s10836-008-5062-6",
+    "doi": "10.1007/s10836-008-5062-6",
+    "doi_review_required": true
   },
   {
     "id": 60,
@@ -3932,7 +3954,9 @@
     "issue": "",
     "pages": "655–660",
     "date": "2006.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/11816171_82",
+    "doi": "10.1007/11816171_82",
+    "doi_review_required": true
   },
   {
     "id": 48,
@@ -3952,7 +3976,9 @@
     "issue": "",
     "pages": "530–535",
     "date": "2006.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/978-3-540-37275-2_65",
+    "doi": "10.1007/978-3-540-37275-2_65",
+    "doi_review_required": true
   },
   {
     "id": 47,
@@ -4033,7 +4059,9 @@
     "issue": "1",
     "pages": "37–48",
     "date": "2006.02.",
-    "url": ""
+    "url": "https://doi.org/10.1007/s10836-006-5854-x",
+    "doi": "10.1007/s10836-006-5854-x",
+    "doi_review_required": true
   },
   {
     "id": 43,
@@ -4094,7 +4122,9 @@
     "issue": "",
     "pages": "614–624",
     "date": "2005.10.",
-    "url": ""
+    "url": "https://doi.org/10.1007/11572961_50",
+    "doi": "10.1007/11572961_50",
+    "doi_review_required": true
   },
   {
     "id": 40,
@@ -4112,7 +4142,9 @@
     "issue": "",
     "pages": "600–613",
     "date": "2005.10.",
-    "url": ""
+    "url": "https://doi.org/10.1007/11572961_49",
+    "doi": "10.1007/11572961_49",
+    "doi_review_required": true
   },
   {
     "id": 39,
@@ -4195,7 +4227,9 @@
     "issue": "",
     "pages": "539–544",
     "date": "2004.12.",
-    "url": ""
+    "url": "https://doi.org/10.1007/978-3-540-30501-9_103",
+    "doi": "10.1007/978-3-540-30501-9_103",
+    "doi_review_required": true
   },
   {
     "id": 35,
@@ -4238,7 +4272,9 @@
     "issue": "",
     "pages": "342–349",
     "date": "2004.09.",
-    "url": ""
+    "url": "https://doi.org/10.1007/978-3-540-25978-7_35",
+    "doi": "10.1007/978-3-540-25978-7_35",
+    "doi_review_required": true
   },
   {
     "id": 33,
@@ -4278,7 +4314,9 @@
     "issue": "5",
     "pages": "532–537",
     "date": "2004.05.",
-    "url": ""
+    "url": "https://doi.org/10.1109/tvlsi.2004.826200",
+    "doi": "10.1109/tvlsi.2004.826200",
+    "doi_review_required": true
   },
   {
     "id": 31,
@@ -4319,7 +4357,7 @@
     "issue": "11",
     "pages": "2346–2350",
     "date": "2003.11.",
-    "url": ""
+    "url": "https://globals.ieice.org/en_transactions/electronics/10.1587/e86-c_11_2346/_p"
   },
   {
     "id": 29,
@@ -4338,7 +4376,9 @@
     "issue": "4",
     "pages": "687–690",
     "date": "2003.08.",
-    "url": ""
+    "url": "https://doi.org/10.1109/tvlsi.2003.812287",
+    "doi": "10.1109/tvlsi.2003.812287",
+    "doi_review_required": true
   },
   {
     "id": 28,
@@ -4357,7 +4397,8 @@
     "issue": "3",
     "pages": "187–194",
     "date": "2003.06.",
-    "url": ""
+    "url": "https://doi.org/10.4218/etrij.03.0102.0304",
+    "doi": "10.4218/etrij.03.0102.0304"
   },
   {
     "id": 27,
@@ -4375,7 +4416,9 @@
     "issue": "2",
     "pages": "59–68",
     "date": "2003.02.",
-    "url": ""
+    "url": "https://doi.org/10.1177/0037549703254811",
+    "doi": "10.1177/0037549703254811",
+    "doi_review_required": true
   },
   {
     "id": 26,
@@ -4459,7 +4502,9 @@
     "issue": "",
     "pages": "205–213",
     "date": "2002.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/3-540-45639-2_20",
+    "doi": "10.1007/3-540-45639-2_20",
+    "doi_review_required": true
   },
   {
     "id": 22,
@@ -4479,7 +4524,9 @@
     "issue": "",
     "pages": "95–102",
     "date": "2002.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/3-540-45639-2_10",
+    "doi": "10.1007/3-540-45639-2_10",
+    "doi_review_required": true
   },
   {
     "id": 21,
@@ -4499,7 +4546,9 @@
     "issue": "",
     "pages": "1–9",
     "date": "2002.08.",
-    "url": ""
+    "url": "https://doi.org/10.1007/3-540-45639-2_1",
+    "doi": "10.1007/3-540-45639-2_1",
+    "doi_review_required": true
   },
   {
     "id": 20,
@@ -4558,7 +4607,7 @@
     "issue": "8",
     "pages": "2070–2072",
     "date": "2001.08.",
-    "url": ""
+    "url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/e84-a_8_2070/_p"
   },
   {
     "id": 17,
@@ -4596,7 +4645,8 @@
     "issue": "3",
     "pages": "322–336",
     "date": "2001.06.",
-    "url": ""
+    "url": "https://doi.org/10.1109/90.929854",
+    "doi": "10.1109/90.929854"
   },
   {
     "id": 15,
@@ -4634,7 +4684,7 @@
     "issue": "9",
     "pages": "1814–1815",
     "date": "2000.09.",
-    "url": ""
+    "url": "https://globals.ieice.org/en_transactions/information/10.1587/e83-d_9_1814/_p"
   },
   {
     "id": 13,
@@ -4811,7 +4861,9 @@
     "issue": "2",
     "pages": "119–133",
     "date": "1996.04.",
-    "url": ""
+    "url": "https://doi.org/10.1155/1996/60318",
+    "doi": "10.1155/1996/60318",
+    "doi_review_required": true
   },
   {
     "id": 4,
@@ -4868,7 +4920,9 @@
     "issue": "1",
     "pages": "89–99",
     "date": "1994.03.",
-    "url": ""
+    "url": "https://doi.org/10.1109/92.273154",
+    "doi": "10.1109/92.273154",
+    "doi_review_required": true
   },
   {
     "id": 1,
