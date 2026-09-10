@@ -17,7 +17,8 @@
     "issue": "",
     "pages": "",
     "date": "",
-    "url": ""
+    "url": "https://doi.org/10.1109/tcad.2026.3694342",
+    "doi": "10.1109/tcad.2026.3694342"
   },
   {
     "id": 236,
@@ -216,7 +217,8 @@
     "issue": "3",
     "pages": "1990–2003",
     "date": "2026.03",
-    "url": ""
+    "url": "https://doi.org/10.1109/tcsi.2025.3615631",
+    "doi": "10.1109/tcsi.2025.3615631"
   },
   {
     "id": 227,
@@ -306,7 +308,9 @@
     "issue": "1",
     "pages": "492–501",
     "date": "2026.01",
-    "url": ""
+    "url": "https://doi.org/10.1109/tcsi.2025.3604482",
+    "doi": "10.1109/tcsi.2025.3604482",
+    "doi_review_required": true
   },
   {
     "id": 223,
@@ -326,7 +330,9 @@
     "issue": "1",
     "pages": "334–346",
     "date": "2026.01",
-    "url": ""
+    "url": "https://doi.org/10.1109/tcsi.2025.3593691",
+    "doi": "10.1109/tcsi.2025.3593691",
+    "doi_review_required": true
   },
   {
     "id": 222,
@@ -1906,7 +1912,9 @@
     "issue": "14",
     "pages": "910–912",
     "date": "2017.07",
-    "url": ""
+    "url": "https://doi.org/10.1049/el.2017.1243",
+    "doi": "10.1049/el.2017.1243",
+    "doi_review_required": true
   },
   {
     "id": 146,
@@ -1966,7 +1974,9 @@
     "issue": "2",
     "pages": "458–466",
     "date": "2017.06",
-    "url": ""
+    "url": "https://doi.org/10.1109/tr.2017.2681103",
+    "doi": "10.1109/tr.2017.2681103",
+    "doi_review_required": true
   },
   {
     "id": 143,
@@ -2111,7 +2121,9 @@
     "issue": "3",
     "pages": "47:1–47:41",
     "date": "2016.10.",
-    "url": ""
+    "url": "https://doi.org/10.1145/2971481",
+    "doi": "10.1145/2971481",
+    "doi_review_required": true
   },
   {
     "id": 136,
@@ -2458,7 +2470,9 @@
     "issue": "11",
     "pages": "2336–2349",
     "date": "2014.11",
-    "url": ""
+    "url": "https://doi.org/10.1109/tvlsi.2013.2288637",
+    "doi": "10.1109/tvlsi.2013.2288637",
+    "doi_review_required": true
   },
   {
     "id": 119,
@@ -3520,7 +3534,9 @@
     "issue": "3",
     "pages": "339–341",
     "date": "2009.06.",
-    "url": ""
+    "url": "https://doi.org/10.4218/etrij.09.0209.0024",
+    "doi": "10.4218/etrij.09.0209.0024",
+    "doi_review_required": true
   },
   {
     "id": 67,
@@ -4200,7 +4216,9 @@
     "issue": "11",
     "pages": "603–606",
     "date": "2004.11.",
-    "url": ""
+    "url": "https://doi.org/10.1109/tcsii.2004.836034",
+    "doi": "10.1109/tcsii.2004.836034",
+    "doi_review_required": true
   },
   {
     "id": 34,
@@ -4811,7 +4829,9 @@
     "issue": "6",
     "pages": "360–368",
     "date": "1994.12.",
-    "url": ""
+    "url": "https://doi.org/10.1177/003754979406300602",
+    "doi": "10.1177/003754979406300602",
+    "doi_review_required": true
   },
   {
     "id": 3,

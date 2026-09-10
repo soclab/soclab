@@ -9,8 +9,10 @@
 5. 연도가 일치하거나 1년 이내
 6. https://doi.org/<DOI>가 정상적으로 해석됨
 
-조건을 모두 충족한 항목만 ``doi``와 ``url``에 기록합니다. 일부 조건만
-충족한 후보는 JSON을 수정하지 않고 보고서에만 기록합니다.
+조건을 모두 충족한 항목은 확정 DOI로 기록합니다. 완화된 임시 입력 조건을
+충족한 후보는 ``doi_review_required: true``와 함께 DOI를 먼저 기록하고,
+보고서에서 추후 검토 대상으로 구분합니다. 임시 입력 조건에도 미달하거나
+DOI가 실제로 열리지 않는 후보는 JSON을 수정하지 않습니다.
 
 사용법
 ------
@@ -20,7 +22,7 @@
 
 실행 결과
 ---------
-- publications.json: 검증된 DOI가 추가된 원본 파일
+- publications.json: 확정 또는 임시 검토 DOI가 추가된 원본 파일
 - publications.backup-YYYYMMDD-HHMMSS.json: 실행 전 백업
 - doi_report-YYYYMMDD-HHMMSS.txt: 전체 판정 결과
 """
@@ -58,6 +60,8 @@ USER_AGENT = f"soclab-publications/2.0 (mailto:{MAILTO})"
 
 TITLE_MATCH_MIN = 0.95
 JOURNAL_MATCH_MIN = 1.00
+REVIEW_TITLE_MATCH_MIN = 0.75
+REVIEW_JOURNAL_MATCH_MIN = 0.80
 YEAR_TOLERANCE = 1
 SEARCH_RESULT_COUNT = 5
 DEFAULT_DELAY_SECONDS = 0.35
@@ -67,7 +71,10 @@ REDIRECT_STATUS_CODES = {301, 302, 303, 307, 308}
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Crossref에서 검증된 DOI만 publications.json에 추가합니다."
+        description=(
+            "Crossref DOI를 확정 또는 추후 검토 대상으로 "
+            "publications.json에 추가합니다."
+        )
     )
     parser.add_argument(
         "source",
@@ -201,6 +208,14 @@ def evaluate_candidate(
         "type": type_matches,
         "doi": bool(doi),
     }
+    review_checks = {
+        "title": title_score >= REVIEW_TITLE_MATCH_MIN,
+        "first_author": author_matches,
+        "journal": journal_score >= REVIEW_JOURNAL_MATCH_MIN,
+        "year": year_matches,
+        "type": type_matches,
+        "doi": bool(doi),
+    }
 
     return {
         "item": item,
@@ -212,7 +227,9 @@ def evaluate_candidate(
         "title_score": title_score,
         "journal_score": journal_score,
         "checks": checks,
+        "review_checks": review_checks,
         "metadata_passed": all(checks.values()),
+        "review_eligible": all(review_checks.values()),
     }
 
 
@@ -220,6 +237,7 @@ def candidate_sort_key(evaluation: dict[str, Any]) -> tuple[Any, ...]:
     passed_check_count = sum(evaluation["checks"].values())
     return (
         evaluation["metadata_passed"],
+        evaluation["review_eligible"],
         passed_check_count,
         evaluation["title_score"],
         evaluation["journal_score"],
@@ -330,6 +348,7 @@ def build_evaluation_report(
     resolution: tuple[bool, str, int] | None = None,
 ) -> list[str]:
     checks = evaluation["checks"]
+    review_checks = evaluation["review_checks"]
     local_surname = get_local_first_author_surname(publication)
 
     lines = [
@@ -349,6 +368,22 @@ def build_evaluation_report(
             f"{evaluation['journal_score']:.3f}, 기준 {JOURNAL_MATCH_MIN:.2f}",
         ),
         format_check(
+            "임시 입력 제목 기준",
+            review_checks["title"],
+            (
+                f"{evaluation['title_score']:.3f}, "
+                f"기준 {REVIEW_TITLE_MATCH_MIN:.2f}"
+            ),
+        ),
+        format_check(
+            "임시 입력 논문지 기준",
+            review_checks["journal"],
+            (
+                f"{evaluation['journal_score']:.3f}, "
+                f"기준 {REVIEW_JOURNAL_MATCH_MIN:.2f}"
+            ),
+        ),
+        format_check(
             "연도",
             checks["year"],
             f"{publication.get('year')} / {evaluation['crossref_year']}",
@@ -365,6 +400,11 @@ def build_evaluation_report(
         ),
         f"    - Crossref 제목: {evaluation['crossref_title']}",
         f"    - Crossref 논문지: {evaluation['crossref_journal'] or '없음'}",
+        format_check(
+            "임시 입력 자격",
+            evaluation["review_eligible"],
+            "완화된 전체 조건",
+        ),
     ]
 
     if resolution is not None:
@@ -449,17 +489,22 @@ def write_report(
         f"실행 모드: {'DRY RUN' if dry_run else 'WRITE'}",
         f"제목 기준: {TITLE_MATCH_MIN:.2f} 이상",
         f"논문지 기준: {JOURNAL_MATCH_MIN:.2f} 이상",
-        "자동 입력 조건: 제목 + 첫 저자 성 + 논문지 + 연도 + 자료 유형 + DOI 해석",
+        f"임시 입력 제목 기준: {REVIEW_TITLE_MATCH_MIN:.2f} 이상",
+        f"임시 입력 논문지 기준: {REVIEW_JOURNAL_MATCH_MIN:.2f} 이상",
+        "자동 확정 조건: 엄격 제목 + 첫 저자 성 + 엄격 논문지 + 연도 + 자료 유형 + DOI 해석",
+        "임시 입력 조건: 완화 제목 + 첫 저자 성 + 완화 논문지 + 연도 + 자료 유형 + DOI 해석",
         "",
     ]
     footer = [
         "",
         "요약",
-        f"- 자동 입력: {summary['matched']}",
-        f"- 검토 필요: {summary['review']}",
+        f"- 자동 확정: {summary['matched']}",
+        f"- 임시 입력(검토 필요): {summary['provisional']}",
+        f"- 미입력 검토 필요: {summary['review']}",
         f"- 미발견: {summary['missing']}",
         f"- 오류: {summary['error']}",
-        f"- 기존 URL 유지: {summary['skipped']}",
+        f"- 기존 확정 URL 유지: {summary['skipped']}",
+        f"- 기존 임시 URL(검토 필요): {summary['existing_review']}",
         f"- 대상 외 항목: {summary['ignored']}",
     ]
 
@@ -478,10 +523,12 @@ def process_publications(
 ) -> tuple[list[str], dict[str, int]]:
     summary = {
         "matched": 0,
+        "provisional": 0,
         "review": 0,
         "missing": 0,
         "error": 0,
         "skipped": 0,
+        "existing_review": 0,
         "ignored": 0,
     }
     report_lines: list[str] = []
@@ -505,12 +552,27 @@ def process_publications(
         prefix = f"#{publication_id} {title}"
 
         if publication.get("url"):
-            summary["skipped"] += 1
-            report_lines.append(f"[기존 URL 유지] {prefix}")
-            print(f"{processed}/{total} [기존 URL 유지] #{publication_id}")
+            if publication.get("doi_review_required") is True:
+                summary["existing_review"] += 1
+                report_lines.append(f"[기존 임시 URL · 검토 필요] {prefix}")
+                report_lines.append(
+                    f"    - 현재 URL: {publication.get('url', '')}"
+                )
+                print(
+                    f"{processed}/{total} "
+                    f"[기존 임시 URL · 검토 필요] #{publication_id}"
+                )
+            else:
+                summary["skipped"] += 1
+                report_lines.append(f"[기존 확정 URL 유지] {prefix}")
+                print(f"{processed}/{total} [기존 확정 URL 유지] #{publication_id}")
             continue
 
         try:
+            print(
+                f"{processed}/{total} [Crossref 검색 중] #{publication_id}",
+                flush=True,
+            )
             items = search_crossref(session, publication)
             evaluation = select_best_candidate(publication, items)
 
@@ -521,13 +583,13 @@ def process_publications(
                 time.sleep(delay_seconds)
                 continue
 
-            if not evaluation["metadata_passed"]:
+            if not evaluation["review_eligible"]:
                 summary["review"] += 1
-                report_lines.append(f"[검토 필요] {prefix}")
+                report_lines.append(f"[미입력 · 검토 필요] {prefix}")
                 report_lines.extend(
                     build_evaluation_report(publication, evaluation)
                 )
-                print(f"{processed}/{total} [검토 필요] #{publication_id}")
+                print(f"{processed}/{total} [미입력 · 검토 필요] #{publication_id}")
                 time.sleep(delay_seconds)
                 continue
 
@@ -545,18 +607,29 @@ def process_publications(
                 continue
 
             doi = evaluation["doi"]
+            is_confirmed = evaluation["metadata_passed"]
             if not dry_run:
                 publication["doi"] = doi
                 publication["url"] = DOI_RESOLVER_URL + doi
+                if is_confirmed:
+                    publication.pop("doi_review_required", None)
+                else:
+                    publication["doi_review_required"] = True
 
-            summary["matched"] += 1
-            report_lines.append(
-                f"[{'DRY RUN 일치' if dry_run else '자동 입력'}] {prefix}"
-            )
+            if is_confirmed:
+                summary["matched"] += 1
+                result_label = "DRY RUN 자동 확정" if dry_run else "자동 확정"
+            else:
+                summary["provisional"] += 1
+                result_label = (
+                    "DRY RUN 임시 입력 대상" if dry_run else "임시 입력 · 검토 필요"
+                )
+
+            report_lines.append(f"[{result_label}] {prefix}")
             report_lines.extend(
                 build_evaluation_report(publication, evaluation, resolution)
             )
-            print(f"{processed}/{total} [일치] #{publication_id} → {doi}")
+            print(f"{processed}/{total} [{result_label}] #{publication_id} → {doi}")
 
         except (requests.RequestException, ValueError, KeyError, TypeError) as error:
             summary["error"] += 1
@@ -609,11 +682,13 @@ def main() -> int:
     )
 
     print("\n완료")
-    print(f"- 자동 입력 대상: {summary['matched']}")
-    print(f"- 검토 필요: {summary['review']}")
+    print(f"- 자동 확정: {summary['matched']}")
+    print(f"- 임시 입력(검토 필요): {summary['provisional']}")
+    print(f"- 미입력 검토 필요: {summary['review']}")
     print(f"- 미발견: {summary['missing']}")
     print(f"- 오류: {summary['error']}")
-    print(f"- 기존 URL 유지: {summary['skipped']}")
+    print(f"- 기존 확정 URL 유지: {summary['skipped']}")
+    print(f"- 기존 임시 URL(검토 필요): {summary['existing_review']}")
     if backup_path is not None:
         print(f"- 백업: {backup_path.name}")
     print(f"- 보고서: {report_path.name}")
