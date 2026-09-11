@@ -27,6 +27,7 @@ DOMESTIC_PATENTS_FILE = "patents_domestic_granted.json"
 INTERNATIONAL_PATENTS_FILE = "patents_international_granted.json"
 MEMBERS_FILE = "members.json"
 NEWS_FILE = "news.json"
+RECENT_PUBLICATION_RECONCILE_COUNT = 10
 
 SOURCE_FILES = (
     PUBLICATIONS_FILE,
@@ -466,6 +467,18 @@ def main() -> int:
     waiting = 0
 
     publications = changes[PUBLICATIONS_FILE]
+    recent_publication_ids = {
+        str(record["id"])
+        for record in sorted(
+            (
+                record
+                for record in publications.current.values()
+                if record.get("type") == "international-journal"
+            ),
+            key=lambda record: int(record.get("id") or 0),
+            reverse=True,
+        )[:RECENT_PUBLICATION_RECONCILE_COUNT]
+    }
     for record_id, current in publications.current.items():
         if current.get("type") != "international-journal":
             continue
@@ -486,7 +499,11 @@ def main() -> int:
                 current, acceptance_date, existing_date
             )
             updated += int(update_generated_item(existing_acceptance, desired))
-        elif acceptance_ready(current) and (previous is None or not acceptance_ready(previous)):
+        elif acceptance_ready(current) and (
+            record_id in recent_publication_ids
+            or previous is None
+            or not acceptance_ready(previous)
+        ):
             candidates.append(make_acceptance_news(current, fallback))
 
         existing_publication = by_source_key.get(publication_source_key)
@@ -494,7 +511,11 @@ def main() -> int:
             updated += int(
                 update_generated_item(existing_publication, make_publication_news(current, fallback))
             )
-        elif publication_ready(current) and (previous is None or not publication_ready(previous)):
+        elif publication_ready(current) and (
+            record_id in recent_publication_ids
+            or previous is None
+            or not publication_ready(previous)
+        ):
             candidates.append(make_publication_news(current, fallback))
         elif (
             previous is not None
