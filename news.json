@@ -1,5 +1,5 @@
 [
-{
+ {
   "id": 1260,
   "board": "notice",
   "category": "recruit",
@@ -6644,5 +6644,56 @@
   "views": 3538,
   "pinned": false,
   "attachments": []
+ },
+ {
+  "board": "research",
+  "category": "publication",
+  "date": "2026-09-30",
+  "title": "Publication - 2026 IEEE TCAD - Youngkwang Lee, etc.",
+  "body": "In September 2026,\n\"High-Speed Redundancy Analysis for Complex Spare Structures\" written by Youngkwang Lee, Younwoo Yoo, Seung Ho Shin, Byungsoo Kim, Eugene Jeong, and Sungho Kang has been published in the IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol.45, no.9, pp.4284-4297.\n\nAuthors' hard work has finally paid off !",
+  "body_html": "In September 2026,\n\"High-Speed Redundancy Analysis for Complex Spare Structures\" written by Youngkwang Lee, Younwoo Yoo, Seung Ho Shin, Byungsoo Kim, Eugene Jeong, and Sungho Kang has been published in the IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol.45, no.9, pp.4284-4297.\n\nAuthors' hard work has finally paid off !",
+  "images": [],
+  "views": 0,
+  "pinned": false,
+  "paper_title": "High-Speed Redundancy Analysis for Complex Spare Structures",
+  "authors": "Youngkwang Lee, Younwoo Yoo, Seung Ho Shin, Byungsoo Kim, Eugene Jeong, and Sungho Kang",
+  "attachments": [],
+  "auto_generated": true,
+  "source_key": "publication:233:publication",
+  "id": 1261
+ },
+ {
+  "board": "research",
+  "category": "publication",
+  "date": "2026-09-30",
+  "title": "Publication - 2026 IEEE TVLSI - Hanseong Cho, etc.",
+  "body": "In September 2026,\n\"Deep-Learning-Based PRPG Configuration Inference for Efficient LBIST\" written by Hanseong Cho, Jongho Park, Jaehyun Kim, Laesang Jung, and Sungho Kang has been published in the IEEE Transactions on Very Large Scale Integration Systems, vol.34, no.9, pp.3039-3042.\n\nAuthors' hard work has finally paid off !",
+  "body_html": "In September 2026,\n\"Deep-Learning-Based PRPG Configuration Inference for Efficient LBIST\" written by Hanseong Cho, Jongho Park, Jaehyun Kim, Laesang Jung, and Sungho Kang has been published in the IEEE Transactions on Very Large Scale Integration Systems, vol.34, no.9, pp.3039-3042.\n\nAuthors' hard work has finally paid off !",
+  "images": [],
+  "views": 0,
+  "pinned": false,
+  "paper_title": "Deep-Learning-Based PRPG Configuration Inference for Efficient LBIST",
+  "authors": "Hanseong Cho, Jongho Park, Jaehyun Kim, Laesang Jung, and Sungho Kang",
+  "attachments": [],
+  "auto_generated": true,
+  "source_key": "publication:234:publication",
+  "id": 1262
+ },
+ {
+  "board": "research",
+  "category": "publication",
+  "date": "2026-09-30",
+  "title": "Publication - 2026 IEEE TVLSI - Younwoo Yoo, etc.",
+  "body": "In September 2026,\n\"PRAISE: Parallel Redundancy Analysis Using Isomorphism-Based Solution Encoding\" written by Younwoo Yoo, Seung Ho Shin, Dahoon Kim, and Sungho Kang has been published in the IEEE Transactions on Very Large Scale Integration Systems, vol.34, no.9, pp.2901-2914.\n\nAuthors' hard work has finally paid off !",
+  "body_html": "In September 2026,\n\"PRAISE: Parallel Redundancy Analysis Using Isomorphism-Based Solution Encoding\" written by Younwoo Yoo, Seung Ho Shin, Dahoon Kim, and Sungho Kang has been published in the IEEE Transactions on Very Large Scale Integration Systems, vol.34, no.9, pp.2901-2914.\n\nAuthors' hard work has finally paid off !",
+  "images": [],
+  "views": 0,
+  "pinned": false,
+  "paper_title": "PRAISE: Parallel Redundancy Analysis Using Isomorphism-Based Solution Encoding",
+  "authors": "Younwoo Yoo, Seung Ho Shin, Dahoon Kim, and Sungho Kang",
+  "attachments": [],
+  "auto_generated": true,
+  "source_key": "publication:235:publication",
+  "id": 1263
  }
 ]
